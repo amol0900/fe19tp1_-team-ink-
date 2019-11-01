@@ -1,0 +1,134 @@
+.title{
+    text-align: center;
+}
+#icon{
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 70px;  
+  font-size: 300px;
+
+  
+}
+
+.titles{
+
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+    font-family: 'Merriweather', serif;
+    color: white;
+}
+
+article{
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    font-family: 'Merriweather', serif;
+    
+    
+}
+
+.row {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  justify-content: space-around;
+}
+section {
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    
+  }
+
+  html {
+    font-family: sans-serif;
+  }
+
+  main {
+    max-width: 100%;
+    height: auto;
+    background: #00ffff;
+    object-fit: fill;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+img {
+  text-align: center;
+  }
+
+.btn {
+    margin-top: 40px;
+    background-color:blue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+
+  .team{
+  color: black;
+  text-align: center;
+  }
+
+  hr{
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+.diffrent{
+  
+}
+
+.lorem{
+
+  margin-left: 20%;
+  margin-right: 20%;
+  color: black;
+  text-align: center;
+}
+
+.article{
+  color: black;
+  max-height: 300px;
+  
+ 
+}
+.box3{
+  display: flex;
+  height: 300px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 70px;  
+  font-size: 400px;
+}
+
+.box{
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+}
+h3{
+  text-align: center;
+  
+}
+
+.box2{
+  flex-grow: ;
+}
+.icons2{
+  flex-grow: 2;
+}
+.item3{
+  font-size: 20px;
+height: 40px;
+}
+.middle{
+  text-align: center;
+}
