@@ -29,6 +29,13 @@ body {
   src: url(Montserrat-LightItalic.ttf);
 }
 
+h1 {
+    font-family: PlayfairDisplay;
+    font-size:4em;
+    color:white;
+    font-weight:lighter;
+}
+
 .toolbar{
     display:grid;
     grid-template-columns: repeat(auto-fit,minmax(20px,40px));
@@ -54,8 +61,6 @@ body {
 
 }
 
-
-
 .center{
      display: flex;
      justify-content: center;
@@ -78,7 +83,7 @@ body {
 
 
 
-h1 {
+h2 {
 font-size:1em;
 font-weight:lighter;
 color:grey;
@@ -86,7 +91,7 @@ color:grey;
 
 .getcontent{
     white-space: pre;
-    width: 80vw;
+    width: 70vw;
     background-color: rgb(255, 255, 255);
     overflow: auto;
     padding: 1rem;
