@@ -82,9 +82,9 @@ img {
     margin-left: 20%;
     margin-right: 20%;
   }
-.diffrent{
+/* .diffrent{
   
-}
+} */
 
 .lorem{
 
@@ -120,7 +120,7 @@ h3{
 }
 
 .box2{
-  flex-grow: ;
+  flex-grow: 0;
 }
 .icons2{
   flex-grow: 2;
