@@ -30,17 +30,16 @@ function addNote() {
 	/* let li = document.createElement('li'); */
 	let deleteButton = document.createElement('span');
 
-	let newnote = newAddNote();
-	/* note.classList.add('note'); */
-	notes.innerHTML = `<li>${newnote.text}</li>`;
-	deleteButton.classList.add('note-delete');
-	deleteButton.innerHTML = '&times;';
+    let newnote = newAddNote();
+    /* note.classList.add('note'); */
+    notes.innerHTML = `<li>${newnote.text}</li>`;
+    deleteButton.classList.add('note-delete');
+    deleteButton.innerHTML = '&times;';
+    notes.appendChild(deleteButton);
+    notes.appendChild(note);
 
-	notes.appendChild(deleteButton);
-	notes.appendChild(note);
-
-	editor.noteText.value = '';
-	editor.noteText.focus();
+    notes.noteText.value = '';
+    editor.noteText.focus();
 
 	addListenerDeleteButton(deleteButton);
 }
