@@ -35,11 +35,10 @@ function addNote() {
     notes.innerHTML = `<li>${newnote.text}</li>`;
     deleteButton.classList.add('note-delete');
     deleteButton.innerHTML = '&times;';
-
     notes.appendChild(deleteButton);
     notes.appendChild(note);
 
-    editor.noteText.value = '';
+    notes.noteText.value = '';
     editor.noteText.focus();
 
     addListenerDeleteButton(deleteButton);
