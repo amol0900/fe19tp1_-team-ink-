@@ -1,53 +1,42 @@
+//Quill
+
 var toolbarOptions = [ [ 'bold', 'italic' ], [ 'link', 'image' ] ];
 
 var quill = new Quill('#editor', {
 	theme: 'snow'
 });
 
+//end Quill
+
 const editor = {};
 editor.noteText = document.querySelector('#editor');
 editor.addButton = document.querySelector('#formAddButton');
-/* form.color = document.querySelector('#formColor'); */
 
 const notes = document.querySelector('.notes ul');
-
-/*
-let note = {git 
-    id: Date.now(),
-    text: "...html" // quill.root.innerHTML,
-    favourite: false,
-    deleted: false
-} */
-
-// let notes = [note,note,note]
-
-// Functions
 
 function newAddNote() {
 	let note = {
 		id: Date.now(),
 		text: quill.root.innerHTML
 	};
-	//console.log(quill.root.innerHTML)
-	//console.log(quill.getContents())
+	console.log(quill.root.innerHTML);
+	console.log(quill.getContents());
 	return note;
 }
 
 function addNote() {
-	let text = editor.noteText.value;
-	let note = document.createElement('div');
-	let li = document.createElement('li');
+	/* let text = editor.noteText.value; */
+	/* let note = document.createElement('div'); */
+	/* let li = document.createElement('li'); */
 	let deleteButton = document.createElement('span');
 
 	let newnote = newAddNote();
-	note.classList.add('note');
-	/* note.classList.add(editor.color.value); */
-	note.innerHTML = `<div class='note-text'>${newnote.text}</div>`;
+	/* note.classList.add('note'); */
+	notes.innerHTML = `<li>${newnote.text}</li>`;
 	deleteButton.classList.add('note-delete');
 	deleteButton.innerHTML = '&times;';
 
-	note.appendChild(li);
-	note.appendChild(deleteButton);
+	notes.appendChild(deleteButton);
 	notes.appendChild(note);
 
 	editor.noteText.value = '';
