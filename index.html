@@ -4,59 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Include stylesheet -->
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-  <title>Quill editor</title>
-</head>
-
-<body>
-    <div id="editor">
-        <p>Hello World!</p>
-        <p>Some initial <strong>bold</strong> text</p>
-        <p><br></p>
-      </div>
-
-
-
-
-<!-- Create toolbar container -->
-<div id="toolbar">
-  <!-- Add font size dropdown -->
-  <select class="ql-size">
-    <option value="small"></option>
-    <!-- Note a missing, thus falsy value, is used to reset to default -->
-    <option selected></option>
-    <option value="large"></option>
-    <option value="huge"></option>
-  </select>
-  <!-- Add a bold button -->
-  <button class="ql-bold"></button>
-  <!-- Add subscript and superscript buttons -->
-  <button class="ql-script" value="sub"></button>
-  <button class="ql-script" value="super"></button>
-</div>
-<div id="editor"></div>
-
-<!-- Initialize editor with toolbar -->
-<script>
-  var quill = new Quill('#editor', {
-    modules: {
-      toolbar: '#toolbar'
-    }
-  });
-</script>
-
-      
-
-
-
-
-
   <!-- Include the Quill library -->
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-<script src="app.js"></script>
-</body>
-</html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="editor">
+  </div>
+<button id="formAddButton">Add note</button>
+<div id="notes"></div>
 
+</body>
+<script src="app.js"></script>
+<script src="functions.js"></script>
+</html>
 
 
