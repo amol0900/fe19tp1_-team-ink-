@@ -1,0 +1,10 @@
+#editor-container {
+	height: 375px;
+}
+
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<style>
+.ql-font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+</style>
