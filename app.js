@@ -1,5 +1,3 @@
-
-
 var options = {
 	placeholder: 'Write',
 	theme: 'snow'
