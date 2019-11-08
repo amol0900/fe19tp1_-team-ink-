@@ -18,7 +18,7 @@ $('#saveDelta').click(function (){
 	window.delta = editor.getContents();
 	console.log(window.delta);
 });
-
+	
 var notes = [];
 
 function newAddNote() {
