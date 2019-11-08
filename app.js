@@ -1,20 +1,53 @@
-
-
 var options = {
-	placeholder: 'Write',
+	placeholder: 'Write your notes here',
 	theme: 'snow'
 };
 
 var editor = new Quill('#quillEditor', options);
-var preciousContent = document.getElementById('deltaContent');
-var justHtmlContent = document.getElementById('notes');
+/* var preciousContent = document.querySelector('#deltaContent'); */
+var justHtmlContent = document.querySelector('#notes ul');
 
 editor.on('text-change', function () {
 	var delta = editor.getContents();
 	var justHtml = editor.root.innerHTML;
-	preciousContent.innerHTML = JSON.stringify(delta);
-	justHtmlContent.innerHTML = justHtml;
+	/* preciousContent.innerHTML = JSON.stringify(delta); */
+	justHtmlContent.innerHTML = '<li>' + justHtml + '</li>';
 });
+
+$('#saveDelta').click(function (){
+	window.delta = editor.getContents();
+	console.log(window.delta);
+});
+
+var notes = [];
+
+function newAddNote() {
+	let note = {
+		id: Date.now(),
+		content: editor.getContents(),
+	}
+
+	// Create a span for the note id
+	var span = document.createElement('span');
+	span.innerText = note.id;
+	console.log(span.innerText);
+
+	// push notes into array
+	notes.push(note);
+	console.log(notes);
+
+};
+
+// Placeholders
+
+/* function loadNotes() {
+	
+}
+
+functions saveTodos() {
+
+} */
+
 
 // Further Reading:
 //https://quilljs.com/guides/working-with-deltas/
