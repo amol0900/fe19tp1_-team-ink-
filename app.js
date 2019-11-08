@@ -14,12 +14,25 @@ editor.on('text-change', function () {
 	justHtmlContent.innerHTML = '<li>' + justHtml + '</li>';
 });
 
-$('#saveDelta').click(function (){
+/* $('#saveDelta').click(function (){
 	window.delta = editor.getContents();
 	console.log(window.delta);
-});
+}); */
 
 var notes = [];
+
+function loadNotes() {
+	notes = localStorage.getItem("notes") ? JSON.parse(localStorage.getItem("notes")) : [];
+	console.log("not so early" + notes);
+}
+
+function saveNotes() {
+	localStorage.setItem("notes", JSON.stringify(notes));
+	window.addEventListener('DOMContentLoaded', (event) => {
+		loadNotes();
+
+	});
+}
 
 function newAddNote() {
 	let note = {
@@ -35,18 +48,11 @@ function newAddNote() {
 	// push notes into array
 	notes.push(note);
 	console.log(notes);
+	saveNotes();
 
 };
 
 // Placeholders
-
-/* function loadNotes() {
-	
-}
-
-functions saveTodos() {
-
-} */
 
 
 // Further Reading:
