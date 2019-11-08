@@ -14,18 +14,33 @@ editor.on('text-change', function () {
 	justHtmlContent.innerHTML = '<li>' + justHtml + '</li>';
 });
 
-$('#saveDelta').click(function (){
+/* $('#saveDelta').click(function (){
 	window.delta = editor.getContents();
 	console.log(window.delta);
-});
+}); */
 
 var notes = [];
+
+function loadNotes() {
+	notes = localStorage.getItem("notes") ? JSON.parse(localStorage.getItem("notes")) : [];
+	console.log("not so early" + notes);
+}
+
+function saveNotes() {
+	localStorage.setItem("notes", JSON.stringify(notes));
+	window.addEventListener('DOMContentLoaded', (event) => {
+		loadNotes();
+
+	});
+}
+
 
 function newAddNote() {
 	let note = {
 		id: Date.now(),
 		content: editor.getContents(),
 	}
+
 
 	// Create a span for the note id
 	var span = document.createElement('span');
@@ -35,18 +50,11 @@ function newAddNote() {
 	// push notes into array
 	notes.push(note);
 	console.log(notes);
+	saveNotes();
 
 };
 
 // Placeholders
-
-/* function loadNotes() {
-	
-}
-
-functions saveTodos() {
-
-} */
 
 
 // Further Reading:
@@ -74,23 +82,17 @@ functions saveTodos() {
 
 
 
-
-
-
-
-
-
 /* //Quill
 
-var toolbarOptions = [['bold', 'italic'], ['link', 'image']];
+var toolbarOptions = [ [ 'bold', 'italic' ], [ 'link', 'image' ] ];
 
 var quill = new Quill('#editor', {
-    theme: 'snow'
+	theme: 'snow'
 });
 
 //end Quill
 
-const editor = {}
+const editor = {};
 editor.noteText = document.querySelector('#editor');
 editor.addButton = document.querySelector('#formAddButton');
 const notes = document.querySelector('.notes ul');
