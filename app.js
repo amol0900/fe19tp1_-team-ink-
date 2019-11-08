@@ -34,13 +34,11 @@ function saveNotes() {
 	});
 }
 
-
 function newAddNote() {
 	let note = {
 		id: Date.now(),
 		content: editor.getContents(),
 	}
-
 
 	// Create a span for the note id
 	var span = document.createElement('span');
