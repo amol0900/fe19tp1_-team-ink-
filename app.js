@@ -19,15 +19,30 @@ var justHtmlContent = document.querySelector('#notes ul');
 }); */
 
 var notes = [];
+window.addEventListener('DOMContentLoaded', (event) => {
+	loadNotes();
+	//renderNotes();
 
+});
+
+
+function deleteNote (id) {
+	// hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
+}
 function renderNotes() {
 	var text = editor.getText();
 	var justHtmlContent = document.querySelector('#notes ul');
+	justHtmlContent.innerHTML = "";
 	notes.forEach(note => {
-		justHtmlContent.innerHTML = '<li>' + note.content + '</li>';
-	var span = document.createElement('span');
-	span.innerText = note.id;
-	console.log(span.innerText);
+
+		
+		 //justHtmlContent.innerHTML += '<li id=' + note.id + '>' + note.preview + '</li>';
+		justHtmlContent.innerHTML += `<li id='${note.id}'>${note.preview}</li>`;
+		//var span = document.createElement('span');
+		//span.innerText = note.id;
+		
+		
+	
 });
 
 }
@@ -35,36 +50,37 @@ function renderNotes() {
 function loadNotes() {
 	notes = localStorage.getItem("notes") ? JSON.parse(localStorage.getItem("notes")) : [];
 	renderNotes();
-	console.log("not so early" + notes);
+	//console.log("not so early" + notes);
 }
 
 function saveNotes() {
 	localStorage.setItem("notes", JSON.stringify(notes));
-	window.addEventListener('DOMContentLoaded', (event) => {
-		loadNotes();
-		renderNotes();
-	});
 }
 
 function AddNote() {
 	let note = {
 		id: Date.now(),
 		content: editor.getContents(),
+		preview: editor.getText(0, 50)
 	}
-	var delta = editor.getContents(); {
-		var justHtml = editor.root.innerHTML;
-		justHtmlContent.innerHTML = '<li>' + justHtml + '</li>';
-	}
+	//var delta = editor.getContents(); 
+	//{
+		//var justHtml = editor.root.innerHTML;
+		//var justHtml = editor.root.innerHTML;
+		/* preciousContent.innerHTML = JSON.stringify(delta); */
+		//justHtmlContent.innerHTML = '<li>' + note.preview + '</li>';
+	//}
 
 	// Create a span for the note id
-	var span = document.createElement('span');
-	span.innerText = note.id;
-	console.log(span.innerText);
+	//var span = document.createElement('span');
+	//span.innerText = note.id;
+	//console.log(span.innerText);
 
 	// push notes into array
 	notes.push(note);
 	console.log(notes);
 	saveNotes();
+	renderNotes();
 
 };
 
