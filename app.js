@@ -21,8 +21,9 @@ var justHtmlContent = document.querySelector('#notes ul');
 var notes = [];
 
 function renderNotes() {
+	var text = editor.getText();
 	var justHtmlContent = document.querySelector('#notes ul');
-	notes.forEach(function(note) {
+	notes.forEach(note => {
 		justHtmlContent.innerHTML = '<li>' + note.content + '</li>';
 	var span = document.createElement('span');
 	span.innerText = note.id;
@@ -42,18 +43,16 @@ function saveNotes() {
 	window.addEventListener('DOMContentLoaded', (event) => {
 		loadNotes();
 		renderNotes();
-
 	});
 }
 
-function newAddNote() {
+function AddNote() {
 	let note = {
 		id: Date.now(),
 		content: editor.getContents(),
 	}
 	var delta = editor.getContents(); {
 		var justHtml = editor.root.innerHTML;
-		/* preciousContent.innerHTML = JSON.stringify(delta); */
 		justHtmlContent.innerHTML = '<li>' + justHtml + '</li>';
 	}
 
@@ -68,13 +67,6 @@ function newAddNote() {
 	saveNotes();
 
 };
-
-// Placeholders
-
-
-// Further Reading:
-//https://quilljs.com/guides/working-with-deltas/
-//https://github.com/quilljs/quill/issues/774
 
 
 
