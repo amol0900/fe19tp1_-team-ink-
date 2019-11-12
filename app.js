@@ -30,18 +30,12 @@ function deleteNote (id) {
 	// hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
 }
 function renderNotes() {
-	var justHtmlContent = document.querySelector('#noteList ul');
+	var text = editor.getText();
+	var justHtmlContent = document.querySelector('#notes ul');
 	justHtmlContent.innerHTML = "";
-	noteList.forEach(note => {
-
-		
-		 //justHtmlContent.innerHTML += '<li id=' + note.id + '>' + note.preview + '</li>';
+	notes.forEach(note => {
 		justHtmlContent.innerHTML += `<li id='${note.id}'>${note.preview}</li>`;
-		//var span = document.createElement('span');
-		//span.innerText = note.id;
-		
-		
-	
+
 });
 
 }
@@ -53,28 +47,15 @@ function loadNotes() {
 }
 
 function saveNotes() {
-	localStorage.setItem("noteList", JSON.stringify(noteList));
-
+	localStorage.setItem("notes", JSON.stringify(notes));
 }
 
-function newAddNote() {
+function AddNote() {
 	let note = {
 		id: Date.now(),
 		content: editor.getContents(),
 		preview: editor.getText(0, 50)
 	}
-	//var delta = editor.getContents(); 
-	//{
-		//var justHtml = editor.root.innerHTML;
-		//var justHtml = editor.root.innerHTML;
-		/* preciousContent.innerHTML = JSON.stringify(delta); */
-		//justHtmlContent.innerHTML = '<li>' + note.preview + '</li>';
-	//}
-
-	// Create a span for the note id
-	//var span = document.createElement('span');
-	//span.innerText = note.id;
-	//console.log(span.innerText);
 
 	// push notes into array
 	noteList.push(note);
@@ -83,13 +64,6 @@ function newAddNote() {
 	renderNotes();
 
 };
-
-// Placeholders
-
-
-// Further Reading:
-//https://quilljs.com/guides/working-with-deltas/
-//https://github.com/quilljs/quill/issues/774
 
 
 
