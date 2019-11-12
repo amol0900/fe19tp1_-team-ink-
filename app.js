@@ -5,7 +5,7 @@ var options = {
 
 var editor = new Quill('#quillEditor', options);
 /* var preciousContent = document.querySelector('#deltaContent'); */
-var justHtmlContent = document.querySelector('#notes ul');
+var justHtmlContent = document.querySelector('#noteList ul');
 
 /* editor.on('text-change', function () {
 	var delta = editor.getContents();
@@ -18,7 +18,7 @@ var justHtmlContent = document.querySelector('#notes ul');
 	console.log(window.delta);
 }); */
 
-var notes = [];
+var noteList = [];
 window.addEventListener('DOMContentLoaded', (event) => {
 	loadNotes();
 	//renderNotes();
@@ -30,9 +30,9 @@ function deleteNote (id) {
 	// hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
 }
 function renderNotes() {
-	var justHtmlContent = document.querySelector('#notes ul');
+	var justHtmlContent = document.querySelector('#noteList ul');
 	justHtmlContent.innerHTML = "";
-	notes.forEach(note => {
+	noteList.forEach(note => {
 
 		
 		 //justHtmlContent.innerHTML += '<li id=' + note.id + '>' + note.preview + '</li>';
@@ -47,13 +47,13 @@ function renderNotes() {
 }
 
 function loadNotes() {
-	notes = localStorage.getItem("notes") ? JSON.parse(localStorage.getItem("notes")) : [];
+	noteList = localStorage.getItem("noteList") ? JSON.parse(localStorage.getItem("noteList")) : [];
 	renderNotes();
 	//console.log("not so early" + notes);
 }
 
 function saveNotes() {
-	localStorage.setItem("notes", JSON.stringify(notes));
+	localStorage.setItem("noteList", JSON.stringify(noteList));
 
 }
 
@@ -77,8 +77,8 @@ function newAddNote() {
 	//console.log(span.innerText);
 
 	// push notes into array
-	notes.push(note);
-	console.log(notes);
+	noteList.push(note);
+	console.log(noteList);
 	saveNotes();
 	renderNotes();
 
