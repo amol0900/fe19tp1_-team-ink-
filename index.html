@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="style.css">
   <!-- Include stylesheet -->
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
   <!-- Include the Quill library -->
@@ -13,13 +14,21 @@
   <title>Document</title>
 </head>
 <body>
+  <main>
+  <nav>
+  <li class="a">Home</li>
+  <li class="a">Search</li>
+  <li class="a">Settings</li></nav>
+  <section id="notes">
+    <ul></ul>
+  </div>
   <div id="quillEditor">
   </div>
-<!-- <button id="formAddButton">Add note</button> -->
-<pre id="deltaContent"></pre>
-<div id="notes"><ul></ul></div>
-<button id="saveNote" onclick="AddNote()">Save note</button>
-<button id="loadNotes" onclick="loadNotes()">Load note</button>
+  <div id="buttons">
+  <button id="saveNote" onclick="AddNote()">Save note</button>
+  <button id="loadNotes" onclick="loadNotes()">Load note</button>
+  </div>
+  </main>
 </body>
 <script src="app.js"></script>
 </html>
