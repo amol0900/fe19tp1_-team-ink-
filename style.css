@@ -1,10 +1,54 @@
-#editor-container {
-	height: 375px;
+html, body {
+  margin:0;
+  padding:0;
+  background-color:white;
+}
+main {
+  display:flex;
+
 }
 
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<style>
-.ql-font-roboto {
-  font-family: 'Roboto', sans-serif;
+nav {
+  width:70px;
+  height:704px;
+  background-color:#31bfaf;
 }
-</style>
+
+ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+
+li {
+margin:0;
+text-align:center;
+margin-top:10px;
+}
+
+
+#logo {
+    width: 70%;
+     height:70%;
+    }
+
+#wrapper {
+
+}
+
+#quillEditor {
+  width:800px;
+  height:300px;
+  background-color:white;
+}
+
+#notes {
+  display:flex;
+  flex-direction: row;
+
+}
+
+#notes ul {
+    width:210px;
+    background-color:#eeeeee;
+}
