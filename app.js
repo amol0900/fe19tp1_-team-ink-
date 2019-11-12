@@ -5,7 +5,7 @@ var options = {
 
 var editor = new Quill('#quillEditor', options);
 /* var preciousContent = document.querySelector('#deltaContent'); */
-var justHtmlContent = document.querySelector('#noteList ul');
+var justHtmlContent = document.querySelector('#notes ul');
 
 /* editor.on('text-change', function () {
 	var delta = editor.getContents();
@@ -33,7 +33,7 @@ function renderNotes() {
 	var text = editor.getText();
 	var justHtmlContent = document.querySelector('#notes ul');
 	justHtmlContent.innerHTML = "";
-	notes.forEach(note => {
+	noteList.forEach(note => {
 		justHtmlContent.innerHTML += `<li id='${note.id}'>${note.preview}</li>`;
 
 });
@@ -47,7 +47,7 @@ function loadNotes() {
 }
 
 function saveNotes() {
-	localStorage.setItem("notes", JSON.stringify(notes));
+	localStorage.setItem("notes", JSON.stringify(noteList));
 }
 
 function AddNote() {
