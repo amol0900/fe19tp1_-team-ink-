@@ -30,18 +30,18 @@ function deleteNote (id) {
 	// hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
 }
 function renderNotes() {
-	var text = editor.getText();
+	/* var text = editor.getText(); */
 	var justHtmlContent = document.querySelector('#notes ul');
 	justHtmlContent.innerHTML = "";
 	noteList.forEach(note => {
-		justHtmlContent.innerHTML += `<li id='${note.id}'>${note.preview}</li>`;
+		justHtmlContent.innerHTML += `<li id='${note.id}'><br>${note.preview}</li>`;
 
 });
 
 }
 
 function loadNotes() {
-	noteList = localStorage.getItem("noteList") ? JSON.parse(localStorage.getItem("noteList")) : [];
+	noteList = localStorage.getItem("notes") ? JSON.parse(localStorage.getItem("notes")) : [];
 	renderNotes();
 	//console.log("not so early" + notes);
 }
@@ -65,7 +65,9 @@ function AddNote() {
 
 };
 
-
+/* function newNote {
+	quill.deleteText(6, 4)
+} */
 
 
 
