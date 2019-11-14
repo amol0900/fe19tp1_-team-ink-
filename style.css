@@ -14,26 +14,55 @@ nav {
   background-color:#31bfaf;
 }
 
-ul {
+nav ul {
+    width:70px;
     list-style-type: none;
     margin:0;
     padding:0;
 }
 
-li {
+#notes  {
+    display:flex;
+    flex-direction: row;
+    overflow-wrap: break-word;
+    
+
+}
+
+#notes ul {
+    width:210px;
+    background-color:#eeeeee;
+    list-style-type: none;
+    margin:0;
+    padding:10px;
+}
+
+#notes ul li {
+    width:210px;
+    height:120px;
+    margin:0;
+    border-bottom: 1px solid #c7c7c7;
+    font-family:'Montserrat';
+    font-size:0.8em;
+    line-height:1.5em;
+    overflow-wrap: break-word;
+}
+
+li.a {
 margin:0;
 text-align:center;
 margin-top:10px;
+border:none;
 }
 
 
 #logo {
     width: 70%;
-     height:70%;
+    height:70%;
     }
 
 #wrapper {
-
+margin:0 auto;
 }
 
 #quillEditor {
@@ -42,13 +71,10 @@ margin-top:10px;
   background-color:white;
 }
 
-#notes {
-  display:flex;
-  flex-direction: row;
+/* .ql-editor::before {
+    font-size:3em;
+} */
 
-}
-
-#notes ul {
-    width:210px;
-    background-color:#eeeeee;
+.ql-toolbar.ql-snow {
+    /* background-color:#31bfaf; */
 }

@@ -3,8 +3,8 @@ var options = {
 	theme: 'snow'
 };
 
+
 var editor = new Quill('#quillEditor', options);
-/* var preciousContent = document.querySelector('#deltaContent'); */
 var justHtmlContent = document.querySelector('#notes ul');
 
 /* editor.on('text-change', function () {
@@ -34,14 +34,13 @@ function renderNotes() {
 	var justHtmlContent = document.querySelector('#notes ul');
 	justHtmlContent.innerHTML = "";
 	noteList.forEach(note => {
-		justHtmlContent.innerHTML += `<li id='${note.id}'>${note.preview}</li>`;
-
+		justHtmlContent.innerHTML += `<li id='${note.id}'><p>${note.preview}</p></li>`;
 });
 
 }
 
 function loadNotes() {
-	noteList = localStorage.getItem("noteList") ? JSON.parse(localStorage.getItem("noteList")) : [];
+	noteList = localStorage.getItem("notes") ? JSON.parse(localStorage.getItem("notes")) : [];
 	renderNotes();
 	//console.log("not so early" + notes);
 }
@@ -51,6 +50,12 @@ function saveNotes() {
 }
 
 function AddNote() {
+/* 	let title = {
+		id: Date.now(),
+		content: editor.getContents(),
+		preview: editor.getText(0, 12)
+	} */
+
 	let note = {
 		id: Date.now(),
 		content: editor.getContents(),
@@ -62,12 +67,7 @@ function AddNote() {
 	console.log(noteList);
 	saveNotes();
 	renderNotes();
-
 };
-
-
-
-
 
 
 
