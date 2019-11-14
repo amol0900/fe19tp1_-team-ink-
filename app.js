@@ -67,6 +67,11 @@ function newNote() {
 	//addNote();
 } 
 
+
+
+
+
+
 //DÖP OM DENNA TILL saveNote ELLER LIKNANDE. KAN EV RADERAS SENARE
 function addNote() {
 /*  	let title = {
