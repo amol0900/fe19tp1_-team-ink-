@@ -42,7 +42,7 @@ nav ul {
     height:120px;
     margin:0;
     border-bottom: 1px solid #c7c7c7;
-    font-family:'Montserrat';
+    font-family:'Arial'; /* Montserrat */
     font-size:0.8em;
     line-height:1.5em;
     overflow-wrap: break-word;

@@ -5,7 +5,18 @@ var options = {
 
 
 var editor = new Quill('#quillEditor', options);
+
+// gör ul:en klickbar
+// se till att callback-funktionen loggar rätt id. (e.target.id) CHECK
+// hur hittar vi ett element ur noteList vars id matchar e.target.id?
+// spana in array.find och googla det om objekt
+// lägg in detta i selectedNote, uppdatera editorn med setContents(....)
+
+
 var justHtmlContent = document.querySelector('#notes ul');
+justHtmlContent.addEventListener('click', function (evt) {
+	console.log(evt.target.closest('li').id);
+});
 
 /* editor.on('text-change', function () {
 	var delta = editor.getContents();
@@ -19,6 +30,8 @@ var justHtmlContent = document.querySelector('#notes ul');
 }); */
 
 var noteList = [];
+var selectedNote;
+
 window.addEventListener('DOMContentLoaded', (event) => {
 	loadNotes();
 	//renderNotes();
@@ -26,17 +39,25 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
-function deleteNote (id) {
+function deleteNote(id) {
 	// hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
 }
 function renderNotes() {
 	var text = editor.getText();
 	var justHtmlContent = document.querySelector('#notes ul');
 	justHtmlContent.innerHTML = "";
-	noteList.forEach(note => {
-		justHtmlContent.innerHTML += `<li id='${note.id}'><p>${note.preview}</p></li>`;
-});
+	noteList.forEach(renderNote);
+}
 
+function renderNote(note) {
+	let title;
+	let titleLength = 25;
+	if (note.preview.length > titleLength) {
+		title = note.preview.substring(0, titleLength) + "...";
+	} else {
+		title = note.preview.substring(0, titleLength);
+	}
+	document.querySelector('#notes ul').innerHTML += `<li id='${note.id}'><strong>${title}</strong></li>`;
 }
 
 function loadNotes() {
@@ -50,11 +71,11 @@ function saveNotes() {
 }
 
 function AddNote() {
-/* 	let title = {
-		id: Date.now(),
-		content: editor.getContents(),
-		preview: editor.getText(0, 12)
-	} */
+	/* 	let title = {
+			id: Date.now(),
+			content: editor.getContents(),
+			preview: editor.getText(0, 12)
+		} */
 
 	let note = {
 		id: Date.now(),
@@ -68,6 +89,7 @@ function AddNote() {
 	saveNotes();
 	renderNotes();
 };
+
 
 
 
@@ -113,23 +135,23 @@ editor.addButton.addEventListener('click', function (e) {
 	if (value == '' || value.length == 0) {
 		return false;
 	}
-	
+
    /*  if (editor.noteText.value != '') {
         addNote();
 	} */
-	
+
 	//push theItem into the array
 /* 	obj.name = value;
 	myNotes.push(obj);
 	console.log(myNotes); */
 
 	//create elements
-	/* const li = document.createElement('li');
-	const note = document.createElement('span'); */
+/* const li = document.createElement('li');
+const note = document.createElement('span'); */
 
 	// append to DOM
-	/* li.appendChild(note);
-	notes.appendChild(li); */
+/* li.appendChild(note);
+notes.appendChild(li); */
 
 /* }); */
 
@@ -169,4 +191,4 @@ function addNote() {
 function deleteNote(e) {
 	let eventNote = e.target.parentNode;
 	eventNote.parentNode.removeChild(eventNote);
-} */ 
+} */
