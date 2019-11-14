@@ -21,36 +21,23 @@
     <nav>
       <ul>
         <li class="a"><img src="Q.png" id="logo"></li> <!-- Todo: Change to svg -->
-        
-        <li class="a"></li>
+        <li class="a"><button id="newNote" onclick="newNote()">+</button></li>
       </ul>
     </nav>
 
     <div id="notes">
-      <button id="newNote" onclick="newNote()">+</button>
       <ul></ul>
     </div>
 
-<<<<<<< HEAD
- <div id="wrapper">
-  <div id="quillEditor"></div>
-  <div class="buttons">
-  <button id="saveNote" onclick="AddNote()">Save note</button>
-  <!-- <button id="loadNotes" onclick="loadNotes()">Load note</button> -->
-  <button id="newNote" onclick="newNote()">New note</button>
-  </div>
-</div>
-=======
     <div id="wrapper">
       <h1></h1>
       <div id="quillEditor"></div>
       <div class="buttons">
-        <button id="saveNote" onclick="AddNote()">Save note</button>
+        <button id="saveNote" onclick="addNote()">Save note</button>
         <!-- <button id="loadNotes" onclick="loadNotes()">Load note</button> -->
 
       </div>
     </div>
->>>>>>> amanda
   </main>
 </body>
 <script src="app.js"></script>

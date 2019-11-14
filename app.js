@@ -19,6 +19,8 @@ var justHtmlContent = document.querySelector('#notes ul');
 }); */
 
 var noteList = [];
+var selectedNote;
+
 window.addEventListener('DOMContentLoaded', (event) => {
 	loadNotes();
 	//renderNotes();
@@ -34,12 +36,7 @@ function renderNotes() {
 	var justHtmlContent = document.querySelector('#notes ul');
 	justHtmlContent.innerHTML = "";
 	noteList.forEach(note => {
-<<<<<<< HEAD
-		justHtmlContent.innerHTML += `<li id='${note.id}'><br>${note.preview}</li>`;
-
-=======
 		justHtmlContent.innerHTML += `<li id='${note.id}'><p>${note.preview}</p></li>`;
->>>>>>> amanda
 });
 
 }
@@ -54,8 +51,25 @@ function saveNotes() {
 	localStorage.setItem("notes", JSON.stringify(noteList));
 }
 
-function AddNote() {
-/* 	let title = {
+function newNote() {
+	//localStorage.setItem("notes", JSON.stringify(noteList));
+	//make new empty note
+	//var editor = new Quill('#quillEditor', options);
+	//saveNotes();
+
+	// en note är laddad, anävnder klicka rpå plusset, då ska följandehända:
+	// 1. spara ner befintlig note.
+	selectedNote.contents = editor.getContents();
+	selectedNote.preview = editor.getText(0, 12);
+	saveNotes();
+	renderNotes();
+	editor.setText('');
+	//addNote();
+} 
+
+//DÖP OM DENNA TILL saveNote ELLER LIKNANDE. KAN EV RADERAS SENARE
+function addNote() {
+/*  	let title = {
 		id: Date.now(),
 		content: editor.getContents(),
 		preview: editor.getText(0, 12)
@@ -69,6 +83,8 @@ function AddNote() {
 
 	// push notes into array
 	noteList.push(note);
+	selectedNote = note;
+
 	console.log(noteList);
 	saveNotes();
 	renderNotes();
