@@ -70,15 +70,15 @@ function saveNotes() {
 	localStorage.setItem('notes', JSON.stringify(noteList));
 }
 
-function showdate() {
-	var a = new Date();
-	var b = a.getFullYear();
-	var c = a.getMonth() + 1; // zero indexed, så +1 visar rätt månad;
-	var d = a.getDate();
-	var e = a.getHours();
-	var f = a.getMinutes();
-	var finalTime = b + '-' + c + '-' + d + ' at ' + e + ':' + f;
-
+function showDate() {
+	let date = new Date();
+	let year = date.getFullYear();
+	let month = date.getMonth() + 1; // zero indexed, så +1 visar rätt månad;
+	let day = date.getDate();
+	let hours = date.getHours();
+	let minutes = date.getMinutes();
+	let finalTime = `${year}-${month}-${day} at ${hours}:${minutes}`;
+	//bug - om "minutes" är mindre än 10 visas ex: 20:8 när det ska vara 20:08. If statement för att lösa?
 	return finalTime;
 }
 
@@ -93,7 +93,7 @@ function AddNote() {
 
 	let note = {
 		id: Date.now(),
-		created: showdate(),
+		created: showDate(),
 		content: editor.getContents(),
 		preview: editor.getText(0, 50)
 	};
