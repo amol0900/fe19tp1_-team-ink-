@@ -10,6 +10,8 @@ icons['bold'] = '<i class="fa fa-bold" aria-hidden="true"></i>';
 var noteList = [];
 var selectedNote;
 
+// Laddar in anteckingen man klickar på i previewlistan till editorn
+
 var justHtmlContent = document.querySelector('#notes ul');
 justHtmlContent.addEventListener('click', function (e) {
 	let clickedID = e.target.closest('li').id;
