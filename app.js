@@ -3,45 +3,43 @@ var options = {
 	theme: 'snow'
 };
 
-
 var editor = new Quill('#quillEditor', options);
+var icons = Quill.import('ui/icons');
+icons['bold'] = '<i class="fa fa-bold" aria-hidden="true"></i>';
 
-// gör ul:en klickbar
-// se till att callback-funktionen loggar rätt id. (e.target.id) CHECK
-// hur hittar vi ett element ur noteList vars id matchar e.target.id?
-// spana in array.find och googla det om objekt
-// lägg in detta i selectedNote, uppdatera editorn med setContents(....)
-
+var noteList = [];
+var selectedNote;
 
 var justHtmlContent = document.querySelector('#notes ul');
-justHtmlContent.addEventListener('click', function (evt) {
-	console.log(evt.target.closest('li').id);
+justHtmlContent.addEventListener('click', function (e) {
+	let clickedID = e.target.closest('li').id;
+	console.log("clickedID: " + clickedID);
+	selectedNote = noteList.find(note => note.id === Number(clickedID));
+	console.log(selectedNote);
+	editor.setContents(selectedNote.content);
+
 });
 
-/* editor.on('text-change', function () {
+/* Funktionen som gör att en draft av anteckningen spara så fort du skriver (som i evernote)
+	Sparar om vi skulle vilja lägga till den igen senare
+
+editor.on('text-change', function () {
 	var delta = editor.getContents();
 	var justHtml = editor.root.innerHTML;
 	justHtmlContent.innerHTML = '<li>' + justHtml + '</li>';
 }); */
 
-/* $('#saveDelta').click(function (){
-	window.delta = editor.getContents();
-	console.log(window.delta);
-}); */
+// Laddar anteckningarna när sidan laddas/refreshas
 
-var noteList = [];
-var selectedNote;
-
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('load', (event) => {
 	loadNotes();
-	//renderNotes();
-
 });
 
 
 function deleteNote(id) {
-	// hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
+	// todo: hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
 }
+
 function renderNotes() {
 	var text = editor.getText();
 	var justHtmlContent = document.querySelector('#notes ul');
@@ -57,18 +55,22 @@ function renderNote(note) {
 	} else {
 		title = note.preview.substring(0, titleLength);
 	}
-	document.querySelector('#notes ul').innerHTML += `<li id='${note.id}'><strong>${title}</strong></li>`;
+	document.querySelector('#notes ul').innerHTML += `<li id='${note.id}'>${title}</li>`;
 }
 
 function loadNotes() {
 	noteList = localStorage.getItem("notes") ? JSON.parse(localStorage.getItem("notes")) : [];
 	renderNotes();
-	//console.log("not so early" + notes);
 }
+
+// Sparar anteckningarna i local storage
 
 function saveNotes() {
 	localStorage.setItem("notes", JSON.stringify(noteList));
 }
+
+// Kopplad till "Save note"-knappen, lägger till anteckningen, pushar i den i arrayen
+// sen kör den saveNotes och renderNotes
 
 function AddNote() {
 	/* 	let title = {
@@ -85,6 +87,7 @@ function AddNote() {
 
 	// push notes into array
 	noteList.push(note);
+
 	console.log(noteList);
 	saveNotes();
 	renderNotes();
