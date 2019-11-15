@@ -49,6 +49,8 @@ function renderNotes() {
 	noteList.forEach(renderNote);
 }
 
+// Skapar en preview av anteckingen och lägger till den i DOMen
+
 function renderNote(note) {
 	let title;
 	let titleLength = 25;
@@ -60,15 +62,17 @@ function renderNote(note) {
 	document.querySelector('#notes ul').innerHTML += `<li id='${note.id}'>${title}</li>`;
 }
 
-function loadNotes() {
-	noteList = localStorage.getItem("notes") ? JSON.parse(localStorage.getItem("notes")) : [];
-	renderNotes();
-}
-
 // Sparar anteckningarna i local storage
 
 function saveNotes() {
 	localStorage.setItem("notes", JSON.stringify(noteList));
+}
+
+// Hämtar anteckningarna från local storage
+
+function loadNotes() {
+	noteList = localStorage.getItem("notes") ? JSON.parse(localStorage.getItem("notes")) : [];
+	renderNotes();
 }
 
 // Kopplad till "Save note"-knappen, lägger till anteckningen, pushar i den i arrayen
