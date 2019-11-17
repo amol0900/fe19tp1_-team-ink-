@@ -77,8 +77,7 @@ function loadNotes() {
 	renderNotes();
 }
 
-// Kopplad till "Save note"-knappen, lägger till anteckningen, pushar i den i arrayen
-// sen kör den saveNotes och renderNotes
+// En funktion som skriver ut vilket datum och tid det är
 
 function showDate() {
 	let date = new Date();
@@ -93,6 +92,9 @@ function showDate() {
 }
 
 /* document.getElementById("todays_date").innerHTML = showdate(); */
+
+// Kopplad till "Save note"-knappen, lägger till anteckningen, pushar i den i arrayen
+// sen kör den saveNotes och renderNotes
 
 function AddNote() {
 	/* 	let title = {
