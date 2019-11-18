@@ -56,21 +56,7 @@ editor.on('text-change', function () {
 	justHtmlContent.innerHTML = '<li>' + justHtml + '</li>';
 }); */
 
-<<<<<<< HEAD
-/* $('#saveDelta').click(function (){
-	window.delta = editor.getContents();
-	console.log(window.delta);
-}); */
-
-var noteList = [];
-var selectedNote;
-
-window.addEventListener('DOMContentLoaded', (event) => {
-	loadNotes();
-	//renderNotes();
-=======
 // Laddar anteckningarna när sidan laddas/refreshas
->>>>>>> develop
 
 window.addEventListener('load', (event) => {
   loadNotes();
@@ -79,16 +65,6 @@ window.addEventListener('load', (event) => {
 function deleteNote(id) {
   // todo: hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
 }
-<<<<<<< HEAD
-function renderNotes() {
-	/* var text = editor.getText(); */
-	var justHtmlContent = document.querySelector('#notes ul');
-	justHtmlContent.innerHTML = "";
-	noteList.forEach(note => {
-		justHtmlContent.innerHTML += `<li id='${note.id}'><p>${note.preview}</p></li>`;
-});
-=======
->>>>>>> develop
 
 function renderNotes() {
   var text = editor.getText();
@@ -114,7 +90,6 @@ function renderNote(note) {
 }
 
 
-<<<<<<< HEAD
 function newNote() {
 	//localStorage.setItem("notes", JSON.stringify(noteList));
 	//make new empty note
@@ -143,25 +118,9 @@ function addNote() {
 		content: editor.getContents(),
 		preview: editor.getText(0, 12)
 	} */
-=======
->>>>>>> develop
 
 // Sparar anteckningarna i local storage
 
-<<<<<<< HEAD
-	// push notes into array
-	noteList.push(note);
-	selectedNote = note;
-
-	console.log(noteList);
-	saveNotes();
-	renderNotes();
-};
-
-/* function newNote {
-	quill.deleteText(6, 4)
-} */
-=======
 function saveNotes() {
   localStorage.setItem('notes', JSON.stringify(noteList));
 }
@@ -174,7 +133,6 @@ function loadNotes() {
     : [];
   renderNotes();
 }
->>>>>>> develop
 
 // En funktion som skriver ut vilket datum och tid det är
 
@@ -307,5 +265,3 @@ function deleteNote(e) {
 	let eventNote = e.target.parentNode;
 	eventNote.parentNode.removeChild(eventNote);
 } */
-
-
