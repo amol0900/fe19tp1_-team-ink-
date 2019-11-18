@@ -2,23 +2,49 @@
 <html lang="en">
 
 <head>
+  <title>Page Title</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:200i,300&display=swap" rel="stylesheet">
   <!-- Include stylesheet -->
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
   <!-- Include the Quill library -->
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
   <title>Document</title>
 </head>
 
 <body>
-  <div id="quillEditor">
-  </div>
-  <!-- <button id="formAddButton">Add note</button> -->
-  <pre id="deltaContent"></pre>
-  <div id="notes"></div>
+  <main>
+
+<!-- Grön navbar -->
+    <nav>
+      <ul>
+        <li class="a"><img src="Q.png" id="logo"></li> <!-- Todo: Change to svg -->
+        
+        <li class="a"></li>
+      </ul>
+    </nav>
+
+    <!-- Listan där preview av anteckningarna hamnar -->
+    <div id="notes">
+      <ul></ul>
+    </div>
+
+    <!-- Editorn -->
+    <div id="wrapper">
+      <div id="quillEditor"></div>
+
+      <!-- "Save note"-knappen -->
+      <div class="buttons">
+        <button id="saveNote" onclick="AddNote()">Save note</button>
+      </div>
+
+    </div>
+  </main>
 </body>
 <script src="app.js"></script>
 

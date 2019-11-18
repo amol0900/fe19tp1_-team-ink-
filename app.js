@@ -1,84 +1,126 @@
 var options = {
-  placeholder: 'Write',
-  theme: 'snow'
+	placeholder: 'Write your notes here',
+	theme: 'snow'
 };
 
 var editor = new Quill('#quillEditor', options);
-var preciousContent = document.getElementById('deltaContent');
-var justHtmlContent = document.getElementById('notes');
+var icons = Quill.import('ui/icons');
+icons['bold'] = '<i class="fa fa-bold" aria-hidden="true"></i>';
 
-editor.on('text-change', function () {
-  var delta = editor.getContents();
-  var justHtml = editor.root.innerHTML;
-  preciousContent.innerHTML = JSON.stringify(delta);
-  justHtmlContent.innerHTML = justHtml;
+var noteList = [];
+var selectedNote;
+
+// Laddar in anteckingen man klickar på i previewlistan till editorn
+
+var justHtmlContent = document.querySelector('#notes ul');
+justHtmlContent.addEventListener('click', function(e) {
+	let clickedID = e.target.closest('li').id;
+	console.log('clickedID: ' + clickedID);
+	selectedNote = noteList.find((note) => note.id === Number(clickedID));
+	console.log(selectedNote);
+	editor.setContents(selectedNote.content);
 });
 
-function addNote() {
-  let note = {
-    id: Date.now(),
-    content: editor.getContents(),
-    favourite: false,
-    deleted: false,
-    modified: Date.now()
-  };
+/* Funktionen som gör att en draft av anteckningen spara så fort du skriver (som i evernote)
+	Sparar om vi skulle vilja lägga till den igen senare
+
+editor.on('text-change', function () {
+	var delta = editor.getContents();
+	var justHtml = editor.root.innerHTML;
+	justHtmlContent.innerHTML = '<li>' + justHtml + '</li>';
+}); */
+
+// Laddar anteckningarna när sidan laddas/refreshas
+
+window.addEventListener('load', (event) => {
+	loadNotes();
+});
+
+function deleteNote(id) {
+	// todo: hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
 }
 
+function renderNotes() {
+	var text = editor.getText();
+	var justHtmlContent = document.querySelector('#notes ul');
+	justHtmlContent.innerHTML = '';
+	noteList.forEach(renderNote);
+}
 
-// store data in local storage
-localStorage.setItem("name")
-localStorage.setItem("age", 50)
+// Skapar en preview av anteckingen och lägger till den i DOMen
 
+function renderNote(note) {
+	let title;
+	let titleLength = 25;
+	if (note.preview.length > titleLength) {
+		title = note.preview.substring(0, titleLength) + '...';
+	} else {
+		title = note.preview.substring(0, titleLength);
+	}
+	document.querySelector(
+		'#notes ul'
+	).innerHTML += `<li id='${note.id}'>${title}: Created: ${note.created} </li>`;
+}
 
-// get data from local storage
-// let name = localStorage.getItem("name");
-// let age = localStorage.getItem("age");
+// Sparar anteckningarna i local storage
 
-// console.log(name, age);
+function saveNotes() {
+	localStorage.setItem('notes', JSON.stringify(noteList));
+}
 
+// Hämtar anteckningarna från local storage
 
-// deleting data from local storage
-// localStorage.removeItem("name");
+function loadNotes() {
+	noteList = localStorage.getItem('notes')
+		? JSON.parse(localStorage.getItem('notes'))
+		: [];
+	renderNotes();
+}
 
-// localStorage.clear();
+// En funktion som skriver ut vilket datum och tid det är
 
-// name = localStorage.getItem("name");
-// age = localStorage.getItem("age");
+function showDate() {
+	let date = new Date();
+	let year = date.getFullYear();
+	let month = date.getMonth() + 1; // zero indexed, så +1 visar rätt månad;
+	let day = date.getDate();
+	let hours = date.getHours();
+	let minutes = date.getMinutes();
+	let finalTime = `${year}-${month}-${day} at ${hours}:${minutes}`;
+	//bug - om "minutes" är mindre än 10 visas ex: 20:8 när det ska vara 20:08. If statement för att lösa?
+	return finalTime;
+}
 
-// console.log(name, age);
+/* document.getElementById("todays_date").innerHTML = showdate(); */
 
+// Kopplad till "Save note"-knappen, lägger till anteckningen, pushar i den i arrayen
+// sen kör den saveNotes och renderNotes
 
-// updating data
-// localStorage.setItem("name", "luigi");
-// localStorage.age = "40";
+function AddNote() {
+	/* 	let title = {
+			id: Date.now(),
+			content: editor.getContents(),
+			preview: editor.getText(0, 12)
+		} */
 
-// age = localStorage.getItem("age");
-// name = localStorage.getItem("name");
-// console.log(name, age);
+	let note = {
+		id: Date.now(),
+		created: showDate(),
+		content: editor.getContents(),
+		preview: editor.getText(0, 50)
+	};
 
+	/* let noteCreated = {
+		time: new Date()
+	}; */
 
+	// push notes into array
+	noteList.push(note);
 
-// const todos = [
-//   { text: "play mariokart", author: "shaun" },
-//   { text: "buy some milk", author: "mario" },
-//   { text: "buy some bread", author: "luigi" },
-// ];
-
-
-// console.log(JSON.stringify(todos))
-
-// // converts to strings
-// localStorage.setItem("todos", JSON.stringify(todos))
-
-// // converts to arrays 
-// const store = localStorage.getItem("todos");
-// console.log(JSON.parse(stored));
-
-
-
-
-
-
+	console.log(noteList);
+	saveNotes();
+	renderNotes();
+}
 
 
 
@@ -121,16 +163,16 @@ editor.addButton.addEventListener('click', function (e) {
         addNote();
 	} */
 
-	//push theItem into the array
+//push theItem into the array
 /* 	obj.name = value;
 	myNotes.push(obj);
 	console.log(myNotes); */
 
-	//create elements
+//create elements
 /* const li = document.createElement('li');
 const note = document.createElement('span'); */
 
-	// append to DOM
+// append to DOM
 /* li.appendChild(note);
 notes.appendChild(li); */
 
@@ -160,7 +202,6 @@ function addNote() {
 
 	addListenerDeleteButton(deleteButton);
 } */
-
 
 /* function addListenerDeleteButton(deleteButton) {
 	deleteButton.addEventListener('click', function (e) {
