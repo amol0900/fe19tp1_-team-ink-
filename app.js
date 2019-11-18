@@ -30,6 +30,7 @@ justHtmlContent.addEventListener('click', function (e) {
 	let clickedID = e.target.closest('li').id;
 	console.log('clickedID: ' + clickedID);
 	selectedNote = noteList.find((note) => note.id === Number(clickedID));
+	console.log(e.target.classList)
 	console.log(selectedNote);
 	editor.setContents(selectedNote.content);
 });
@@ -75,7 +76,7 @@ function renderNote(note) {
 	document.querySelector(
 		'#notes ul'
 	).innerHTML += `<li id='${note.id}'><p class="title">${title}</p><br><p class="created">${note.created}</p>
-	<button id="favourite"></button></li>`;
+	<button id="favourite" class="fav"></button></li>`;
 }
 
 // Sparar anteckningarna i local storage
