@@ -3,10 +3,10 @@
 	theme: 'snow'
 }; */
 
-	var editor = new Quill('#editor', {
-		placeholder: 'Write your notes here',
-		theme: 'snow'
-  });
+var editor = new Quill('#editor', {
+	placeholder: 'Write your notes here',
+	theme: 'snow'
+});
 
 /* var editor = new Quill('#quillEditor', options); */
 
@@ -17,7 +17,7 @@ var selectedNote;
 // Laddar in anteckingen man klickar på i previewlistan till editorn
 
 var justHtmlContent = document.querySelector('#notes ul');
-justHtmlContent.addEventListener('click', function(e) {
+justHtmlContent.addEventListener('click', function (e) {
 	let clickedID = e.target.closest('button').id;
 	console.log('clickedID: ' + clickedID);
 	selectedNote = noteList.find((note) => note.id === Number(clickedID));
@@ -113,12 +113,6 @@ function showDate() {
 // sen kör den saveNotes och renderNotes
 
 function AddNote() {
-	/* 	let title = {
-			id: Date.now(),
-			content: editor.getContents(),
-			preview: editor.getText(0, 12)
-		} */
-
 	let note = {
 		id: Date.now(),
 		created: showDate(),
