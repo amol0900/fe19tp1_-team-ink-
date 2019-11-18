@@ -90,34 +90,6 @@ function renderNote(note) {
 }
 
 
-function newNote() {
-	//localStorage.setItem("notes", JSON.stringify(noteList));
-	//make new empty note
-	//var editor = new Quill('#quillEditor', options);
-	//saveNotes();
-
-	// en note är laddad, anävnder klicka rpå plusset, då ska följandehända:
-	// 1. spara ner befintlig note.
-	selectedNote.contents = editor.getContents();
-	selectedNote.preview = editor.getText(0, 12);
-	saveNotes();
-	renderNotes();
-	editor.setText('');
-	//addNote();
-} 
-
-
-
-
-
-
-//DÖP OM DENNA TILL saveNote ELLER LIKNANDE. KAN EV RADERAS SENARE
-function addNote() {
-/*  	let title = {
-		id: Date.now(),
-		content: editor.getContents(),
-		preview: editor.getText(0, 12)
-	} */
 
 // Sparar anteckningarna i local storage
 
@@ -265,3 +237,5 @@ function deleteNote(e) {
 	let eventNote = e.target.parentNode;
 	eventNote.parentNode.removeChild(eventNote);
 } */
+
+
