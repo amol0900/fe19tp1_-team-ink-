@@ -1,6 +1,6 @@
 var options = {
-	placeholder: 'Write your notes here',
-	theme: 'snow'
+  placeholder: 'Write your notes here',
+  theme: 'snow'
 };
 
 var editor = new Quill('#quillEditor', options);
@@ -10,15 +10,26 @@ icons['bold'] = '<i class="fa fa-bold" aria-hidden="true"></i>';
 var noteList = [];
 var selectedNote;
 
-// Laddar in anteckingen man klickar på i previewlistan till editorn
+// Laddar in anteckingen man klickar på i previewlistan till editorn samt detekterar andra klick
 
 var justHtmlContent = document.querySelector('#notes ul');
-justHtmlContent.addEventListener('click', function(e) {
-	let clickedID = e.target.closest('li').id;
-	console.log('clickedID: ' + clickedID);
-	selectedNote = noteList.find((note) => note.id === Number(clickedID));
-	console.log(selectedNote);
-	editor.setContents(selectedNote.content);
+justHtmlContent.addEventListener('click', function (e) {
+  let clickedID = e.target.closest('li').id;
+  console.log('clickedID: ' + clickedID);
+  selectedNote = noteList.find((note) => note.id === Number(clickedID));
+  console.log(selectedNote);
+
+  // undersök om klicket var på knappen
+  console.log(e.target.classList.contains("fav"))
+  if (e.target.classList.contains("fav")) {
+    // vi har klickat på mar favourite-knappen
+    selectedNote.favourite = !selectedNote.favourite;
+    saveNotes();
+
+  } else {
+    // vi har klickat någon annan stans
+    editor.setContents(selectedNote.content);
+  }
 });
 
 /* Funktionen som gör att en draft av anteckningen spara så fort du skriver (som i evernote)
@@ -33,63 +44,78 @@ editor.on('text-change', function () {
 // Laddar anteckningarna när sidan laddas/refreshas
 
 window.addEventListener('load', (event) => {
-	loadNotes();
+  loadNotes();
 });
 
 function deleteNote(id) {
-	// todo: hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
+  // todo: hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
 }
 
 function renderNotes() {
-	var text = editor.getText();
-	var justHtmlContent = document.querySelector('#notes ul');
-	justHtmlContent.innerHTML = '';
-	noteList.forEach(renderNote);
+  var text = editor.getText();
+  var justHtmlContent = document.querySelector('#notes ul');
+  justHtmlContent.innerHTML = '';
+  noteList.forEach(renderNote);
 }
 
 // Skapar en preview av anteckingen och lägger till den i DOMen
 
 function renderNote(note) {
-	let title;
-	let titleLength = 25;
-	if (note.preview.length > titleLength) {
-		title = note.preview.substring(0, titleLength) + '...';
-	} else {
-		title = note.preview.substring(0, titleLength);
-	}
-	document.querySelector(
-		'#notes ul'
-	).innerHTML += `<li id='${note.id}'>${title}: Created: ${note.created} </li>`;
+  let title;
+  let titleLength = 25;
+  if (note.preview.length > titleLength) {
+    title = note.preview.substring(0, titleLength) + '...';
+  } else {
+    title = note.preview.substring(0, titleLength);
+  }
+  console.log("fav: " + note.favourite)
+  document.querySelector(
+    '#notes ul'
+  ).innerHTML += `<li id='${note.id}'>${title}: Created: ${note.created}<button class="fav" onclick="document.getElementById('noteList')">Mark as favorite</button>`;
+}
+
+
+function fav() {
+
+  // if false 
+
+  // selectedNote.favourite = !selectedNote.favourite
+
+
+
 }
 
 // Sparar anteckningarna i local storage
 
 function saveNotes() {
-	localStorage.setItem('notes', JSON.stringify(noteList));
+  localStorage.setItem('notes', JSON.stringify(noteList));
 }
 
 // Hämtar anteckningarna från local storage
 
 function loadNotes() {
-	noteList = localStorage.getItem('notes')
-		? JSON.parse(localStorage.getItem('notes'))
-		: [];
-	renderNotes();
+  noteList = localStorage.getItem('notes')
+    ? JSON.parse(localStorage.getItem('notes'))
+    : [];
+  renderNotes();
 }
 
 // En funktion som skriver ut vilket datum och tid det är
 
 function showDate() {
-	let date = new Date();
-	let year = date.getFullYear();
-	let month = date.getMonth() + 1; // zero indexed, så +1 visar rätt månad;
-	let day = date.getDate();
-	let hours = date.getHours();
-	let minutes = date.getMinutes();
-	let finalTime = `${year}-${month}-${day} at ${hours}:${minutes}`;
-	//bug - om "minutes" är mindre än 10 visas ex: 20:8 när det ska vara 20:08. If statement för att lösa?
-	return finalTime;
+  let date = new Date();
+  let year = date.getFullYear();
+  let month = date.getMonth() + 1; // zero indexed, så +1 visar rätt månad;
+  let day = date.getDate();
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let finalTime = `${year}-${month}-${day} at ${hours}:${minutes}`;
+  //bug - om "minutes" är mindre än 10 visas ex: 20:8 när det ska vara 20:08. If statement för att lösa?
+
+  return finalTime;
 }
+
+
 
 /* document.getElementById("todays_date").innerHTML = showdate(); */
 
@@ -103,23 +129,24 @@ function AddNote() {
 			preview: editor.getText(0, 12)
 		} */
 
-	let note = {
-		id: Date.now(),
-		created: showDate(),
-		content: editor.getContents(),
-		preview: editor.getText(0, 50)
-	};
+  let note = {
+    id: Date.now(),
+    created: showDate(),
+    content: editor.getContents(),
+    preview: editor.getText(0, 50),
+    favourite: false,
+  };
 
 	/* let noteCreated = {
 		time: new Date()
 	}; */
 
-	// push notes into array
-	noteList.push(note);
+  // push notes into array
+  noteList.push(note);
 
-	console.log(noteList);
-	saveNotes();
-	renderNotes();
+  console.log(noteList);
+  saveNotes();
+  renderNotes();
 }
 
 
@@ -214,3 +241,5 @@ function deleteNote(e) {
 	let eventNote = e.target.parentNode;
 	eventNote.parentNode.removeChild(eventNote);
 } */
+
+
