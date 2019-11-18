@@ -1,18 +1,62 @@
-var options = {
+/* var options = {
 	placeholder: 'Write your notes here',
 	theme: 'snow'
-};
+}; */
+
+var editor = new Quill('#editor', {
+  placeholder: 'Write your notes here',
+  theme: 'snow'
+});
+
+/* var editor = new Quill('#quillEditor', options); */
 
 
-var editor = new Quill('#quillEditor', options);
+var noteList = [];
+var selectedNote;
+
+// Laddar in anteckingen man klickar på i previewlistan till editorn
+
+/* var justHtmlContent = document.querySelector('#notes ul');
+justHtmlContent.addEventListener('click', function (e) {
+	let clickedID = e.target.closest('button').id;
+	console.log('clickedID: ' + clickedID);
+	selectedNote = noteList.find((note) => note.id === Number(clickedID));
+	console.log(selectedNote);
+	editor.setContents(selectedNote.content);
+}); */
+
 var justHtmlContent = document.querySelector('#notes ul');
+justHtmlContent.addEventListener('click', function (e) {
+  let clickedID = e.target.closest('li').id;
+  console.log('clickedID: ' + clickedID);
+  selectedNote = noteList.find((note) => note.id === Number(clickedID));
+  console.log(selectedNote);
 
-/* editor.on('text-change', function () {
+  // undersök om klicket var på knappen
+  console.log(e.target.classList.contains("fav"))
+  if (e.target.classList.contains("fav")) {
+    // vi har klickat på mar favourite-knappen
+    selectedNote.favourite = !selectedNote.favourite;
+    saveNotes();
+
+  } else {
+    // vi har klickat någon annan stans
+    editor.setContents(selectedNote.content);
+  }
+});
+
+
+
+/* Funktionen som gör att en draft av anteckningen spara så fort du skriver (som i evernote)
+	Sparar om vi skulle vilja lägga till den igen senare
+
+editor.on('text-change', function () {
 	var delta = editor.getContents();
 	var justHtml = editor.root.innerHTML;
 	justHtmlContent.innerHTML = '<li>' + justHtml + '</li>';
 }); */
 
+<<<<<<< HEAD
 /* $('#saveDelta').click(function (){
 	window.delta = editor.getContents();
 	console.log(window.delta);
@@ -24,13 +68,18 @@ var selectedNote;
 window.addEventListener('DOMContentLoaded', (event) => {
 	loadNotes();
 	//renderNotes();
+=======
+// Laddar anteckningarna när sidan laddas/refreshas
+>>>>>>> develop
 
+window.addEventListener('load', (event) => {
+  loadNotes();
 });
 
-
-function deleteNote (id) {
-	// hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
+function deleteNote(id) {
+  // todo: hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
 }
+<<<<<<< HEAD
 function renderNotes() {
 	/* var text = editor.getText(); */
 	var justHtmlContent = document.querySelector('#notes ul');
@@ -38,19 +87,34 @@ function renderNotes() {
 	noteList.forEach(note => {
 		justHtmlContent.innerHTML += `<li id='${note.id}'><p>${note.preview}</p></li>`;
 });
+=======
+>>>>>>> develop
 
+function renderNotes() {
+  var text = editor.getText();
+  var justHtmlContent = document.querySelector('#notes ul');
+  justHtmlContent.innerHTML = '';
+  noteList.forEach(renderNote);
 }
 
-function loadNotes() {
-	noteList = localStorage.getItem("notes") ? JSON.parse(localStorage.getItem("notes")) : [];
-	renderNotes();
-	//console.log("not so early" + notes);
+// Skapar en preview av anteckingen och lägger till den i DOMen
+
+function renderNote(note) {
+  let title;
+  let titleLength = 25;
+  if (note.preview.length > titleLength) {
+    title = note.preview.substring(0, titleLength) + '...';
+  } else {
+    title = note.preview.substring(0, titleLength);
+  }
+  document.querySelector(
+    '#notes ul'
+  ).innerHTML += `<li id='${note.id}'><p class="title">${title}</p><br><p class="created">${note.created}</p>
+	<button id="favourite" class="fav"></button></li>`;
 }
 
-function saveNotes() {
-	localStorage.setItem("notes", JSON.stringify(noteList));
-}
 
+<<<<<<< HEAD
 function newNote() {
 	//localStorage.setItem("notes", JSON.stringify(noteList));
 	//make new empty note
@@ -79,13 +143,12 @@ function addNote() {
 		content: editor.getContents(),
 		preview: editor.getText(0, 12)
 	} */
+=======
+>>>>>>> develop
 
-	let note = {
-		id: Date.now(),
-		content: editor.getContents(),
-		preview: editor.getText(0, 50)
-	}
+// Sparar anteckningarna i local storage
 
+<<<<<<< HEAD
 	// push notes into array
 	noteList.push(note);
 	selectedNote = note;
@@ -98,20 +161,67 @@ function addNote() {
 /* function newNote {
 	quill.deleteText(6, 4)
 } */
+=======
+function saveNotes() {
+  localStorage.setItem('notes', JSON.stringify(noteList));
+}
+
+// Hämtar anteckningarna från local storage
+
+function loadNotes() {
+  noteList = localStorage.getItem('notes')
+    ? JSON.parse(localStorage.getItem('notes'))
+    : [];
+  renderNotes();
+}
+>>>>>>> develop
+
+// En funktion som skriver ut vilket datum och tid det är
+
+function showDate() {
+  let date = new Date();
+  let year = date.getFullYear();
+  let month = date.getMonth() + 1; // zero indexed, så +1 visar rätt månad;
+  let day = date.getDate();
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  // Om minutes inte är högre än nio, lägg till en nolla före minutes
+  minutes = minutes > 9 ? minutes : '0' + minutes;
+  let finalTime = `${year}-${month}-${day} at ${hours}:${minutes}`;
+  //bug - om "minutes" är mindre än 10 visas ex: 20:8 när det ska vara 20:08. If statement för att lösa?
+  return finalTime;
+}
+
+
+
+/* document.getElementById("todays_date").innerHTML = showdate(); */
+
+// Kopplad till "Save note"-knappen, lägger till anteckningen, pushar i den i arrayen
+// sen kör den saveNotes och renderNotes
+
+function AddNote() {
+  let note = {
+    id: Date.now(),
+    created: showDate(),
+    content: editor.getContents(),
+    preview: editor.getText(0, 50),
+  };
+
+  noteList.push(note);
+  console.log(noteList);
+
+  saveNotes();
+  renderNotes();
+
+}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
+// Further Reading:
+//https://quilljs.com/guides/working-with-deltas/
+//https://github.com/quilljs/quill/issues/774
 
 
 /* //Quill
@@ -141,23 +251,23 @@ editor.addButton.addEventListener('click', function (e) {
 	if (value == '' || value.length == 0) {
 		return false;
 	}
-	
+
    /*  if (editor.noteText.value != '') {
         addNote();
 	} */
-	
-	//push theItem into the array
+
+//push theItem into the array
 /* 	obj.name = value;
 	myNotes.push(obj);
 	console.log(myNotes); */
 
-	//create elements
-	/* const li = document.createElement('li');
-	const note = document.createElement('span'); */
+//create elements
+/* const li = document.createElement('li');
+const note = document.createElement('span'); */
 
-	// append to DOM
-	/* li.appendChild(note);
-	notes.appendChild(li); */
+// append to DOM
+/* li.appendChild(note);
+notes.appendChild(li); */
 
 /* }); */
 
@@ -186,7 +296,6 @@ function addNote() {
 	addListenerDeleteButton(deleteButton);
 } */
 
-
 /* function addListenerDeleteButton(deleteButton) {
 	deleteButton.addEventListener('click', function (e) {
 		e.stopPropagation();
@@ -197,4 +306,6 @@ function addNote() {
 function deleteNote(e) {
 	let eventNote = e.target.parentNode;
 	eventNote.parentNode.removeChild(eventNote);
-} */ 
+} */
+
+

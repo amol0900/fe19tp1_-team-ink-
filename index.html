@@ -2,41 +2,63 @@
 <html lang="en">
 
 <head>
+  <title>Page Title</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:200i,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:200i,300,500&display=swap" rel="stylesheet">
   <!-- Include stylesheet -->
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
   <!-- Include the Quill library -->
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Document</title>
 </head>
 
 <body>
   <main>
+
+    <!-- Grön navbar -->
     <nav>
+<<<<<<< HEAD
       <ul>
         <li class="a"><img src="Q.png" id="logo"></li> <!-- Todo: Change to svg -->
         <li class="a"><button id="newNote" onclick="newNote()">+</button></li>
+=======
+      <li class="a">
+        <img src="Q.png" id="logo"></li> <!-- Todo: Change to svg -->
+      <li class="a"></li>
+>>>>>>> develop
       </ul>
     </nav>
 
+    <!-- Listan där preview av anteckningarna hamnar -->
     <div id="notes">
+<<<<<<< HEAD
       <ul></ul>
+=======
+      <ul>
+        <i class="fal fa-star"></i>
+      </ul>
+
+>>>>>>> develop
     </div>
 
+    <!-- Editorn -->
     <div id="wrapper">
-      <h1></h1>
-      <div id="quillEditor"></div>
+      <div id="editor"></div>
+
+      <!-- "Save note"-knappen -->
       <div class="buttons">
+<<<<<<< HEAD
         <button id="saveNote" onclick="addNote()">Save note</button>
         <!-- <button id="loadNotes" onclick="loadNotes()">Load note</button> -->
 
+=======
+        <button id="saveNote" onclick="AddNote()">Save note</button>
+>>>>>>> develop
       </div>
+
     </div>
   </main>
 </body>
