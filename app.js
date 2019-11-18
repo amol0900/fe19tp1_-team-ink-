@@ -1,11 +1,15 @@
-var options = {
+/* var options = {
+	placeholder: 'Write your notes here',
+	theme: 'snow'
+}; */
+
+var editor = new Quill('#editor', {
   placeholder: 'Write your notes here',
   theme: 'snow'
-};
+});
 
-var editor = new Quill('#quillEditor', options);
-var icons = Quill.import('ui/icons');
-icons['bold'] = '<i class="fa fa-bold" aria-hidden="true"></i>';
+/* var editor = new Quill('#quillEditor', options); */
+
 
 var noteList = [];
 var selectedNote;
@@ -31,6 +35,8 @@ justHtmlContent.addEventListener('click', function (e) {
     editor.setContents(selectedNote.content);
   }
 });
+
+
 
 /* Funktionen som gör att en draft av anteckningen spara så fort du skriver (som i evernote)
 	Sparar om vi skulle vilja lägga till den igen senare
@@ -75,15 +81,6 @@ function renderNote(note) {
 }
 
 
-function fav() {
-
-  // if false 
-
-  // selectedNote.favourite = !selectedNote.favourite
-
-
-
-}
 
 // Sparar anteckningarna i local storage
 
@@ -109,9 +106,10 @@ function showDate() {
   let day = date.getDate();
   let hours = date.getHours();
   let minutes = date.getMinutes();
+  // Om minutes inte är högre än nio, lägg till en nolla före minutes
+  minutes = minutes > 9 ? minutes : '0' + minutes;
   let finalTime = `${year}-${month}-${day} at ${hours}:${minutes}`;
   //bug - om "minutes" är mindre än 10 visas ex: 20:8 när det ska vara 20:08. If statement för att lösa?
-
   return finalTime;
 }
 
@@ -123,30 +121,20 @@ function showDate() {
 // sen kör den saveNotes och renderNotes
 
 function AddNote() {
-	/* 	let title = {
-			id: Date.now(),
-			content: editor.getContents(),
-			preview: editor.getText(0, 12)
-		} */
-
   let note = {
     id: Date.now(),
-    created: showDate(),
     content: editor.getContents(),
-    preview: editor.getText(0, 50),
+    preview: editor.getText(0, 12),
+    created: showDate(),
     favourite: false,
   };
 
-	/* let noteCreated = {
-		time: new Date()
-	}; */
-
-  // push notes into array
-  noteList.push(note);
-
+  notlist.push(note);
   console.log(noteList);
+
   saveNotes();
   renderNotes();
+
 }
 
 
