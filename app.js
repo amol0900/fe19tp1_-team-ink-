@@ -4,8 +4,8 @@
 }; */
 
 var editor = new Quill('#editor', {
-	placeholder: 'Write your notes here',
-	theme: 'snow'
+  placeholder: 'Write your notes here',
+  theme: 'snow'
 });
 
 /* var editor = new Quill('#quillEditor', options); */
@@ -16,14 +16,14 @@ var selectedNote;
 
 // Laddar in anteckingen man klickar på i previewlistan till editorn
 
-var justHtmlContent = document.querySelector('#notes ul');
+/* var justHtmlContent = document.querySelector('#notes ul');
 justHtmlContent.addEventListener('click', function (e) {
 	let clickedID = e.target.closest('button').id;
 	console.log('clickedID: ' + clickedID);
 	selectedNote = noteList.find((note) => note.id === Number(clickedID));
 	console.log(selectedNote);
 	editor.setContents(selectedNote.content);
-});
+}); */
 
 var justHtmlContent = document.querySelector('#notes ul');
 justHtmlContent.addEventListener('click', function (e) {
@@ -83,10 +83,10 @@ function renderNote(note) {
   } else {
     title = note.preview.substring(0, titleLength);
   }
-  console.log("fav: " + note.favourite)
   document.querySelector(
     '#notes ul'
-  ).innerHTML += `<li id='${note.id}'>${title}: Created: ${note.created}<button class="fav" onclick="document.getElementById('noteList')">Mark as favorite</button>`;
+  ).innerHTML += `<li id='${note.id}'><p class="title">${title}</p><br><p class="created">${note.created}</p>
+	<button id="favourite" class="fav"></button></li>`;
 }
 
 
@@ -130,14 +130,14 @@ function showDate() {
 // sen kör den saveNotes och renderNotes
 
 function AddNote() {
-	let note = {
-		id: Date.now(),
-		created: showDate(),
-		content: editor.getContents(),
-		preview: editor.getText(0, 50),
-	};
+  let note = {
+    id: Date.now(),
+    created: showDate(),
+    content: editor.getContents(),
+    preview: editor.getText(0, 50),
+  };
 
-  notlist.push(note);
+  noteList.push(note);
   console.log(noteList);
 
   saveNotes();
