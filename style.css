@@ -83,11 +83,6 @@ li.a {
 	margin-top:0;
 }
 
-/* #star {
-	width:11%;
-	outline:none;
-} */
-
 #favourite {
 width:20px;
 height:20px;
@@ -97,12 +92,14 @@ border:none;
 background-color:transparent;
 align-self:flex-end;
 outline:none;
+cursor:pointer;
 /* margin-right:2px; */
 }
 
 #favourite:hover {
 	background-image: url("starFill.svg");
 }
+
 
 /* Editor wrapper */
 
@@ -121,10 +118,11 @@ outline:none;
 /* Editor */
 
 #editor{
+width:1170px;
 height:500px;
-  overflow: auto;
-  background-color: white;
-  border: none !important;
+overflow: auto;
+background-color: white;
+border: none !important;
 }
 
 /* Toolbar */

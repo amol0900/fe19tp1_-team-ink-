@@ -46,6 +46,20 @@ justHtmlContent.addEventListener('click', function (e) {
 });
 
 
+/* function changeDivImage() {
+	var imgPath = new String();
+	imgPath = document.getElementById("favourite").style.backgroundImage;
+
+	if (imgPath == "url(star.svg)" || imgPath == "") {
+		document.getElementById("favourite").style.backgroundImage = "url(starFill.svg)";
+	}
+	else {
+		document.getElementById("favourite").style.backgroundImage = "url(star.svg)";
+	}
+
+} */
+
+
 
 /* Funktionen som gör att en draft av anteckningen spara så fort du skriver (som i evernote)
 	Sparar om vi skulle vilja lägga till den igen senare
@@ -86,7 +100,7 @@ function renderNote(note) {
   document.querySelector(
     '#notes ul'
   ).innerHTML += `<li id='${note.id}'><p class="title">${title}</p><br><p class="created">${note.created}</p>
-	<button id="favourite" class="fav"></button></li>`;
+	<button id="favourite"></button></li>`;
 }
 
 
@@ -123,9 +137,6 @@ function showDate() {
 }
 
 
-
-/* document.getElementById("todays_date").innerHTML = showdate(); */
-
 // Kopplad till "Save note"-knappen, lägger till anteckningen, pushar i den i arrayen
 // sen kör den saveNotes och renderNotes
 
@@ -144,98 +155,3 @@ function AddNote() {
   renderNotes();
 
 }
-
-
-
-
-
-// Further Reading:
-//https://quilljs.com/guides/working-with-deltas/
-//https://github.com/quilljs/quill/issues/774
-
-
-/* //Quill
-
-var toolbarOptions = [ [ 'bold', 'italic' ], [ 'link', 'image' ] ];
-
-var quill = new Quill('#editor', {
-	theme: 'snow'
-});
-
-//end Quill
-
-const editor = {};
-editor.noteText = document.querySelector('#editor');
-editor.addButton = document.querySelector('#formAddButton');
-const notes = document.querySelector('.notes ul');
-var myNotes = [];
-var obj = {};
-var count = 0;
-
-// Event Listeners
-editor.addButton.addEventListener('click', function (e) {
-	e.preventDefault();
-	var value = editor.noteText.value;
-
-	//Is stopped if the string is empty
-	if (value == '' || value.length == 0) {
-		return false;
-	}
-
-   /*  if (editor.noteText.value != '') {
-        addNote();
-	} */
-
-//push theItem into the array
-/* 	obj.name = value;
-	myNotes.push(obj);
-	console.log(myNotes); */
-
-//create elements
-/* const li = document.createElement('li');
-const note = document.createElement('span'); */
-
-// append to DOM
-/* li.appendChild(note);
-notes.appendChild(li); */
-
-/* }); */
-
-/* function newAddNote() {
-	let note = {
-		id: Date.now(),
-		text: quill.root.innerHTML
-	}
-	console.log(quill.root.innerHTML)
-	console.log(quill.getContents())
-	return (note);
-}
-
-function addNote() {
-	let deleteButton = document.createElement('span');
-	let newnote = newAddNote();
-	notes.innerHTML = `<li>${newnote.text}</li>`;
-	deleteButton.classList.add('note-delete');
-	deleteButton.innerHTML = '&times;';
-	notes.appendChild(deleteButton);
-	notes.appendChild(note);
-
-	notes.noteText.value = '';
-	editor.noteText.focus();
-
-	addListenerDeleteButton(deleteButton);
-} */
-
-/* function addListenerDeleteButton(deleteButton) {
-	deleteButton.addEventListener('click', function (e) {
-		e.stopPropagation();
-		deleteNote(e);
-	});
-}
-
-function deleteNote(e) {
-	let eventNote = e.target.parentNode;
-	eventNote.parentNode.removeChild(eventNote);
-} */
-
-
