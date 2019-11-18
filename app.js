@@ -124,6 +124,42 @@ function showDate() {
 
 
 
+
+
+
+
+
+
+function newNote() {
+  //localStorage.setItem("notes", JSON.stringify(noteList));
+  //make new empty note
+  //var editor = new Quill('#quillEditor', options);
+  //saveNotes();
+
+  // en note är laddad, anävnder klicka rpå plusset, då ska följandehända:
+  // 1. spara ner befintlig note.
+  selectedNote.contents = editor.getContents();
+  selectedNote.preview = editor.getText(0, 12);
+  saveNotes();
+  renderNotes();
+  editor.setText('');
+  //addNote();
+}
+
+
+
+
+
+
+//DÖP OM DENNA TILL saveNote ELLER LIKNANDE. KAN EV RADERAS SENARE
+
+
+
+
+
+
+
+
 /* document.getElementById("todays_date").innerHTML = showdate(); */
 
 // Kopplad till "Save note"-knappen, lägger till anteckningen, pushar i den i arrayen
