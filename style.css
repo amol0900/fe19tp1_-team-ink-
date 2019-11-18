@@ -44,12 +44,13 @@ li.a {
 }
 
 #notes ul {
-	width: 200px;
+	width: auto;
 	background-color: #eeeeee;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	cursor: pointer;
+	flex-grow:1;
 }
 
 #notes ul li {
@@ -83,6 +84,11 @@ li.a {
 	margin-top:0;
 }
 
+/* #star {
+	width:11%;
+	outline:none;
+} */
+
 #favourite {
 width:20px;
 height:20px;
@@ -92,7 +98,6 @@ border:none;
 background-color:transparent;
 align-self:flex-end;
 outline:none;
-cursor:pointer;
 /* margin-right:2px; */
 }
 
@@ -100,11 +105,10 @@ cursor:pointer;
 	background-image: url("starFill.svg");
 }
 
-
 /* Editor wrapper */
 
 #wrapper {
-	
+	flex-grow:1
 }
 
 /* Editor */
@@ -118,11 +122,10 @@ cursor:pointer;
 /* Editor */
 
 #editor{
-width:1170px;
 height:500px;
-overflow: auto;
-background-color: white;
-border: none !important;
+  overflow: auto;
+  background-color: white;
+  border: none !important;
 }
 
 /* Toolbar */
