@@ -14,44 +14,79 @@ editor.on('text-change', function () {
   justHtmlContent.innerHTML = justHtml;
 });
 
-// function addNote() {
-//   let note = {
-//     id: Date.now(),
-//     content: editor.getContents(),
-//     favourite: false,
-//     deleted: false,
-//     modified: Date.now()
-//   };
-// }
-
-
-
-
+function addNote() {
+  let note = {
+    id: Date.now(),
+    content: editor.getContents(),
+    favourite: false,
+    deleted: false,
+    modified: Date.now()
+  };
 }
+
+
+// store data in local storage
+localStorage.setItem("name")
+localStorage.setItem("age", 50)
+
+
+// get data from local storage
+// let name = localStorage.getItem("name");
+// let age = localStorage.getItem("age");
+
+// console.log(name, age);
+
+
+// deleting data from local storage
+// localStorage.removeItem("name");
+
+// localStorage.clear();
+
+// name = localStorage.getItem("name");
+// age = localStorage.getItem("age");
+
+// console.log(name, age);
+
+
+// updating data
+// localStorage.setItem("name", "luigi");
+// localStorage.age = "40";
+
+// age = localStorage.getItem("age");
+// name = localStorage.getItem("name");
+// console.log(name, age);
+
+
+
+// const todos = [
+//   { text: "play mariokart", author: "shaun" },
+//   { text: "buy some milk", author: "mario" },
+//   { text: "buy some bread", author: "luigi" },
+// ];
+
+
+// console.log(JSON.stringify(todos))
+
+// // converts to strings
+// localStorage.setItem("todos", JSON.stringify(todos))
+
+// // converts to arrays 
+// const store = localStorage.getItem("todos");
+// console.log(JSON.parse(stored));
+
+
+
+
+
+
+
+
+
+
 
 // Further Reading:
 //https://quilljs.com/guides/working-with-deltas/
 //https://github.com/quilljs/quill/issues/774
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* //Quill
