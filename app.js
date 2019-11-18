@@ -43,8 +43,18 @@ justHtmlContent.addEventListener('click', function (e) {
     // vi har klickat någon annan stans
     editor.setContents(selectedNote.content);
   }
+  // Om selectedNote är en favorite förblir stjärnan ifylld och vice versa.
+  (selectedNote.favourite) ? document.getElementById("favourite").style.backgroundImage = "url(starFill.svg)" : 
+  document.getElementById("favourite").style.backgroundImage = "url(star.svg)"
 });
 
+/* function hover(){
+  document.getElementById("favourite").style.backgroundImage = "url(starFill.svg)"
+}
+
+function hoverOff() {
+  document.getElementById("favourite").style.backgroundImage = "url(star.svg)"
+} */
 
 
 /* Funktionen som gör att en draft av anteckningen spara så fort du skriver (som i evernote)
@@ -100,11 +110,12 @@ function saveNotes() {
 // Hämtar anteckningarna från local storage
 
 function loadNotes() {
-  noteList = localStorage.getItem('notes')
-    ? JSON.parse(localStorage.getItem('notes'))
-    : [];
+  noteList = localStorage.getItem('notes') ? JSON.parse(localStorage.getItem('notes')) : [];
   renderNotes();
 }
+
+
+
 
 // En funktion som skriver ut vilket datum och tid det är
 

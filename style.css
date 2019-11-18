@@ -44,13 +44,12 @@ li.a {
 }
 
 #notes ul {
-	width: auto;
+	width: 200px;
 	background-color: #eeeeee;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	cursor: pointer;
-	flex-grow:1;
 }
 
 #notes ul li {
@@ -98,34 +97,30 @@ border:none;
 background-color:transparent;
 align-self:flex-end;
 outline:none;
+cursor:pointer;
 /* margin-right:2px; */
 }
 
-#favourite:hover {
+/* #favourite:hover {
 	background-image: url("starFill.svg");
-}
+} */
 
 /* Editor wrapper */
 
-#wrapper {
+/* #wrapper {
 	flex-grow:1
-}
-
-/* Editor */
-
-/* #editor {
-	width: 1000px;
-	height: 500px;
-	background-color: white;
 } */
 
 /* Editor */
 
+/* Editor */
+
 #editor{
-height:500px;
-  overflow: auto;
-  background-color: white;
-  border: none !important;
+	width:1170px;
+	height:500px;
+	overflow: auto;
+	background-color: white;
+	border: none !important;
 }
 
 /* Toolbar */
