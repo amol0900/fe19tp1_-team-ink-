@@ -1,20 +1,23 @@
-var options = {
+/* var options = {
 	placeholder: 'Write your notes here',
 	theme: 'snow'
-};
+}; */
 
-var editor = new Quill('#quillEditor', options);
-var icons = Quill.import('ui/icons');
-icons['bold'] = '<i class="fa fa-bold" aria-hidden="true"></i>';
+var editor = new Quill('#editor', {
+	placeholder: 'Write your notes here',
+	theme: 'snow'
+});
+
+/* var editor = new Quill('#quillEditor', options); */
 
 var noteList = [];
 var selectedNote;
 
 // Laddar in anteckingen man klickar på i previewlistan till editorn
 
-var justHtmlContent = document.querySelector('#notes ul');
-justHtmlContent.addEventListener('click', function(e) {
-	let clickedID = e.target.closest('li').id;
+/* var justHtmlContent = document.querySelector('#notes ul');
+justHtmlContent.addEventListener('click', function (e) {
+	let clickedID = e.target.closest('button').id;
 	console.log('clickedID: ' + clickedID);
 	selectedNote = noteList.find((note) => note.id === Number(clickedID));
 	console.log(selectedNote);
@@ -22,7 +25,41 @@ justHtmlContent.addEventListener('click', function(e) {
 	// undersök om klicket var på knappen
 	console.log(e.target.classList.contains('fav'));
 	editor.setContents(selectedNote.content);
+}); */
+
+var justHtmlContent = document.querySelector('#notes ul');
+justHtmlContent.addEventListener('click', function(e) {
+	let clickedID = e.target.closest('li').id;
+	console.log('clickedID: ' + clickedID);
+	selectedNote = noteList.find((note) => note.id === Number(clickedID));
+	/* console.log(selectedNote); */
+
+	// undersök om klicket var på knappen
+	/* console.log(e.target.classList.contains('fav')); */
+	if (e.target.classList.contains('fav')) {
+		// vi har klickat på favourite-knappen
+		selectedNote.favourite = !selectedNote.favourite;
+		saveNotes();
+	} else {
+		// vi har klickat någon annan stans
+		editor.setContents(selectedNote.content);
+	}
+	// Om selectedNote är en favorite förblir stjärnan ifylld och vice versa.
+	selectedNote.favourite
+		? (document.getElementById('favourite').style.backgroundImage =
+				'url(starFill.svg)')
+		: (document.getElementById('favourite').style.backgroundImage =
+				'url(star.svg)');
+	console.log(selectedNote.favourite);
 });
+
+/* function hover(){
+  document.getElementById("favourite").style.backgroundImage = "url(starFill.svg)"
+}
+
+function hoverOff() {
+  document.getElementById("favourite").style.backgroundImage = "url(star.svg)"
+} */
 
 /* Funktionen som gör att en draft av anteckningen spara så fort du skriver (som i evernote)
 	Sparar om vi skulle vilja lägga till den igen senare
@@ -62,12 +99,9 @@ function renderNote(note) {
 	}
 	document.querySelector(
 		'#notes ul'
-	).innerHTML += `<button class='fav'>star item</button> <li id='${note.id}'>${title}: Created: ${note.created} </li>`;
+	).innerHTML += `<li id='${note.id}'><p class="title">${title}</p><br><p class="created">${note.created}</p>
+	<button id="favourite" class="fav hoverFav"></button></li>`;
 }
-
-/* function onlyFavs(note) {
-	return note.favourite;
-} */
 
 // Sparar anteckningarna i local storage
 
@@ -93,6 +127,8 @@ function showDate() {
 	let day = date.getDate();
 	let hours = date.getHours();
 	let minutes = date.getMinutes();
+	// Om minutes inte är högre än nio, lägg till en nolla före minutes
+	minutes = minutes > 9 ? minutes : '0' + minutes;
 	let finalTime = `${year}-${month}-${day} at ${hours}:${minutes}`;
 	//bug - om "minutes" är mindre än 10 visas ex: 20:8 när det ska vara 20:08. If statement för att lösa?
 	return finalTime;
@@ -104,31 +140,23 @@ function showDate() {
 // sen kör den saveNotes och renderNotes
 
 function AddNote() {
-	/* 	let title = {
-			id: Date.now(),
-			content: editor.getContents(),
-			preview: editor.getText(0, 12)
-		} */
-
 	let note = {
 		id: Date.now(),
 		created: showDate(),
 		content: editor.getContents(),
-		preview: editor.getText(0, 50),
-		favourite: false
+		preview: editor.getText(0, 50)
 	};
 
-	/* let noteCreated = {
-		time: new Date()
-	}; */
-
-	// push notes into array
 	noteList.push(note);
-
 	console.log(noteList);
+
 	saveNotes();
 	renderNotes();
 }
+
+// Further Reading:
+//https://quilljs.com/guides/working-with-deltas/
+//https://github.com/quilljs/quill/issues/774
 
 /* //Quill
 

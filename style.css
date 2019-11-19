@@ -2,7 +2,6 @@ html,
 body {
 	margin: 0;
 	padding: 0;
-	/* background-color:#31bfaf; */
 }
 main {
 	display: flex;
@@ -44,57 +43,121 @@ li.a {
 }
 
 #notes ul {
-	width: 210px;
+	width: 200px;
 	background-color: #eeeeee;
 	list-style-type: none;
 	margin: 0;
-	padding: 10px;
+	padding: 0;
 	cursor: pointer;
 }
 
 #notes ul li {
-	width: 210px;
+	display: flex;
+	flex-direction: column;
+	width: auto;
 	height: 120px;
-	margin: 0;
-	border-bottom: 1px solid #c7c7c7;
-	font-family: 'Arial'; /* Montserrat */
+	border-bottom: 1px solid #dadada;
 	font-size: 0.8em;
 	line-height: 1.5em;
 	overflow-wrap: break-word;
-	padding-top: 10px;
+	padding: 10px;
+	background-size: cover;
+}
+
+#notes ul li:hover {
+	background-color: rgba(230, 230, 230, 0.933);
+}
+
+.title {
+	font-family: helvetica;
+	font-size: 1.2em;
+	margin-bottom: 0;
+}
+
+.created {
+	font-family: helvetica;
+	font-weight: lighter;
+	color: #808080;
+	margin-top: 0;
+}
+
+/* #star {
+	width:11%;
+	outline:none;
+} */
+
+#favourite {
+	width: 20px;
+	height: 20px;
+	background-image: url("star.svg");
+	background-repeat: no-repeat;
+	border: none;
+	background-color: transparent;
+	align-self: flex-end;
+	outline: none;
+	cursor: pointer;
+	/* margin-right:2px; */
+	transition: all 0.3s ease, filter 1ms;
+}
+
+.hoverFav:hover {
+	filter: brightness(0) saturate(100%) invert(58%) sepia(39%)
+		saturate(678%) hue-rotate(124deg) brightness(102%) contrast(91%);
+	transform: scale(1.2);
+}
+.hoverFav:active {
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(4px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
 
 /* Editor wrapper */
 
-#wrapper {
-	margin: 0 auto;
+/* #wrapper {
+	flex-grow:1
+} */
+
+/* Editor */
+
+/* Editor */
+
+#editor {
+	width: 1170px;
+	height: 500px;
+	overflow: auto;
+	background-color: white;
+	border: none !important;
 }
 
 /* Toolbar */
 
 .ql-toolbar.ql-snow {
-	/* background-color:#31bfaf; */
-	/* border: none !important;  */
-	/* -moz-box-shadow:    inset 0 0 20px #bfbfbf;
-   -webkit-box-shadow: inset 0 0 20px  #bfbfbf;
-   box-shadow:         inset 0 0 20px  #bfbfbf;  */
+	margin-top: 0px;
+	width: 100%;
+	background-color: #31bfaf !important;
+	border: none !important;
 }
 
-.ql-formats {
+.ql-snow .ql-fill,
+.ql-snow .ql-stroke.ql-fill {
+	fill: white !important;
+}
+
+.ql-snow .ql-picker {
 	color: white !important;
+	background-color: #31bfaf;
 }
 
-button.ql-bold {
-	color: white !important;
+.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
+	stroke: white !important;
+}
+.ql-snow .ql-toolbar.snow,
+.ql-snow .ql-stroke {
+	stroke: white !important;
 }
 
-/* Editor */
-
-#quillEditor {
-	width: 1000px;
-	height: 500px;
-	background-color: white;
-	/* -moz-box-shadow:    inset 0 0 20px #bfbfbf;
-   -webkit-box-shadow: inset 0 0 20px  #bfbfbf;
-   box-shadow:         inset 0 0 20px  #bfbfbf; */
+.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+	background-color: #31bfaf;
+	border: none;
+	border-radius: 5px;
 }
