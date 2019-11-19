@@ -128,34 +128,25 @@ function showDate() {
 
 
 
-
+//vid klick på "+" sparas aktuell note ned, renderas och editor töms.
 
 function newNote() {
-  //localStorage.setItem("notes", JSON.stringify(noteList));
-  //make new empty note
-  //var editor = new Quill('#quillEditor', options);
-  //saveNotes();
-
-  // en note är laddad, anävnder klicka rpå plusset, då ska följandehända:
-  // 1. spara ner befintlig note.
-  selectedNote.contents = editor.getContents();
-  selectedNote.preview = editor.getText(0, 12);
-  saveNotes();
-  renderNotes();
+  addNote();
   editor.setText('');
-  //addNote();
 }
 
+//todo: spara+rendera inte igen om redan sparad. 
 
+/*   selectedNote.contents = editor.getContents();
+  selectedNote.preview = editor.getText(0, 12); */
 
+/*   selectedNote = noteList.find((note) => note.id === Number(clickedID)); */
 
+/* selectedNote
 
-
-//DÖP OM DENNA TILL saveNote ELLER LIKNANDE. KAN EV RADERAS SENARE
-
-
-
-
+  if (localStorage.getItem(selectedNote) === null) {
+      addNote()
+    }  */
 
 
 
@@ -165,7 +156,7 @@ function newNote() {
 // Kopplad till "Save note"-knappen, lägger till anteckningen, pushar i den i arrayen
 // sen kör den saveNotes och renderNotes
 
-function AddNote() {
+function addNote() {
   let note = {
     id: Date.now(),
     created: showDate(),
