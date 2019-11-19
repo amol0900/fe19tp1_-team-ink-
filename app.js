@@ -18,6 +18,9 @@ justHtmlContent.addEventListener('click', function(e) {
 	console.log('clickedID: ' + clickedID);
 	selectedNote = noteList.find((note) => note.id === Number(clickedID));
 	console.log(selectedNote);
+
+	// undersök om klicket var på knappen
+	console.log(e.target.classList.contains('fav'));
 	editor.setContents(selectedNote.content);
 });
 
@@ -59,8 +62,12 @@ function renderNote(note) {
 	}
 	document.querySelector(
 		'#notes ul'
-	).innerHTML += `<li id='${note.id}'>${title}: Created: ${note.created} </li>`;
+	).innerHTML += `<button class='fav'>star item</button> <li id='${note.id}'>${title}: Created: ${note.created} </li>`;
 }
+
+/* function onlyFavs(note) {
+	return note.favourite;
+} */
 
 // Sparar anteckningarna i local storage
 
@@ -107,7 +114,8 @@ function AddNote() {
 		id: Date.now(),
 		created: showDate(),
 		content: editor.getContents(),
-		preview: editor.getText(0, 50)
+		preview: editor.getText(0, 50),
+		favourite: false
 	};
 
 	/* let noteCreated = {
