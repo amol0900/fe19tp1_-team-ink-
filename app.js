@@ -3,10 +3,28 @@
 	theme: 'snow'
 }; */
 
-var editor = new Quill('#editor', {
+toolbarOptions = [
+  ['picker'],
+  ['bold', 'italic'], 
+  ['link', 'image'],
+  //{ size: ['small', false, 'large', 'huge'] }
+]
+
+/* var options = {
   placeholder: 'Write your notes here',
   theme: 'snow'
-});
+  modules: {
+    toolbar: toolbarOptions
+  }
+} */
+
+var editor = new Quill('#editor', {
+  placeholder: 'Write your notes here',
+  theme: 'snow',
+  modules: {
+      toolbar: toolbarOptions
+    
+  });
 
 /* var editor = new Quill('#quillEditor', options); */
 
@@ -175,7 +193,7 @@ function addNote() {
     preview: editor.getText(0, 50),
   };
 
-  noteList.push(note);
+  noteList.unshift(note);
   console.log(noteList);
 
   saveNotes();
