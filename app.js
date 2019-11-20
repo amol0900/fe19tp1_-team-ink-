@@ -32,7 +32,6 @@ justHtmlContent.addEventListener('click', function(e) {
 	let clickedID = e.target.closest('li').id;
 	console.log('clickedID: ' + clickedID);
 	selectedNote = noteList.find((note) => note.id === Number(clickedID));
-	/* console.log(selectedNote); */
 
 	// undersök om klicket var på knappen
 	/* console.log(e.target.classList.contains('fav')); */
@@ -147,7 +146,7 @@ function AddNote() {
 		preview: editor.getText(0, 50)
 	};
 
-	noteList.push(note);
+	noteList.unshift(note);
 	console.log(noteList);
 
 	saveNotes();

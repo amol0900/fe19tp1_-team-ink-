@@ -9,7 +9,7 @@ main {
 
 nav {
 	width: 70px;
-	height: 704px;
+	height: 100vh;
 	background-color: #31bfaf;
 }
 
@@ -34,12 +34,24 @@ li.a {
 	height: 70%;
 }
 
+#myFavs {
+	width: 30px;
+	height: 30px;
+	background-image: url(“starFill.svg”);
+	background-repeat: no-repeat;
+	border: none;
+	background-color: transparent;
+	outline: none;
+	cursor: pointer;
+}
+
 /* Listan där preview av anteckningarna hamnar */
 
 #notes {
 	display: flex;
 	flex-direction: row;
 	overflow-wrap: break-word;
+	height: 100vh;
 }
 
 #notes ul {
@@ -108,7 +120,6 @@ li.a {
 .hoverFav:active {
 	-webkit-transform: perspective(1px) translateZ(0);
 	transform: perspective(4px) translateZ(0);
-	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
 
 /* Editor wrapper */
