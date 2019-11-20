@@ -115,23 +115,35 @@ function showDate() {
 	//bug - om "minutes" är mindre än 10 visas ex: 20:8 när det ska vara 20:08. If statement för att lösa?
 	return finalTime;
 }
+//vid klick på "+" sparas aktuell note ned, renderas och editor töms.
+//todo: spara+rendera inte igen om redan sparad. detta gäller eg. addNote i stort.
 
-/* document.getElementById("todays_date").innerHTML = showdate(); */
+function newNote() {
+	addNote();
+	editor.setText('');
+}
 
-// Kopplad till "Save note"-knappen, lägger till anteckningen, pushar i den i arrayen
-// sen kör den saveNotes och renderNotes
+//Något Kristian började med
+/*   selectedNote.contents = editor.getContents();
+  selectedNote.preview = editor.getText(0, 12); */
 
-function AddNote() {
-	//om det finns en selected note uppdatera dens kontent och preview annars körs koden nedan
+//Kanske något sånt här?
+/*   if (localStorage.getItem(selectedNote) === null) {
+      addNote()
+    } */
+
+//Är denna raden användbar?
+//selectedNote = noteList.find((note) => note.id === Number(clickedID));
+
+function addNote() {
 	let note = {
 		id: Date.now(),
 		created: showDate(),
 		content: editor.getContents(),
-		preview: editor.getText(0, 50),
-		favourite: false
+		preview: editor.getText(0, 50)
 	};
 
-	noteList.unshift(note);
+	noteList.push(note);
 	console.log(noteList);
 
 	saveNotes();
