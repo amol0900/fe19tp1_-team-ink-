@@ -4,26 +4,20 @@
 }; */
 
 toolbarOptions = [
-  ['picker'],
-  ['bold', 'italic'], 
+  [{ 'header': [1, 2, 3, 4, false] }],
+  ['bold', 'italic', 'underline'], 
   ['link', 'image'],
-  //{ size: ['small', false, 'large', 'huge'] }
+  [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+  ['clean']
 ]
 
-/* var options = {
-  placeholder: 'Write your notes here',
-  theme: 'snow'
+var editor = new Quill('#editor', {
   modules: {
     toolbar: toolbarOptions
-  }
-} */
-
-var editor = new Quill('#editor', {
+  },
   placeholder: 'Write your notes here',
   theme: 'snow',
-  modules: {
-      toolbar: toolbarOptions
-    
+
   });
 
 /* var editor = new Quill('#quillEditor', options); */
@@ -186,6 +180,7 @@ function newNote() {
 // sen kör den saveNotes och renderNotes
 
 function addNote() {
+  //om det finns en selected not, uppdatera dens content 
   let note = {
     id: Date.now(),
     created: showDate(),

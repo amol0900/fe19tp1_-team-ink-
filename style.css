@@ -154,3 +154,10 @@ cursor:pointer;
 	border:none;
 	border-radius:5px;
 }
+
+/* textstilar editor */
+
+h1 {
+	font-family: 'Times New Roman', Times, serif;
+	font-weight: 400;
+}
