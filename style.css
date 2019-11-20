@@ -159,3 +159,36 @@ height:500px;
 	border:none;
 	border-radius:5px;
 }
+
+
+.icon-bar{
+
+width: 100px;
+background-color:#31bfaf;
+}
+
+.icon-bar a{
+display: block;
+color: white;
+width: 200px;
+height: 100px;
+margin: auto;
+font-size: 40px;
+transition: all 0.3 ease;
+left: right 90px;
+}
+
+.icon-bar a:hover{
+background-color: #31bfaf;
+}
+
+.active{
+background-color: #31bfaf;
+}
+
+
+.icon-container{
+
+padding: 25px;
+
+}
