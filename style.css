@@ -9,7 +9,7 @@ main {
 
 nav {
 	width: 70px;
-	height: 100vh;
+	height: auto;
 	background-color: #31bfaf;
 }
 
@@ -51,7 +51,7 @@ li.a {
 	display: flex;
 	flex-direction: row;
 	overflow-wrap: break-word;
-	height: 100vh;
+	height: auto;
 }
 
 #notes ul {
@@ -98,7 +98,7 @@ li.a {
 	outline:none;
 } */
 
-#favourite {
+.favourite {
 	width: 20px;
 	height: 20px;
 	background-image: url("star.svg");
@@ -110,6 +110,9 @@ li.a {
 	cursor: pointer;
 	/* margin-right:2px; */
 	transition: all 0.3s ease, filter 1ms;
+}
+.favFilled {
+	background-image: url("starFill.svg");
 }
 
 .hoverFav:hover {
