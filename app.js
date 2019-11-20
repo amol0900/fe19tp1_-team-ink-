@@ -43,18 +43,33 @@ justHtmlContent.addEventListener('click', function (e) {
     // vi har klickat någon annan stans
     editor.setContents(selectedNote.content);
   }
+
+  var favButton = document.getElementById("favourite");
+
+  if (e.target.classList.contains("fav")) {
+  favButton.className = 'none';
+  document.getElementById("favourite").style.backgroundImage = "url(starFill.svg)"
+
+  }
+
+  else if (!e.target.classList.contains("fav")) {
+    document.getElementById("favourite").style.backgroundImage = "url(star.svg)"
+    favButton.className = 'fav';
+  }
+
   // Om selectedNote är en favorite förblir stjärnan ifylld och vice versa.
-  (selectedNote.favourite) ? document.getElementById("favourite").style.backgroundImage = "url(starFill.svg)" : 
-  document.getElementById("favourite").style.backgroundImage = "url(star.svg)"
+
+/* document.querySelector('#favourite') = (selectedNote.favourite = true) ? document.querySelector('#favourite').style.backgroundImage = "url(starFill.svg)" : document.querySelector('#favourite').style.backgroundImage = "url(star.svg)" */
+
+/*   (selectedNote.favourite) ? document.getElementById("favourite").style.backgroundImage = "url(starFill.svg)" : 
+  document.getElementById("favourite").style.backgroundImage = "url(star.svg)" */
 });
 
-/* function hover(){
-  document.getElementById("favourite").style.backgroundImage = "url(starFill.svg)"
-}
-
-function hoverOff() {
-  document.getElementById("favourite").style.backgroundImage = "url(star.svg)"
+/* function toggle(x) {
+  var favo = document.getElementById("favourite").style.backgroundImage = "url(starFill.svg)" 
+  x.classList.toggle("favo");
 } */
+
 
 
 /* Funktionen som gör att en draft av anteckningen spara så fort du skriver (som i evernote)
@@ -100,7 +115,6 @@ function renderNote(note) {
 }
 
 
-
 // Sparar anteckningarna i local storage
 
 function saveNotes() {
@@ -141,6 +155,11 @@ function showDate() {
 // sen kör den saveNotes och renderNotes
 
 function AddNote() {
+  // om det finns en selectedNote uppdatera dens content och preview annars kör koden nedan
+  //selectedNote.content = editor.getContents()
+  //selectedNote = get.Text(0, 50),
+  //saveNotes();
+  
   let note = {
     id: Date.now(),
     created: showDate(),

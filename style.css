@@ -2,6 +2,7 @@ html,
 body {
 	margin: 0;
 	padding: 0;
+	height:100wh;
 	
 }
 main {
@@ -10,7 +11,7 @@ main {
 
 nav {
 	width: 70px;
-	height: 704px;
+	height:100wh;
 	background-color: #31bfaf;
 }
 
@@ -21,6 +22,10 @@ nav ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+}
+
+nav li {
+	list-style-type: none;
 }
 
 li.a {
@@ -35,12 +40,25 @@ li.a {
 	height: 70%;
 }
 
+#myFavs {
+width:30px;
+height:30px;
+background-image: url("starFill.svg");
+background-repeat:no-repeat;
+border:none;
+background-color:transparent;
+outline:none;
+cursor:pointer;
+/* margin-right:2px; */
+}
+
 /* Listan där preview av anteckningarna hamnar */
 
 #notes {
 	display: flex;
 	flex-direction: row;
 	overflow-wrap: break-word;
+	overflow:scroll;
 }
 
 #notes ul {
@@ -70,7 +88,7 @@ li.a {
 }
 
 .title {
-	font-family: helvetica;
+	font-family: 'Playfair Display';
 	font-size:1.2em;
 	margin-bottom:0;
 	
