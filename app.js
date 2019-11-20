@@ -129,24 +129,24 @@ function showDate() {
 
 
 //vid klick på "+" sparas aktuell note ned, renderas och editor töms.
+//todo: spara+rendera inte igen om redan sparad. detta gäller eg. addNote i stort.
 
 function newNote() {
   addNote();
   editor.setText('');
 }
 
-//todo: spara+rendera inte igen om redan sparad. 
-
+//Något Kristian började med
 /*   selectedNote.contents = editor.getContents();
   selectedNote.preview = editor.getText(0, 12); */
 
-/*   selectedNote = noteList.find((note) => note.id === Number(clickedID)); */
-
-/* selectedNote
-
-  if (localStorage.getItem(selectedNote) === null) {
+//Kanske något sånt här?
+/*   if (localStorage.getItem(selectedNote) === null) {
       addNote()
-    }  */
+    } */
+
+//Är denna raden användbar?
+//selectedNote = noteList.find((note) => note.id === Number(clickedID));
 
 
 
