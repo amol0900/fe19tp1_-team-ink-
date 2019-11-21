@@ -21,30 +21,20 @@
     <!-- Grön navbar -->
     <nav>
       <ul>
+      <li class="a">
+        <img src="Q.png" id="logo"></li> <!-- Todo: Change to svg -->
         <li class="a">
-          <a href="landingpage.html">
-            <img src="Q.png" id="logo"></li> <!-- Todo: Change to svg -->
-        </a>
-        <li class="a"></li>
-
-
-
-
-        </div>
-
-
-
-
+          <button id="myFavs"></button>
         </li>
-
-
+      <li class="a"></li>
+      <li class="a"><button id="newNote" onclick="newNote()">+</button></li>
       </ul>
     </nav>
 
     <!-- Listan där preview av anteckningarna hamnar -->
     <div id="notes">
       <ul>
-        <i class="fal fa-star"></i>
+        
       </ul>
 
     </div>
@@ -55,7 +45,7 @@
 
       <!-- "Save note"-knappen -->
       <div class="buttons">
-        <button id="saveNote" onclick="AddNote()">Save note</button>
+        <button id="saveNote" onclick="addNote()">Save note</button>
       </div>
 
     </div>
