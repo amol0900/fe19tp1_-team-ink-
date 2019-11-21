@@ -8,7 +8,65 @@ var editor = new Quill('#editor', {
   theme: 'snow'
 });
 
-/* var editor = new Quill('#quillEditor', options); */
+class Counter {
+  constructor(quill, options) {
+    this.quill = quill;
+    this.options = options;
+    this.container = document.querySelector(options.container);
+    quill.on('text-change', this.update.bind(this));
+    this.update();  // Account for initial contents
+  }
+
+  calculate() {
+    let text = this.quill.getText();
+    if (this.options.unit === 'characters') {
+      text = text.trim();
+      // Splitting empty text returns a non-empty array
+      return text.length > 0 ? text.split(/\s+/).length : 0;
+    } else {
+      return text.length;
+    }
+  }
+
+  update() {
+    var length = this.calculate();
+    var label = this.options.unit;
+    if (length !== 1) {
+      label += 's';
+    }
+    this.container.innerText = length + ' ' + label;
+  }
+}
+
+Quill.register('modules/counter', Counter);
+
+var quill = new Quill('#editor', {
+  modules: {
+    counter: {
+      container: '#counter',
+      unit: 'characters'
+    }
+  }
+});
+
+
+var counter = quill.getModule('counter');
+
+// We can now access calculate() directly
+console.log(counter.calculate(), 'character');
+
+
+Quill.register('modules/counter', Counter);
+
+var quill = new Quill('#editor', {
+  modules: {
+    counter: {
+      container: '#counter',
+      unit: 'character'
+    }
+  }
+});
+
 
 
 var noteList = [];
@@ -235,7 +293,9 @@ function addNote() {
 
 function deleteNote(e) {
 	let eventNote = e.target.parentNode;
-	eventNote.parentNode.removeChild(eventNote);
+  eventNote.parentNode.removeChild(eventNote);
+
 } */
+
 
 
