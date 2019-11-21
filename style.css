@@ -175,7 +175,45 @@ li.a {
 }
 
 .ql-snow .ql-picker.ql-expanded .ql-picker-options {
-	background-color: #31bfaf;
-	border: none;
-	border-radius: 5px;
+	background-color:#31bfaf;
+	border:none;
+	border-radius:5px;
+}
+
+/* textstilar editor */
+
+.ql-snow .ql-editor h1 {
+	font-family: 'Times New Roman', Times, serif;
+	font-weight: 400;
+	color: black;
+  font-size: 3rem !important;
+}
+
+.ql-snow .ql-editor h2 {
+	font-family: 'Times New Roman', Times, serif;
+	font-weight: 400;
+	color: black;
+  font-size: 2rem !important;
+}
+
+.ql-snow .ql-editor h3 {
+	font-family: 'Times New Roman', Times, serif;
+	font-weight: 700;
+	color: black;
+	font-size: 1.1rem !important;
+}
+
+.ql-snow .ql-editor h4 {
+	font-family: 'Times New Roman', Times, serif;
+	font-weight: 400;
+	color: black;
+	font-size: 1.1rem !important;
+	font-style: italic;
+}
+
+.ql-snow .ql-editor p{
+	font-family: 'Times New Roman', Times, serif;
+	font-weight: 400;
+	color: black;
+  font-size: 1.1rem !important;
 }

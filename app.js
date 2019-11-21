@@ -1,7 +1,18 @@
+toolbarOptions = [
+  [{ 'header': [1, 2, 3, 4, false] }],
+  ['bold', 'italic', 'underline'], 
+  ['link', 'image'],
+  [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+  ['clean']
+]
+
 var editor = new Quill('#editor', {
-	placeholder: 'Write your notes here',
-	theme: 'snow'
-});
+  modules: {
+    toolbar: toolbarOptions
+  },
+  placeholder: 'Write your notes here',
+  theme: 'snow',
+	});
 
 /* var editor = new Quill('#quillEditor', options); */
 
