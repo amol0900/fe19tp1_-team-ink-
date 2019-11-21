@@ -178,12 +178,6 @@ li.a {
 
 /* textstilar editor */
 
-/* h1 {
-	font-family: 'Times New Roman', Times, serif;
-	font-weight: 400;
-	color: cyan;
-} */
-
 .ql-snow .ql-editor h1 {
 	font-family: 'Times New Roman', Times, serif;
 	font-weight: 400;
@@ -195,19 +189,27 @@ li.a {
 	font-family: 'Times New Roman', Times, serif;
 	font-weight: 400;
 	color: black;
-  font-size: 2.5rem !important;
+  font-size: 2rem !important;
 }
 
 .ql-snow .ql-editor h3 {
 	font-family: 'Times New Roman', Times, serif;
-	font-weight: 400;
+	font-weight: 700;
 	color: black;
-  font-size: 2rem !important;
+	font-size: 1.1rem !important;
 }
 
 .ql-snow .ql-editor h4 {
 	font-family: 'Times New Roman', Times, serif;
 	font-weight: 400;
 	color: black;
-  font-size: 1.5rem !important;
+	font-size: 1.1rem !important;
+	font-style: italic;
+}
+
+.ql-snow .ql-editor p{
+	font-family: 'Times New Roman', Times, serif;
+	font-weight: 400;
+	color: black;
+  font-size: 1.1rem !important;
 }

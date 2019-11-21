@@ -13,8 +13,6 @@ var editor = new Quill('#editor', {
   placeholder: 'Write your notes here',
   theme: 'snow',
 	});
-	
-
 
 /* var editor = new Quill('#quillEditor', options); */
 
