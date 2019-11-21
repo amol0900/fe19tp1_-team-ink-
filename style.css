@@ -2,7 +2,6 @@ html,
 body {
 	margin: 0;
 	padding: 0;
-	
 }
 main {
 	display: flex;
@@ -10,7 +9,7 @@ main {
 
 nav {
 	width: 70px;
-	height: 704px;
+	height: auto;
 	background-color: #31bfaf;
 }
 
@@ -35,27 +34,38 @@ li.a {
 	height: 70%;
 }
 
+#myFavs {
+	width: 30px;
+	height: 30px;
+	background-image: url(“starFill.svg”);
+	background-repeat: no-repeat;
+	border: none;
+	background-color: transparent;
+	outline: none;
+	cursor: pointer;
+}
+
 /* Listan där preview av anteckningarna hamnar */
 
 #notes {
 	display: flex;
 	flex-direction: row;
 	overflow-wrap: break-word;
+	height: auto;
 }
 
 #notes ul {
-	width: auto;
+	width: 200px;
 	background-color: #eeeeee;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	cursor: pointer;
-	flex-grow:1;
 }
 
 #notes ul li {
-	display:flex;
-	flex-direction:column;
+	display: flex;
+	flex-direction: column;
 	width: auto;
 	height: 120px;
 	border-bottom: 1px solid #dadada;
@@ -63,25 +73,24 @@ li.a {
 	line-height: 1.5em;
 	overflow-wrap: break-word;
 	padding: 10px;
-	background-size:cover;
+	background-size: cover;
 }
 
 #notes ul li:hover {
-	background-color:rgba(230, 230, 230, 0.933);
+	background-color: rgba(230, 230, 230, 0.933);
 }
 
 .title {
 	font-family: helvetica;
-	font-size:1.2em;
-	margin-bottom:0;
-	
+	font-size: 1.2em;
+	margin-bottom: 0;
 }
 
 .created {
 	font-family: helvetica;
-	font-weight:lighter;
-	color:#808080;
-	margin-top:0;
+	font-weight: lighter;
+	color: #808080;
+	margin-top: 0;
 }
 
 /* #star {
@@ -89,43 +98,49 @@ li.a {
 	outline:none;
 } */
 
-#favourite {
-width:20px;
-height:20px;
-background-image: url("star.svg");
-background-repeat:no-repeat;
-border:none;
-background-color:transparent;
-align-self:flex-end;
-outline:none;
-/* margin-right:2px; */
+.favourite {
+	width: 20px;
+	height: 20px;
+	background-image: url("star.svg");
+	background-repeat: no-repeat;
+	border: none;
+	background-color: transparent;
+	align-self: flex-end;
+	outline: none;
+	cursor: pointer;
+	/* margin-right:2px; */
+	transition: all 0.3s ease, filter 1ms;
+}
+.favFilled {
+	background-image: url("starFill.svg");
 }
 
-#favourite:hover {
-	background-image: url("starFill.svg");
+.hoverFav:hover {
+	filter: brightness(0) saturate(100%) invert(58%) sepia(39%)
+		saturate(678%) hue-rotate(124deg) brightness(102%) contrast(91%);
+	transform: scale(1.2);
+}
+.hoverFav:active {
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(4px) translateZ(0);
 }
 
 /* Editor wrapper */
 
-#wrapper {
+/* #wrapper {
 	flex-grow:1
-}
-
-/* Editor */
-
-/* #editor {
-	width: 1000px;
-	height: 500px;
-	background-color: white;
 } */
 
 /* Editor */
 
-#editor{
-height:500px;
-  overflow: auto;
-  background-color: white;
-  border: none !important;
+/* Editor */
+
+#editor {
+	width: 1170px;
+	height: 500px;
+	overflow: auto;
+	background-color: white;
+	border: none !important;
 }
 
 
@@ -141,64 +156,32 @@ height:500px;
 /* Toolbar */
 
 .ql-toolbar.ql-snow {
-	margin-top:0px;
-	width:100%;
-	background-color:#31bfaf !important;
-	border:none !important;
+	margin-top: 0px;
+	width: 100%;
+	background-color: #31bfaf !important;
+	border: none !important;
 }
 
 .ql-snow .ql-fill,
 .ql-snow .ql-stroke.ql-fill {
-  fill: white !important;
+	fill: white !important;
 }
 
-.ql-snow .ql-picker{
-  color:white !important;
-  background-color:#31bfaf;
+.ql-snow .ql-picker {
+	color: white !important;
+	background-color: #31bfaf;
 }
 
 .ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
-  stroke: white !important;
+	stroke: white !important;
 }
-.ql-snow .ql-toolbar.snow, .ql-snow .ql-stroke{
-  stroke:white !important;
+.ql-snow .ql-toolbar.snow,
+.ql-snow .ql-stroke {
+	stroke: white !important;
 }
 
 .ql-snow .ql-picker.ql-expanded .ql-picker-options {
-	background-color:#31bfaf;
-	border:none;
-	border-radius:5px;
-}
-
-
-.icon-bar{
-
-width: 100px;
-background-color:#31bfaf;
-}
-
-.icon-bar a{
-display: block;
-color: white;
-width: 200px;
-height: 100px;
-margin: auto;
-font-size: 40px;
-transition: all 0.3 ease;
-left: right 90px;
-}
-
-.icon-bar a:hover{
-background-color: #31bfaf;
-}
-
-.active{
-background-color: #31bfaf;
-}
-
-
-.icon-container{
-
-padding: 25px;
-
+	background-color: #31bfaf;
+	border: none;
+	border-radius: 5px;
 }
