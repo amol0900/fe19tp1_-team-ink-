@@ -1,24 +1,51 @@
-toolbarOptions = [
+/* toolbarOptions = [
   [{ 'header': [1, 2, 3, 4, false] }],
   ['bold', 'italic', 'underline'], 
   ['link', 'image'],
   [{ 'list': 'ordered' }, { 'list': 'bullet' }],
 	['clean'],
-	[{ 'placeholder': ['[Template 1]', '[Template 2]'] }]
+	[{ 'customoption': ['[GuestName]', '[HotelName]'] }
 ]
+ */
 
-var editor = new Quill('#editor', {
-  modules: {
-    toolbar: toolbarOptions
-  },
-  placeholder: 'Write your notes here',
-  theme: 'snow',
-	});
 
-/* var editor = new Quill('#quillEditor', options); */
+
+
+
+
+var options = {
+	placeholder: 'Write your notes here',
+	theme: 'snow',
+	modules: {
+		toolbar: { 
+			toolbarOptions: 
+			[
+				[{ 'header': [1, 2, 3, 4, false] }],
+				['bold', 'italic', 'underline'],
+				['link', 'image'],
+				[{ 'list': 'ordered' }, { 'list': 'bullet' }],
+				['clean'],
+				[{ 'themes': ['Theme 1', 'Theme 1'] }],				
+			],
+  handlers: {
+				"themes": function (value) {
+					if (value) {
+						const cursorPosition = this.quill.getSelection().index;
+						this.quill.insertText(cursorPosition, value);
+						this.quill.setSelection(cursorPosition + value.length);
+					}
+				}
+			}
+	}
+ }
+};
+
+var editor = new Quill('#editor', options);
 
 var noteList = [];
 var selectedNote;
+
+
 
 // Laddar in anteckingen man klickar på i previewlistan till editorn
 
@@ -162,17 +189,7 @@ function addNote() {
 	renderNotes();
 }
 
-function changeCSS(cssFile, cssLinkIndex) {
-
-    var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
-
-    var newlink = document.createElement("link");
-    newlink.setAttribute("rel", "stylesheet");
-    newlink.setAttribute("type", "text/css");
-    newlink.setAttribute("href", cssFile);
-
-    document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
-}
+//Ändra mall i editor
 
 function changeCSS(cssFile, cssLinkIndex) {
 
@@ -185,3 +202,48 @@ function changeCSS(cssFile, cssLinkIndex) {
 
 	document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
 }
+
+/* function themeOne() {
+	var theme = document.querySelector('.themes');
+	theme.href = "style1.css";
+}
+
+function themeTwo() {
+	var theme = document.querySelector('.themes');
+	theme.href = "style2.css";
+}
+
+function themeThree() {
+	var theme = document.querySelector('.themes');
+	theme.href = "style3.css";
+}
+ */
+
+
+
+//Innehåll i theme-picker
+const themePickerItems = Array.prototype.slice.call(document.querySelectorAll('.ql-themes .ql-picker-item'));
+
+themePickerItems.forEach((cssFile, cssLinkIndex) => {
+var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
+  var newlink = document.createElement("link");
+	newlink.setAttribute("rel", "stylesheet");
+	newlink.setAttribute("type", "text/css");
+	
+	newlink.setAttribute("href", cssFile);
+	document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+});
+
+
+
+/* function changeCSS(cssFile, cssLinkIndex) {
+
+	var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
+
+	var newlink = document.createElement("link");
+	newlink.setAttribute("rel", "stylesheet");
+	newlink.setAttribute("type", "text/css");
+	newlink.setAttribute("href", cssFile);
+
+	document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+} */

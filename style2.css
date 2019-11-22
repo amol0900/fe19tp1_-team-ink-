@@ -213,3 +213,7 @@ li.a {
 	color: black;
   font-size: 1.1rem !important;
 }
+
+.ql-picker.ql-customoption .ql-picker-label:before {
+    content: "Choose theme";     /* never changes its content as this menu's label changes */
+}

@@ -139,7 +139,7 @@ li.a {
 	width: 1170px;
 	height: 500px;
 	overflow: auto;
-	background-color: white;
+	background-color: orange;
 	border: none !important;
 }
 
@@ -179,28 +179,28 @@ li.a {
 /* textstilar editor */
 
 .ql-snow .ql-editor h1 {
-	font-family: 'Times New Roman', Times, serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-weight: 400;
 	color: black;
   font-size: 3rem !important;
 }
 
 .ql-snow .ql-editor h2 {
-	font-family: 'Times New Roman', Times, serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-weight: 400;
 	color: black;
   font-size: 2rem !important;
 }
 
 .ql-snow .ql-editor h3 {
-	font-family: 'Times New Roman', Times, serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-weight: 700;
 	color: black;
 	font-size: 1.1rem !important;
 }
 
 .ql-snow .ql-editor h4 {
-	font-family: 'Times New Roman', Times, serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-weight: 400;
 	color: black;
 	font-size: 1.1rem !important;
@@ -208,12 +208,12 @@ li.a {
 }
 
 .ql-snow .ql-editor p{
-	font-family: 'Times New Roman', Times, serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-weight: 400;
-	color: black;
+	color: red;
   font-size: 1.1rem !important;
 }
 
-.ql-picker.ql-themes .ql-picker-label:before {
-    content: "Themes";     /* never changes its content as this menu's label changes */
+.ql-picker.ql-customoption .ql-picker-label:before {
+    content: "Choose theme";     /* never changes its content as this menu's label changes */
 }
