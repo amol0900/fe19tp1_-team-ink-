@@ -23,13 +23,15 @@ var selectedNote;
 
 var justHtmlContent = document.querySelector('#notes ul');
 justHtmlContent.addEventListener('click', function(e) {
-	let clickedID = e.target.closest('li').id;
+	let clickedLI = e.target.closest('li');
+	//let clickedID = e.target.closest('li').id;
 	//console.log('clickedID: ' + clickedID);
-	selectedNote = noteList.find((note) => note.id === Number(clickedID));
+	selectedNote = noteList.find((note) => note.id === Number(clickedLI.id));
 
 	// undersök om klicket var på knappen
 	/* console.log(e.target.classList.contains('fav')); */
 	if (e.target.classList.contains('fav')) {
+		console.log("hello world");
 		// vi har klickat på favourite-knappen
 		selectedNote.favourite = !selectedNote.favourite;
 		saveNotes();
@@ -45,7 +47,21 @@ justHtmlContent.addEventListener('click', function(e) {
 		// vi har klickat någon annan stans
 		editor.setContents(selectedNote.content);
 	}
+
+	if (e.target.classList.contains('far')){
+	noteList = noteList.filter(note => note.id !== Number(clickedLI.id));
+
+	clickedLI.remove();
+	saveNotes();
+
+	} else {
+	// vi har klickat någon annan stans
+	editor.setContents(selectedNote.content);
+}
+
 });
+
+
 
 // Laddar anteckningarna när sidan laddas/refreshas
 

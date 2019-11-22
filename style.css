@@ -12,6 +12,7 @@ nav {
 	width: 70px;
 	background-color: #31bfaf;
 	height:100vh;
+	
 }
 
 /* Grön navbar */
@@ -21,17 +22,29 @@ nav ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+
 }
 
 nav li {
 	list-style-type: none;
 }
 
+li.al {
+	margin: 0;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom:10px;
+	border: none;
+	background-color:#289a8c;
+	/* margin-bottom:25px; */
+}
+
 li.a {
 	margin: 0;
 	text-align: center;
-	margin-top: 10px;
+	margin-top: 27px;
 	border: none;
+
 }
 
 #logo {
@@ -39,15 +52,37 @@ li.a {
 	height: 70%;
 }
 
+#newNote {
+	outline:none;
+	background-color:transparent;
+	border:none;
+	font-size:1.9em;
+	cursor:pointer;
+}
+
+.fa-edit {
+color:white !important;
+}
+
+.fa-edit:hover {
+color:#289a8c !important;
+}
+
 #myFavs {
-	width: 30px;
-	height: 30px;
+	width: 35px;
+	height: 35px;
 	background-image: url("/images/starFill.svg");
 	background-repeat: no-repeat;
 	border: none;
 	background-color: transparent;
 	outline: none;
 	cursor: pointer;
+	transition: all 0.3s ease, filter 1ms;
+}
+
+#myFavs:hover {
+	saturate(678%) hue-rotate(124deg) brightness(102%) contrast(91%);
+	transform: scale(1.1);
 }
 
 /* Listan där preview av anteckningarna hamnar */
@@ -105,10 +140,13 @@ li.a {
 }
 
 .trash {
+	display:flex;
 	outline:none;
 	background-color:transparent;
 	border:none;
 	font-size:1.4em;
+	cursor:pointer;
+	margin-top:10px;
 }
 
 i.far {
@@ -116,7 +154,7 @@ i.far {
 	outline:none !important;
 	background-color:transparent;
 	border:none;
-
+	align-self:flex-end;
 }
 
 i.far:hover  {
@@ -125,8 +163,8 @@ i.far:hover  {
 
 
 .favourite {
-	width: 20px;
-	height: 20px;
+	width: 21px;
+	height: 21px;
 	background-image: url("/images/star.svg");
 	background-repeat: no-repeat;
 	border: none;
@@ -143,10 +181,11 @@ i.far:hover  {
 }
 
 .hoverFav:hover {
-	/* filter: brightness(0) saturate(100%) invert(58%) sepia(39% */)
+	/* filter: brightness(0) saturate(100%) invert(58%) sepia(39%) */
 		saturate(678%) hue-rotate(124deg) brightness(102%) contrast(91%);
 	transform: scale(1.2);
 }
+
 .hoverFav:active {
 	-webkit-transform: perspective(1px) translateZ(0);
 	transform: perspective(4px) translateZ(0);
@@ -177,10 +216,10 @@ i.far:hover  {
 	fill: white !important;
 }
 
-.ql-snow .ql-picker {
-	color: white !important;
+/* .ql-snow .ql-picker {
+	color: black !important;
 	background-color: #31bfaf;
-}
+} */
 
 .ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
 	stroke: white !important;
@@ -190,11 +229,41 @@ i.far:hover  {
 	stroke: white !important;
 }
 
-.ql-snow .ql-picker.ql-expanded .ql-picker-options {
-	background-color:#31bfaf;
-	border:none;
-	border-radius:5px;
+.ql-snow .ql-toolbar.snow,
+.ql-snow .ql-stroke:hover {
+	stroke: white !important;
 }
+
+.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+	background-color: #31bfaf;
+	border: none;
+	border-radius: 5px;
+}
+
+.ql-snow .ql-toolbar .ql-picker-label:hover {
+	color:white !important;
+
+}
+
+.ql-snow .ql-picker-label::before {
+	color:white !important;
+}
+
+.ql-toolbar.ql-snow .ql-picker-label {
+	outline:none !important;
+}
+
+.ql-snow .ql-picker-options .ql-picker-item {
+    cursor: pointer;
+    display: block;
+    padding-bottom: 5px;
+    padding-top: 5px;
+	color: white !important;
+}
+	
+	.ql-snow .ql-picker-options .ql-picker-item:hover {
+	color: #1f8579 !important;
+	}
 
 /* textstilar editor */
 
