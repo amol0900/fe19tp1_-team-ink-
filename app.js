@@ -93,7 +93,7 @@ function renderNote(note) {
 	document.querySelector(
 		'#notes ul'
 	).innerHTML += `<li id='${note.id}'><p class="title">${title}</p><br><p class="created">${note.created}</p>
-	<button class="favourite fav hoverFav ${favClass}"></button></li>`;
+	<div class="icons"><button class="trash"><i class="far fa-trash-alt"></i></button><button class="favourite fav hoverFav ${favClass}"></button></div></li>`;
 }
 
 // Sparar anteckningarna i local storage

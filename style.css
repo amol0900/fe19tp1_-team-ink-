@@ -2,6 +2,7 @@ html,
 body {
 	margin: 0;
 	padding: 0;
+
 }
 main {
 	display: flex;
@@ -9,8 +10,8 @@ main {
 
 nav {
 	width: 70px;
-	height: auto;
 	background-color: #31bfaf;
+	height:100vh;
 }
 
 /* Grön navbar */
@@ -41,7 +42,7 @@ li.a {
 #myFavs {
 	width: 30px;
 	height: 30px;
-	background-image: url(“starFill.svg”);
+	background-image: url("/images/starFill.svg");
 	background-repeat: no-repeat;
 	border: none;
 	background-color: transparent;
@@ -55,7 +56,6 @@ li.a {
 	display: flex;
 	flex-direction: row;
 	overflow-wrap: break-word;
-	height: auto;
 }
 
 #notes ul {
@@ -97,15 +97,37 @@ li.a {
 	margin-top: 0;
 }
 
-/* #star {
-	width:11%;
+.icons {
+	display:flex;
+	/* width:50%; */
+	flex-direction:row;
+	justify-content:flex-end;
+}
+
+.trash {
 	outline:none;
-} */
+	background-color:transparent;
+	border:none;
+	font-size:1.4em;
+}
+
+i.far {
+	color:grey;
+	outline:none !important;
+	background-color:transparent;
+	border:none;
+
+}
+
+i.far:hover  {
+	color:#31bfaf;
+}
+
 
 .favourite {
 	width: 20px;
 	height: 20px;
-	background-image: url("star.svg");
+	background-image: url("/images/star.svg");
 	background-repeat: no-repeat;
 	border: none;
 	background-color: transparent;
@@ -114,13 +136,14 @@ li.a {
 	cursor: pointer;
 	/* margin-right:2px; */
 	transition: all 0.3s ease, filter 1ms;
+
 }
 .favFilled {
-	background-image: url("starFill.svg");
+	background-image: url("/images/starFill.svg");
 }
 
 .hoverFav:hover {
-	filter: brightness(0) saturate(100%) invert(58%) sepia(39%)
+	/* filter: brightness(0) saturate(100%) invert(58%) sepia(39% */)
 		saturate(678%) hue-rotate(124deg) brightness(102%) contrast(91%);
 	transform: scale(1.2);
 }
@@ -129,13 +152,6 @@ li.a {
 	transform: perspective(4px) translateZ(0);
 }
 
-/* Editor wrapper */
-
-/* #wrapper {
-	flex-grow:1
-} */
-
-/* Editor */
 
 /* Editor */
 
