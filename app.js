@@ -8,6 +8,10 @@ var editor = new Quill('#editor', {
 var noteList = [];
 var selectedNote;
 
+
+
+
+
 // Laddar in anteckingen man klickar på i previewlistan till editorn
 
 var justHtmlContent = document.querySelector('#notes ul');
@@ -149,3 +153,9 @@ function addNote() {
 	saveNotes();
 	renderNotes();
 }
+
+
+
+
+
+
