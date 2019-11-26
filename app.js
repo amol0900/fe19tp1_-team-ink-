@@ -28,13 +28,7 @@ justHtmlContent.addEventListener('click', function(e) {
 	//console.log('clickedID: ' + clickedID);
 	selectedNote = noteList.find((note) => note.id === Number(clickedLI.id));
 
-/* 	function gfg_Run() {
-		inputF.setAttribute('value', 'defaultValue');
-		el_down.innerHTML =
-			"Value = " + "'" + inputF.value + "'";
-	} 
 
-	document.getElementById("id1");  */
 
 	// undersök om klicket var på knappen
 	
@@ -52,7 +46,11 @@ justHtmlContent.addEventListener('click', function(e) {
 		console.log("elsewhere")
 		// vi har klickat någon annan stans
 		editor.setContents(selectedNote.content);
-		myTitle.value = "Hej";
+
+			var myTitle2 = document.getElementById('square');
+		myTitle2.setAttribute('value', selectedNote.title);
+		
+
 	
 	}
 
@@ -68,6 +66,9 @@ justHtmlContent.addEventListener('click', function(e) {
 	} else {
 	// vi har klickat någon annan stans
 	editor.setContents(selectedNote.content);
+		myTitle2.setAttribute('value', selectedNote.title);
+	
+	
 	
 		// göm toolbar och editor när man klickar på en sparad anteckning i sidebaren
 /* 		var myToolbar = document.querySelector('.ql-toolbar.ql-snow').style.display = 'none';
@@ -75,8 +76,6 @@ justHtmlContent.addEventListener('click', function(e) {
 }
 
 });
-
-
 
 // Laddar anteckningarna när sidan laddas/refreshas
 
