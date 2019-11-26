@@ -20,7 +20,7 @@ Quill.register('modules/counter', function (quill, options) {
 
 var editor = new Quill('#editor', {
   modules: {
-    toolbar: toolbarOptions,
+    // toolbar: toolbarOptions,
     counter: true
   },
 
