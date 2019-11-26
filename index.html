@@ -21,35 +21,39 @@
     <!-- Grön navbar -->
     <nav>
       <ul>
-      <li class="a">
-        <img src="Q.png" id="logo"></li> <!-- Todo: Change to svg -->
+        <li class="a">
+          <img src="Q.png" id="logo"></li> <!-- Todo: Change to svg -->
         <li class="a">
           <button id="myFavs"></button>
         </li>
-      <li class="a"></li>
-      <li class="a"><button id="newNote" onclick="newNote()">+</button></li>
+        <li class="a"></li>
+        <li class="a"><button id="newNote" onclick="newNote()">+</button></li>
       </ul>
     </nav>
 
     <!-- Listan där preview av anteckningarna hamnar -->
     <div id="notes">
       <ul>
-        
+
       </ul>
 
     </div>
 
     <!-- Editorn -->
-    <div id="wrapper">
-      <div id="editor"></div>
-      <div id="counter">0</div>
 
-      <!-- "Save note"-knappen -->
-      <div class="buttons">
-        <button id="saveNote" onclick="addNote()">Save note</button>
+
+
+    <div id="wrapper"></div>
+      <div id="printableArea">
+        <div id="editor"></div>
+        <input type="button" onclick="printDiv('printableArea')" value="print a div!" />
+        <div id="counter">0</div>
+        <!-- "Save note"-knappen -->
+        <div class="buttons">
+          <button id="saveNote" onclick="addNote()">Save note</button>
+        </div>
+
       </div>
-
-    </div>
   </main>
 </body>
 <script src="app.js"></script>

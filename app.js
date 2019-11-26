@@ -181,6 +181,11 @@ class Counter {
 
 Quill.register('modules/counter', Counter);
 
+
+
+// We can now access calculate() directly
+// console.log(counter.calculate(), 'character')
+
 var quill = new Quill('#editor', {
   modules: {
     counter: {
@@ -192,17 +197,16 @@ var quill = new Quill('#editor', {
 
 var counter = quill.getModule('counter');
 
-// We can now access calculate() directly
-// console.log(counter.calculate(), 'character');
 
+function printDiv(divName) {
+  var printContents = document.getElementById(divName).innerHTML;
+  var originalContents = document.body.innerHTML;11 
 
-// Quill.register('modules/counter', Counter);
+  document.body.innerHTML = printContents;
 
-// var quill = new Quill('#editor', {
-//   modules: {
-//     counter: {
-//       container: '#counter',
-//       unit: 'character'
-//     }
-//   }
-// });
+  window.print();
+
+  document.body.innerHTML = originalContents;
+
+}
+
