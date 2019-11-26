@@ -213,6 +213,13 @@ i.far:hover  {
 	margin-top:10px;
 }
 
+#enter {
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	align-items:center;
+}
+
 input {
 
 	background-color: transparent;
@@ -223,7 +230,7 @@ input {
 	margin: 10px;
 	font-family: 'Montserrat';
 	font-weight: 300;
-	font-size: 2.4em;
+	font-size: 3em;
 	color:#31bfaf;
 	outline: none;
 	}
@@ -258,6 +265,7 @@ border-radius:20px;
 padding: 10px 20px;
 cursor:pointer;
 outline: none;
+
 }
 
 #saveNote:hover {

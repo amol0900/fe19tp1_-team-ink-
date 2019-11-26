@@ -117,7 +117,7 @@ const theItem = document.forms['enter'];
 
 function renderNote(note) {
 	let title;
-	let titleLength = 50;
+	let titleLength = 25;
 	let favClass = '';
 	if (note.preview.length > titleLength) {
 		title = note.preview.substring(0, titleLength) + '...';
@@ -130,10 +130,10 @@ function renderNote(note) {
 	} else {
 		favClass = '';
 	}
+
 	document.querySelector('#notes ul').innerHTML += `<li id='${note.id}'><h6>${note.title}</h6><p class="title">${title}</p><br><p class="created">${note.created}</p>
 	<div class="icons"><button class="trash"><i class="far fa-trash-alt"></i></button><button class="favourite fav hoverFav ${favClass}"></button></div></li>`;
 
-	
 	
 }
 
@@ -192,7 +192,7 @@ function addNote() {
 		id: Date.now(),
 		created: showDate(),
 		content: editor.getContents(),
-		preview: editor.getText(0, 50),
+		preview: editor.getText(0, 25),
 		title: getTitle()
 	};
 
