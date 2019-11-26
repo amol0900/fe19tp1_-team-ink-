@@ -236,6 +236,23 @@ var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
 
 
 
+
+
+function openNav() {
+	document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+	document.getElementById("mySidenav").style.width = "0";
+}
+
+
+
+
+
+
+
+
 /* function changeCSS(cssFile, cssLinkIndex) {
 
 	var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
@@ -247,3 +264,6 @@ var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
 
 	document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
 } */
+
+
+
