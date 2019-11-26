@@ -277,9 +277,7 @@ var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
 	document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
 });
 
-
-
-
+//Sidenav
 
 function openNav() {
 	document.getElementById("mySidenav").style.width = "500px";

@@ -70,6 +70,22 @@ color:white !important;
 color:#289a8c !important;
 }
 
+#openNav {
+	outline:none;
+	background-color:transparent;
+	border:none;
+	font-size:1.9em;
+	cursor:pointer;
+}
+
+.fa-align-left {
+color:white !important;
+}
+
+.fa-align-left {
+color:#289a8c !important;
+}
+
 #myFavs {
 	width: 35px;
 	height: 35px;
@@ -96,7 +112,7 @@ color:#289a8c !important;
 }
 
 #notes ul {
-	width: 200px;
+	width: 100%;
 	background-color: #eeeeee;
 	list-style-type: none;
 	margin: 0;
@@ -109,7 +125,7 @@ color:#289a8c !important;
 #notes ul li {
 	display: flex;
 	flex-direction: column;
-	width: auto;
+	width: 480px;
 	height: auto;
 	border-bottom: 1px solid #dadada;
 	font-size: 0.8em;
@@ -177,7 +193,6 @@ i.far {
 i.far:hover  {
 	color:#31bfaf;
 }
-
 
 .favourite {
 	width: 21px;
@@ -376,5 +391,61 @@ outline: none;
 }
 
 .ql-picker.ql-themes .ql-picker-label:before {
-    content: "Themes";     /* never changes its content as this menu's label changes */
+    content: "Themes";     /* never changes its content as this menu's label changes 
+} */
+
+/* Sidenav */
+
+#maintwo {
+ transition: margin-left .5s;
+ padding: 16px;
+}
+
+.sidenav {
+	height: 100%;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 70px;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 0;
+	width: 500px;
+/* 	display: grid;
+	grid-template-columns: 1fr 2fr;
+	grid-template-rows: 1fr 2fr; */
+}
+
+/* .sidenav a {
+ text-decoration: none;
+ color: grey;
+ display: block;
+ transition: 0.3s;
+ padding: 0;
+} */
+
+/* .sidenav a:hover,
+.offcanvas a:focus {
+ color: #31bfaf;;
+} */
+
+#closebtn {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	display: block;
+	padding: 0;
+	font-size: 36px !important;
+	text-decoration: none;
+	margin-left: 50px;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	color: grey;
+	transition: 0.3s;
+}
+
+#closebtn a:hover,
+.offcanvas a:focus {
+ color: #31bfaf;;
 }
