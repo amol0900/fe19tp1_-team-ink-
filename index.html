@@ -21,13 +21,13 @@
     <!-- Grön navbar -->
     <nav>
       <ul>
-      <li class="a">
+      <li class="al">
         <img src="Q.png" id="logo"></li> <!-- Todo: Change to svg -->
+        <li class="a"><button id="newNote" onclick="newNote()"><i class="far fa-edit"></i></button></li>
         <li class="a">
           <button id="myFavs"></button>
         </li>
       <li class="a"></li>
-      <li class="a"><button id="newNote" onclick="newNote()">+</button></li>
       </ul>
     </nav>
 
@@ -39,20 +39,19 @@
 
     </div>
 
+    
+
     <!-- Editorn -->
     
     <div id="wrapper">
-
-<!--  <a href="#" onclick="changeCSS('style.css', 0);">Theme 1</a>
-      <a href="#" onclick="changeCSS('style2.css', 0);">Theme 2</a>
-      <a href="#" onclick="changeCSS('style3.css', 0);">Theme 3</a> -->
-
+              <form id="enter">
+                <input type="text" id="square" placeholder="Add a fancy title">
+                <button id="saveNote" type="button" onclick="addNote()">Save note</button>
+              </form>
+                
+                    
+                  
       <div id="editor"></div>
-
-      <!-- "Save note"-knappen -->
-      <div class="buttons">
-        <button id="saveNote" onclick="addNote()">Save note</button>
-      </div>
 
     </div>
   </main>

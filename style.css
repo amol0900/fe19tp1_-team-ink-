@@ -2,6 +2,9 @@ html,
 body {
 	margin: 0;
 	padding: 0;
+	scroll-behavior:smooth;
+	height:100vh;
+	overflow:hidden;
 }
 main {
 	display: flex;
@@ -9,8 +12,9 @@ main {
 
 nav {
 	width: 70px;
-	height: auto;
 	background-color: #31bfaf;
+	height:100vh;
+	
 }
 
 /* Grön navbar */
@@ -20,13 +24,29 @@ nav ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+
+}
+
+nav li {
+	list-style-type: none;
+}
+
+li.al {
+	margin: 0;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom:10px;
+	border: none;
+	background-color:#289a8c;
+	/* margin-bottom:25px; */
 }
 
 li.a {
 	margin: 0;
 	text-align: center;
-	margin-top: 10px;
+	margin-top: 27px;
 	border: none;
+
 }
 
 #logo {
@@ -34,15 +54,37 @@ li.a {
 	height: 70%;
 }
 
+#newNote {
+	outline:none;
+	background-color:transparent;
+	border:none;
+	font-size:1.9em;
+	cursor:pointer;
+}
+
+.fa-edit {
+color:white !important;
+}
+
+.fa-edit:hover {
+color:#289a8c !important;
+}
+
 #myFavs {
-	width: 30px;
-	height: 30px;
-	background-image: url(“starFill.svg”);
+	width: 35px;
+	height: 35px;
+	background-image: url("/images/starFill.svg");
 	background-repeat: no-repeat;
 	border: none;
 	background-color: transparent;
 	outline: none;
 	cursor: pointer;
+	transition: all 0.3s ease, filter 1ms;
+}
+
+#myFavs:hover {
+	saturate(678%) hue-rotate(124deg) brightness(102%) contrast(91%);
+	transform: scale(1.1);
 }
 
 /* Listan där preview av anteckningarna hamnar */
@@ -51,7 +93,6 @@ li.a {
 	display: flex;
 	flex-direction: row;
 	overflow-wrap: break-word;
-	height: auto;
 }
 
 #notes ul {
@@ -61,13 +102,15 @@ li.a {
 	margin: 0;
 	padding: 0;
 	cursor: pointer;
+	height:100vh;
+	overflow:scroll;
 }
 
 #notes ul li {
 	display: flex;
 	flex-direction: column;
 	width: auto;
-	height: 120px;
+	height: auto;
 	border-bottom: 1px solid #dadada;
 	font-size: 0.8em;
 	line-height: 1.5em;
@@ -80,9 +123,22 @@ li.a {
 	background-color: rgba(230, 230, 230, 0.933);
 }
 
+#notes ul li:focus {
+	background-color: rgba(230, 230, 230, 0.933);
+}
+
+h6 {
+	margin:0;
+	margin-top:7px;
+	font-family: 'Montserrat';
+	font-weight:200;
+	font-size:1.4em;
+}
+
 .title {
-	font-family: helvetica;
-	font-size: 1.2em;
+	font-family: 'Montserrat';
+	font-size: 1em;
+	font-weight:200;
 	margin-bottom: 0;
 }
 
@@ -90,18 +146,43 @@ li.a {
 	font-family: helvetica;
 	font-weight: lighter;
 	color: #808080;
-	margin-top: 0;
+	margin:0;
 }
 
-/* #star {
-	width:11%;
+.icons {
+	display:flex;
+	/* width:50%; */
+	flex-direction:row;
+	justify-content:flex-end;
+}
+
+.trash {
+	display:flex;
 	outline:none;
-} */
+	background-color:transparent;
+	border:none;
+	font-size:1.4em;
+	cursor:pointer;
+	margin-top:10px;
+}
+
+i.far {
+	color:grey;
+	outline:none !important;
+	background-color:transparent;
+	border:none;
+	align-self:flex-end;
+}
+
+i.far:hover  {
+	color:#31bfaf;
+}
+
 
 .favourite {
-	width: 20px;
-	height: 20px;
-	background-image: url("star.svg");
+	width: 21px;
+	height: 21px;
+	background-image: url("/images/star.svg");
 	background-repeat: no-repeat;
 	border: none;
 	background-color: transparent;
@@ -110,37 +191,86 @@ li.a {
 	cursor: pointer;
 	/* margin-right:2px; */
 	transition: all 0.3s ease, filter 1ms;
+
 }
 .favFilled {
-	background-image: url("starFill.svg");
+	background-image: url("/images/starFill.svg");
 }
 
 .hoverFav:hover {
-	filter: brightness(0) saturate(100%) invert(58%) sepia(39%)
+	/* filter: brightness(0) saturate(100%) invert(58%) sepia(39%) */
 		saturate(678%) hue-rotate(124deg) brightness(102%) contrast(91%);
 	transform: scale(1.2);
 }
+
 .hoverFav:active {
 	-webkit-transform: perspective(1px) translateZ(0);
 	transform: perspective(4px) translateZ(0);
 }
 
-/* Editor wrapper */
+#wrapper {
+	margin:0 auto;
+	margin-top:10px;
+}
 
-/* #wrapper {
-	flex-grow:1
-} */
+#enter {
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	align-items:center;
+}
 
-/* Editor */
+input {
+
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid;
+	border-color: white;
+	padding: 10px;
+	margin: 10px;
+	font-family: 'Montserrat';
+	font-weight: 300;
+	font-size: 3em;
+	color:#31bfaf;
+	outline: none;
+	}
 
 /* Editor */
 
 #editor {
-	width: 1170px;
-	height: 500px;
+	width: 700px;
+	height: 100vh;
 	overflow: auto;
 	background-color: white;
 	border: none !important;
+	margin-top:40px;
+}
+/* .ql-editor::before {
+	font-family:'Montserrat';
+   font-size:1.6em;
+} */
+
+#buttons {
+	font-size:2em;
+}
+
+#saveNote {
+background-color: #31bfaf;
+font-family: 'Montserrat';
+font-weight:200;
+color:white;
+font-size:0.8em;
+border: 1px solid #31bfaf;
+border-radius:20px;
+padding: 10px 20px;
+cursor:pointer;
+outline: none;
+
+}
+
+#saveNote:hover {
+	background-color:#289a8c;
+	color:white;
 }
 
 /* Toolbar */
@@ -148,37 +278,68 @@ li.a {
 .ql-toolbar.ql-snow {
 	margin-top: 0px;
 	width: 100%;
-	background-color: #31bfaf !important;
+	/* background-color: #31bfaf !important; */
 	border: none !important;
 }
 
 .ql-snow .ql-fill,
 .ql-snow .ql-stroke.ql-fill {
-	fill: white !important;
+	fill: grey !important;
 }
 
-.ql-snow .ql-picker {
-	color: white !important;
+/* .ql-snow .ql-picker {
+	color: black !important;
 	background-color: #31bfaf;
-}
+} */
 
 .ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
-	stroke: white !important;
+	stroke:grey !important;
 }
 .ql-snow .ql-toolbar.snow,
 .ql-snow .ql-stroke {
-	stroke: white !important;
+	stroke: grey  !important;
+}
+
+.ql-snow .ql-toolbar.snow,
+.ql-snow .ql-stroke:hover {
+	stroke: grey  !important;
 }
 
 .ql-snow .ql-picker.ql-expanded .ql-picker-options {
-	background-color:#31bfaf;
-	border:none;
-	border-radius:5px;
+	background-color:white
+	border: none;
+	border-radius: 5px;
 }
+
+.ql-snow .ql-toolbar .ql-picker-label:hover {
+	color:white  !important;
+
+}
+
+.ql-snow .ql-picker-label::before {
+	color:grey  !important;
+}
+
+.ql-toolbar.ql-snow .ql-picker-label {
+	outline:none !important;
+}
+
+.ql-snow .ql-picker-options .ql-picker-item {
+    cursor: pointer;
+    display: block;
+    padding-bottom: 5px;
+    padding-top: 5px;
+	color:grey !important;
+}
+	
+	.ql-snow .ql-picker-options .ql-picker-item:hover {
+	color:white !important;
+	outline:none !important;
+	}
 
 /* textstilar editor */
 
-.ql-snow .ql-editor h1 {
+/* .ql-snow .ql-editor h1 {
 	font-family: 'Times New Roman', Times, serif;
 	font-weight: 400;
 	color: black;
