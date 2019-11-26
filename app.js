@@ -239,13 +239,12 @@ var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
 
 
 function openNav() {
-	document.getElementById("mySidenav").style.width = "250px";
+	document.getElementById("mySidenav").style.width = "500px";
 }
 
 function closeNav() {
 	document.getElementById("mySidenav").style.width = "0";
 }
-
 
 
 

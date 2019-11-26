@@ -16,36 +16,35 @@
 </head>
 
 <body>
+
   <main>
+      <!-- Grön navbar -->
+      <nav>
+        <ul>
+          <li class="a">
+            <img src="Q.png" id="logo"></li> <!-- Todo: Change to svg -->
+          <li class="a">
+            <button id="myFavs"></button>
+          </li>
+          <li class="a"></li>
+          <li class="a"><button id="newNote" onclick="newNote()">+</button></li>
+          <li class="a"><button id="open" onclick="openNav()">☰</button></li>
+        </ul>
+      </nav>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a> <!-- Skriv om så inte void(0) -->
 
-<div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
-
-
-    <!-- Grön navbar -->
-    <nav>
-      <ul>
-        <li class="a">
-          <img src="Q.png" id="logo"></li> <!-- Todo: Change to svg -->
-        <li class="a">
-          <button id="myFavs"></button>
-        </li>
-        <li class="a"></li>
-        <li class="a"><button id="newNote" onclick="newNote()">+</button></li>
-      </ul>
-    </nav>
 
     <!-- Listan där preview av anteckningarna hamnar -->
-    <div id="notes">
-      <ul>
-
-      </ul>
-
-    </div>
+      <div id="notes">
+        <ul>
+        </ul>
+      </div>
 
     </div>
+
+    
 
     <!-- Editorn -->
 
@@ -56,12 +55,11 @@
       <a href="#" onclick="changeCSS('style3.css', 0);">Theme 3</a> -->
 
       <div id="editor"></div>
-
       <!-- "Save note"-knappen -->
-      <div class="buttons">
-        <button id="saveNote" onclick="addNote()">Save note</button>
-      </div>
-
+        <div class="buttons">
+          <button id="saveNote" onclick="addNote()">Save note</button>
+        </div>
+        
     </div>
   </main>
 </body>
