@@ -109,15 +109,13 @@ li.a {
 	outline: none;
 	cursor: pointer;
 	/* margin-right:2px; */
-	transition: all 0.3s ease, filter 1ms;
+	transition: all 0.3s ease;
 }
 .favFilled {
 	background-image: url("starFill.svg");
 }
 
 .hoverFav:hover {
-	filter: brightness(0) saturate(100%) invert(58%) sepia(39%)
-		saturate(678%) hue-rotate(124deg) brightness(102%) contrast(91%);
 	transform: scale(1.2);
 }
 .hoverFav:active {
@@ -141,6 +139,10 @@ li.a {
 	overflow: auto;
 	background-color: white;
 	border: none !important;
+}
+
+.hide {
+	display: none !important;
 }
 
 /* Toolbar */

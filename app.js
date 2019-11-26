@@ -8,6 +8,7 @@ var editor = new Quill('#editor', {
 var noteList = [];
 var selectedNote;
 
+var isFavouritesToggled = false;
 // Laddar in anteckingen man klickar på i previewlistan till editorn
 
 var justHtmlContent = document.querySelector('#notes ul');
@@ -46,6 +47,20 @@ function deleteNote(id) {
 	// todo: hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
 }
 
+// Funktion som bestämmer om favoriter ska gömmas eller visas
+function toggleFavNotes() {
+	// Om favoriter redan är togglade
+	if (isFavouritesToggled) {
+		// Visa alla notes
+		renderAllNotes();
+		isFavouritesToggled = false;
+	} else {
+		// Annars toggla favoriter
+		renderFavNotes();
+		isFavouritesToggled = true;
+	}
+}
+
 function renderNotes() {
 	var text = editor.getText();
 	var justHtmlContent = document.querySelector('#notes ul');
@@ -53,13 +68,51 @@ function renderNotes() {
 	noteList.forEach(renderNote);
 }
 
+// Gömmer notes som ej är favoriter
 function renderFavNotes() {
-	//var text = editor.getText();
-	var justHtmlContent = document.querySelector('#notes ul');
-	justHtmlContent.innerHTML = '';
-	let favNotes = [];
-	// for loop på noteList. pusha till favNotes om och endast om noteList[i].favourite ===
-	favNotes.forEach(renderNote);
+	// Få listan till vår li
+	var fav = document
+		.querySelector('#notes ul')
+		.getElementsByTagName('li');
+
+	// Gå igenom notelistan, och kolla om det finns några
+	// favoriter i den. Finns det det, är listan ej tom
+	var isNoteListEmpty = true;
+	for (let index = 0; index < noteList.length; index++) {
+		// Checka om noten är en favorit
+		if (noteList[index].favourite) {
+			isNoteListEmpty = false;
+			break;
+		}
+	}
+
+	// Om listan INTE är tom på favoriter
+	if (!isNoteListEmpty) {
+		// Gå igenom vår ul
+		for (let index = 0; index < fav.length; index++) {
+			// Om nuvaranda note INTE är en favorit, vill vi gömma den
+			if (!noteList[index].favourite) {
+				// Lägg till klassen "hide" till <li>
+				// hide ligger i style.css om det finns frågetecken
+				fav[index].classList.add('hide');
+			}
+		}
+	}
+}
+
+// Renderar all notes
+function renderAllNotes() {
+	// Få listan till vår li
+	var fav = document
+		.querySelector('#notes ul')
+		.getElementsByTagName('li');
+
+	// Gå igenom hela <ul> - listan
+	for (let index = 0; index < fav.length; index++) {
+		// Ta bort "hide" - klassen om den finns
+		// D.v.s visa ALLA items
+		fav[index].classList.remove('hide');
+	}
 }
 
 // Skapar en preview av anteckingen och lägger till den i DOMen
@@ -140,7 +193,8 @@ function addNote() {
 		id: Date.now(),
 		created: showDate(),
 		content: editor.getContents(),
-		preview: editor.getText(0, 50)
+		preview: editor.getText(0, 50),
+		favourite: false
 	};
 
 	noteList.push(note);
