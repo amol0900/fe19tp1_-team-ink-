@@ -6,26 +6,33 @@ toolbarOptions = [
   ['clean']
 ]
 
+
+Quill.register('modules/counter', function (quill, options) {
+  var container = document.querySelector('#counter');
+  quill.on('text-change', function () {
+    var text = quill.getText();
+    // There are a couple issues with counting words
+    // this way but we'll fix these later
+    container.innerHTML = text.trim().length;
+  });
+});
+
+
 var editor = new Quill('#editor', {
   modules: {
-    toolbar: toolbarOptions
+    toolbar: toolbarOptions,
+    counter: true
   },
-  counter: {
-    container: '#counter',
-    unit: 'character',
-  },
+
   placeholder: 'Write your notes here',
   theme: 'snow',
 });
 
 
-
-
-
 var noteList = [];
 var selectedNote;
 
-
+/* 
 class Counter {
   constructor(quill, options) {
     this.quill = quill;
@@ -55,8 +62,9 @@ class Counter {
     this.container.innerText = length + ' ' + label;
   }
 }
+ */
 
-Quill.register('modules/counter', Counter);
+//Quill.register('modules/counter', Counter);
 
 
 
@@ -66,7 +74,7 @@ var justHtmlContent = document.querySelector('#notes ul');
 justHtmlContent.addEventListener('click', function (e) {
   let clickedLI = e.target.closest('li');
   //let clickedID = e.target.closest('li').id;
-  //console.log('clickedID: ' + clickedID);
+  console.log('clickedID: ' + clickedLI);
   selectedNote = noteList.find((note) => note.id === Number(clickedLI.id));
 
   /* 	function gfg_Run() {
@@ -93,7 +101,7 @@ justHtmlContent.addEventListener('click', function (e) {
     console.log("elsewhere")
     // vi har klickat någon annan stans
     editor.setContents(selectedNote.content);
-    myTitle.value = "Hej";
+    //myTitle.value = "Hej";
 
   }
 
@@ -143,8 +151,8 @@ function renderFavNotes() {
 }
 
 function getTitle() {
-  const theItem = document.forms['enter'];
-  var myTitle = theItem.querySelector('input[type="text"]').value;
+  //const theItem = document.forms['enter'];
+  var myTitle = document.querySelector('#square').value;
   /* 	
     if (myTitle == '' || myTitle.length == 0) {
       return false;
@@ -233,7 +241,8 @@ function addNote() {
     id: Date.now(),
     created: showDate(),
     content: editor.getContents(),
-    preview: editor.getText(0, 50)
+    preview: editor.getText(0, 50),
+    title: getTitle()
   };
 
   noteList.push(note);
@@ -259,17 +268,4 @@ function addNote() {
 //   }
 // });
 
-var counter = quill.getModule('counter');
-
-
-function printDiv(divName) {
-  var printContents = document.getElementById(divName).innerHTML;
-  var originalContents = document.body.innerHTML; 11
-
-  document.body.innerHTML = printContents;
-
-  window.print();
-
-  document.body.innerHTML = originalContents;
-}
 

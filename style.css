@@ -339,6 +339,12 @@ outline: none;
 	outline:none !important;
 	}
 
+  #counter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+  }
 /* textstilar editor */
 
 /* .ql-snow .ql-editor h1 {
@@ -376,3 +382,11 @@ outline: none;
 	color: black;
   font-size: 1.1rem !important;
 } */
+@media print {
+  @page { margin: 0; }
+  body { margin: 1.6cm; }
+  nav, #notes,#enter>#saveNote,#enter>#saveNote2,.ql-toolbar {
+    display: none;
+  }
+
+}

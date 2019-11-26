@@ -34,6 +34,7 @@
 
     <!-- Listan där preview av anteckningarna hamnar -->
     <div id="notes">
+
       <ul>
 
       </ul>
@@ -49,19 +50,20 @@
 
     <div id="wrapper">
       <!-- <div id="printableArea"> -->
-      <form id="enter">
-        <input type="button" id="saveNote" onclick="printDiv('printableArea')" value="Print" />
+      <!-- <form id="enter"> -->
+        <input type="button" id="saveNote" onclick="window.print()" value="Print" />
         <input type="text" id="square" placeholder="Add a fancy title">
         <button id="saveNote" type="button" onclick="addNote()">Save note</button>
-      </form>
+      <!-- </form> -->
 
 
 
-      <div id="editor"></div>
+      <div id="editor">
+      </div>
+
 
 
       <div id="counter">0</div>
-
     </div>
   </main>
 </body>
