@@ -22,13 +22,13 @@
     <!-- Grön navbar -->
     <nav>
       <ul>
-        <li class="a">
+        <li class="al">
           <img src="Q.png" id="logo"></li> <!-- Todo: Change to svg -->
+        <li class="a"><button id="newNote" onclick="newNote()"><i class="far fa-edit"></i></button></li>
         <li class="a">
           <button id="myFavs"></button>
         </li>
         <li class="a"></li>
-        <li class="a"><button id="newNote" onclick="newNote()">+</button></li>
       </ul>
     </nav>
 
@@ -40,21 +40,29 @@
 
     </div>
 
+
+
     <!-- Editorn -->
 
 
 
-    <div id="wrapper"></div>
-      <div id="printableArea">
-        <div id="editor"></div>
-        <input type="button" onclick="printDiv('printableArea')" value="print a div!" />
-        <div id="counter">0</div>
-        <!-- "Save note"-knappen -->
-        <div class="buttons">
-          <button id="saveNote" onclick="addNote()">Save note</button>
-        </div>
 
-      </div>
+    <div id="wrapper">
+      <!-- <div id="printableArea"> -->
+      <form id="enter">
+        <input type="button" id="saveNote" onclick="printDiv('printableArea')" value="Print" />
+        <input type="text" id="square" placeholder="Add a fancy title">
+        <button id="saveNote" type="button" onclick="addNote()">Save note</button>
+      </form>
+
+
+
+      <div id="editor"></div>
+
+
+      <div id="counter">0</div>
+
+    </div>
   </main>
 </body>
 <script src="app.js"></script>
