@@ -249,7 +249,7 @@ function addNote() {
 
 		noteList.unshift(note);
 		console.log(noteList);
-		openNav();
+		/* openNav(); */
 		saveNotes();
 		renderNotes();
 	}
