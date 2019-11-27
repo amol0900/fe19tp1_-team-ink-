@@ -4,7 +4,7 @@ body {
 	padding: 0;
 	scroll-behavior:smooth;
 	height:100vh;
-	overflow:hidden;
+	overflow:hidden
 }
 main {
 	display: flex;
@@ -115,7 +115,7 @@ color:#289a8c !important;
 	font-size: 0.8em;
 	line-height: 1.5em;
 	overflow-wrap: break-word;
-	padding: 10px;
+	padding: 15px;
 	background-size: cover;
 }
 
@@ -127,6 +127,11 @@ color:#289a8c !important;
 	background-color: rgba(230, 230, 230, 0.933);
 }
 
+#wrapper {
+	height:100vh;
+	overflow:scroll;
+}
+
 h6 {
 	margin:0;
 	margin-top:7px;
@@ -136,8 +141,8 @@ h6 {
 }
 
 .title {
-	font-family: 'Montserrat';
-	font-size: 1em;
+	font-family: 'Helvetica';
+	font-size: 1.1em;
 	font-weight:200;
 	margin-bottom: 0;
 }
@@ -239,16 +244,18 @@ input {
 
 #editor {
 	width: 700px;
-	height: 100vh;
-	overflow: auto;
+	height:100vh;
+	overflow: scroll;
 	background-color: white;
 	border: none !important;
 	margin-top:40px;
+	-webkit-mask-image: -webkit-gradient(linear,left 40%,left bottom,from(black),to(rgba(0,0,0,0)));
 }
 /* .ql-editor::before {
 	font-family:'Montserrat';
    font-size:1.6em;
 } */
+
 
 #buttons {
 	font-size:2em;
@@ -271,6 +278,19 @@ outline: none;
 #saveNote:hover {
 	background-color:#289a8c;
 	color:white;
+}
+
+#print {
+	font-size:1.6em;
+}
+
+.fa-print {
+color:#31bfaf;
+cursor:pointer;
+}
+
+.fa-print:hover {
+color:#289a8c;
 }
 
 /* Toolbar */
