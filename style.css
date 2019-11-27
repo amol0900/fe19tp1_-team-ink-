@@ -427,12 +427,12 @@ input {
 
 .sidenav {
 	height: 100%;
-	position: fixed;
+	position: sticky;
 	z-index: 1;
 	top: 0;
 	left: 70px;
-	overflow-x: hidden;
-	transition: 0.5s;
+	/* overflow-x: hidden; */
+	transition: ease-in-out 0.5s;
 	padding-top: 0;
 	width: 250px;
 	/* 	display: grid;
@@ -467,9 +467,10 @@ input {
 	background-color: transparent;
 	color: grey;
 	transition: ease 0.3s;
+	cursor: pointer;
 }
 
 #closebtn a:hover,
 .offcanvas a:focus {
-	color: #31bfaf;
+	color: #da1922;
 }
