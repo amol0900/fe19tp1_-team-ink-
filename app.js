@@ -44,33 +44,15 @@ justHtmlContent.addEventListener('click', function(e) {
 		(note) => note.id === Number(clickedLI.id)
 	);
 
-	// Gör om detta till if, else, else if
-
-	// undersök om klicket var på favourite-knappen
 
 	if (e.target.classList.contains('fav')) {
-		console.log('hello world');
-		// vi har klickat på favourite-knappen
 		selectedNote.favourite = !selectedNote.favourite;
 		saveNotes();
 
 		e.target.classList.toggle('favFilled');
-		//console.log(selectedNote.favourite);
-		// här ska saker göras som BARA ska göras när man klickat på fav
-	} else {
-		console.log('elsewhere');
-		// vi har klickat någon annan stans
-		editor.setContents(selectedNote.content);
 
-		var myTitle2 = document.getElementById('square');
-		myTitle2.setAttribute('value', selectedNote.title);
-	}
-
-	//tar bort anteckningen när man klickar på papperskorgen
-	if (e.target.classList.contains('far')) {
-		noteList = noteList.filter(
-			(note) => note.id !== Number(clickedLI.id)
-		);
+	} else if (e.target.classList.contains('far')) {
+		noteList = noteList.filter(note => note.id !== Number(clickedLI.id));
 
 		clickedLI.remove();
 		editor.setText('');
@@ -78,14 +60,15 @@ justHtmlContent.addEventListener('click', function(e) {
 		document.getElementById('square').focus();
 		saveNotes();
 		selectedNote = null;
+
+
 	} else {
-		// vi har klickat någon annan stans
+		var myTitle2 = document.getElementById('square');
 		editor.setContents(selectedNote.content);
-		myTitle2.setAttribute('value', selectedNote.title);
+		myTitle2.value = selectedNote.title;
+
 	}
 });
-
-// Laddar anteckningarna när sidan laddas/refreshas
 
 window.addEventListener('load', (event) => {
 	loadNotes();
@@ -173,9 +156,7 @@ function getTitle() {
 	
 		} else { */
 	return myTitle;
-}
-
-// Skapar en preview av anteckingen och lägger till den i DOMen
+};
 
 function renderNote(note) {
 	let title;
@@ -186,7 +167,7 @@ function renderNote(note) {
 	} else {
 		title = note.preview.substring(0, titleLength);
 	}
-	//console.log(note.id + ': ' + note.favourite);
+
 	if (note.favourite) {
 		favClass = 'favFilled';
 	} else {
@@ -236,25 +217,7 @@ function newNote() {
 	document.getElementById('square').value = '';
 }
 
-//Något Kristian började med
-/*   selectedNote.contents = editor.getContents();
-  selectedNote.preview = editor.getText(0, 12); */
-
-//Kanske något sånt här?
-/*   if (localStorage.getItem(selectedNote) === null) {
-      addNote()
-    } */
-
-//Är denna raden användbar?
-//selectedNote = noteList.find((note) => note.id === Number(clickedID));
-
 function addNote() {
-	/* let clickedLI = e.target.closest('li');
-	if (selectedNote = noteList.find((note) => note.id === Number(clickedID))){
-		editor.setContents(selectedNote.content);
-	} */
-
-	// Om selectedote är truthy if (selectedNote) så ska något annat än nedanstående göras annars ska nedanstående
 	if (selectedNote) {
 		selectedNote.content = editor.getContents();
 		selectedNote.preview = editor.getText(0, 25);
