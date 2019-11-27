@@ -59,6 +59,7 @@ li.a {
 	border: none;
 	font-size: 1.9em;
 	cursor: pointer;
+	padding:0;
 }
 
 .fa-edit {
@@ -73,17 +74,20 @@ li.a {
 	outline: none;
 	background-color: transparent;
 	border: none;
-	font-size: 1.9em;
+	padding:0;
 	cursor: pointer;
+	font-size:1.9em;
 }
 
-.fa-align-left {
+.fa-list-ul {
 	color: white !important;
 }
 
-.fa-align-left {
+.fa-list-ul:hover {
 	color: #289a8c !important;
 }
+
+
 
 #myFavs {
 	width: 35px;
@@ -91,6 +95,7 @@ li.a {
 	background-image: url("/images/starFill.svg");
 	background-repeat: no-repeat;
 	border: none;
+	padding:0;
 	background-color: transparent;
 	outline: none;
 	cursor: pointer;
@@ -143,10 +148,10 @@ li.a {
 	background-color: rgba(230, 230, 230, 0.933);
 }
 
-/* #wrapper {
+#wrapper {
 	height:100vh;
-	overflow:scroll;
-} */
+	/* overflow:scroll; */
+}
 
 h6 {
 	margin: 0;
@@ -279,22 +284,33 @@ input {
 }
 
 #saveNote {
-	background-color: #31bfaf;
+	background-color:white;
 	font-family: 'Montserrat';
-	font-weight: 200;
-	color: white;
-	font-size: 0.8em;
-	border: 1px solid #31bfaf;
-	border-radius: 20px;
+	font-weight: 400;
+	color: grey;
+	font-size: 1em;
+	border:none;
+/* 	border: 1px solid #31bfaf;
+	border-radius: 20px; */
 	padding: 10px 20px;
 	cursor: pointer;
 	outline: none;
 }
 
 #saveNote:hover {
-	background-color: #289a8c;
-	color: white;
+	background-color: white;
+	color: #289a8c;
 }
+
+.fa-check{
+	visibility: hidden;
+	margin-left:10px;
+	color:#31bfaf;
+}
+
+/* .fa-check:active{
+	visibility: visible;
+} */
 
 #print {
 	font-size: 1.6em;

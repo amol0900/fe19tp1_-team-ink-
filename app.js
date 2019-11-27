@@ -66,6 +66,7 @@ justHtmlContent.addEventListener('click', function(e) {
 		var myTitle2 = document.getElementById('square');
 		editor.setContents(selectedNote.content);
 		myTitle2.value = selectedNote.title;
+		/* document.querySelector('.fa-check').style.visibility = "hidden"; */
 
 	}
 });
@@ -217,7 +218,19 @@ function newNote() {
 	document.getElementById('square').value = '';
 }
 
+function myFunction() {
+	document.querySelector('.fa-check').style.visibility = "hidden";
+}
+
+/* function changeOpacity() {
+	var elem = document.querySelector('.fa-list-ul');
+	elem.style.transition = "transition: all 0.3s ease, filter 1ms";
+	elem.style.opacity = 0.5;	
+} */
+
 function addNote() {
+	/* changeOpacity(); */
+	document.querySelector('.fa-check').style.visibility = "visible";
 	if (selectedNote) {
 		selectedNote.content = editor.getContents();
 		selectedNote.preview = editor.getText(0, 25);
@@ -236,7 +249,7 @@ function addNote() {
 
 		noteList.push(note);
 		console.log(noteList);
-
+		openNav();
 		saveNotes();
 		renderNotes();
 	}
