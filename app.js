@@ -362,11 +362,18 @@ themePickerItems.forEach((cssFile, cssLinkIndex) => {
 //Sidenav
 
 function openNav() {
-	document.getElementById('mySidenav').style.width = '';
+	/* document.getElementById('mySidenav').style.width = ''; */
+	/* document.getElementById('mySidenav').classList.add('sidenav')*/
+	document.getElementById('mySidenav').classList.replace("hiddenSidenav", "sidenav");
 }
 
 function closeNav() {
-	document.getElementById('mySidenav').style.width = '0';
+	/* document.getElementById('mySidenav').style.width = '0';*/	
+	/* document.getElementById('mySidenav').classList.remove('sidenav'); */
+	/* document.getElementById('mySidenav').classList.add('hiddenSidenav'); */
+	document.getElementById('mySidenav').classList.replace("sidenav", "hiddenSidenav");
+
+
 }
 
 /* function changeCSS(cssFile, cssLinkIndex) {
