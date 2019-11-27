@@ -1,21 +1,33 @@
-toolbarOptions = [
-	[ { header: [ 1, 2, 3, 4, false ] } ],
-	[ 'bold', 'italic', 'underline' ],
-	[ { align: [] } ],
-	[ 'link', 'image' ],
-	[ { list: 'ordered' }, { list: 'bullet' } ],
-	[ 'clean' ]
-];
-
-var editor = new Quill('#editor', {
-	modules: {
-		toolbar: toolbarOptions
-	},
+var options = {
 	placeholder: 'Write your notes here',
-	theme: 'snow'
-});
+	theme: 'snow',
+	modules: {
+		toolbar: {
+			toolbarOptions: [
+				[ { header: [ 1, 2, 3, 4, false ] } ],
+				[ 'bold', 'italic', 'underline' ],
+				[ 'link', 'image' ],
+				[ { list: 'ordered' }, { list: 'bullet' } ],
+				[ 'clean' ],
+				[ { themes: [ 'Theme 1', 'Theme 1' ] } ]
+			],
+			handlers: {
+				themes: function(value) {
+					if (value) {
+						const cursorPosition = this.quill.getSelection()
+							.index;
+						this.quill.insertText(cursorPosition, value);
+						this.quill.setSelection(
+							cursorPosition + value.length
+						);
+					}
+				}
+			}
+		}
+	}
+};
 
-/* var editor = new Quill('#quillEditor', options); */
+var editor = new Quill('#editor', options);
 
 var noteList = [];
 var selectedNote;
@@ -297,3 +309,74 @@ let savedNotes = [
 		title: 'Min dagbok'
 	}
 ];
+//Ändra mall i editor
+
+function changeCSS(cssFile, cssLinkIndex) {
+	var oldlink = document.getElementsByTagName('link').item(cssLinkIndex);
+
+	var newlink = document.createElement('link');
+	newlink.setAttribute('rel', 'stylesheet');
+	newlink.setAttribute('type', 'text/css');
+	newlink.setAttribute('href', cssFile);
+
+	document
+		.getElementsByTagName('head')
+		.item(0)
+		.replaceChild(newlink, oldlink);
+}
+
+/* function themeOne() {
+	var theme = document.querySelector('.themes');
+	theme.href = "style1.css";
+}
+
+function themeTwo() {
+	var theme = document.querySelector('.themes');
+	theme.href = "style2.css";
+}
+
+function themeThree() {
+	var theme = document.querySelector('.themes');
+	theme.href = "style3.css";
+}
+ */
+
+//Innehåll i theme-picker
+const themePickerItems = Array.prototype.slice.call(
+	document.querySelectorAll('.ql-themes .ql-picker-item')
+);
+
+themePickerItems.forEach((cssFile, cssLinkIndex) => {
+	var oldlink = document.getElementsByTagName('link').item(cssLinkIndex);
+	var newlink = document.createElement('link');
+	newlink.setAttribute('rel', 'stylesheet');
+	newlink.setAttribute('type', 'text/css');
+
+	newlink.setAttribute('href', cssFile);
+	document
+		.getElementsByTagName('head')
+		.item(0)
+		.replaceChild(newlink, oldlink);
+});
+
+//Sidenav
+
+function openNav() {
+	document.getElementById('mySidenav').style.width = '';
+}
+
+function closeNav() {
+	document.getElementById('mySidenav').style.width = '0';
+}
+
+/* function changeCSS(cssFile, cssLinkIndex) {
+
+	var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
+
+	var newlink = document.createElement("link");
+	newlink.setAttribute("rel", "stylesheet");
+	newlink.setAttribute("type", "text/css");
+	newlink.setAttribute("href", cssFile);
+
+	document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+} */
