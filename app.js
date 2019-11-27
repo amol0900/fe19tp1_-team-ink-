@@ -271,7 +271,7 @@ function addNote() {
 			title: getTitle()
 		};
 
-		noteList.push(note);
+		noteList.unshift(note);
 		console.log(noteList);
 
 		saveNotes();
@@ -363,10 +363,12 @@ themePickerItems.forEach((cssFile, cssLinkIndex) => {
 
 function openNav() {
 	document.getElementById('mySidenav').style.width = '';
+	document.getElementById('mySidenav').style.opacity = '100%';
 }
 
 function closeNav() {
 	document.getElementById('mySidenav').style.width = '0';
+	document.getElementById('mySidenav').style.opacity = '0%';
 }
 
 /* function changeCSS(cssFile, cssLinkIndex) {
