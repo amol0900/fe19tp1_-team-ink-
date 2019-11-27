@@ -4,7 +4,7 @@ body {
 	padding: 0;
 	scroll-behavior:smooth;
 	height:100vh;
-	overflow:hidden
+	
 }
 main {
 	display: flex;
@@ -13,7 +13,7 @@ main {
 nav {
 	width: 70px;
 	background-color: #31bfaf;
-	height:100vh;
+	min-height:100vh;
 	
 }
 
@@ -24,6 +24,7 @@ nav ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	min-height:100vh;
 
 }
 
@@ -93,6 +94,7 @@ color:#289a8c !important;
 	display: flex;
 	flex-direction: row;
 	overflow-wrap: break-word;
+	min-height:100vh;
 }
 
 #notes ul {
@@ -102,7 +104,7 @@ color:#289a8c !important;
 	margin: 0;
 	padding: 0;
 	cursor: pointer;
-	height:100vh;
+	min-height:100vh;
 	overflow:scroll;
 }
 
@@ -127,10 +129,10 @@ color:#289a8c !important;
 	background-color: rgba(230, 230, 230, 0.933);
 }
 
-#wrapper {
+/* #wrapper {
 	height:100vh;
 	overflow:scroll;
-}
+} */
 
 h6 {
 	margin:0;

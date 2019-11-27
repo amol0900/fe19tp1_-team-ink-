@@ -29,7 +29,6 @@ justHtmlContent.addEventListener('click', function (e) {
 	//console.log('clickedID: ' + clickedID);
 	selectedNote = noteList.find((note) => note.id === Number(clickedLI.id));
 
-// Gör om detta till if, else, else if
 
 	// undersök om klicket var på knappen
 
@@ -43,19 +42,7 @@ justHtmlContent.addEventListener('click', function (e) {
 		//console.log(selectedNote.favourite);
 		// här ska saker göras som BARA ska göras när man klickat på fav
 
-	} else {
-		console.log("elsewhere")
-		// vi har klickat någon annan stans
-		editor.setContents(selectedNote.content);
-
-		var myTitle2 = document.getElementById('square');
-		myTitle2.setAttribute('value', selectedNote.title);
-
-
-	}
-
-	//tar bort anteckningen när man klickar på papperskorgen
-	if (e.target.classList.contains('far')) {
+	} else if (e.target.classList.contains('far')) {
 		noteList = noteList.filter(note => note.id !== Number(clickedLI.id));
 
 		clickedLI.remove();
@@ -65,7 +52,10 @@ justHtmlContent.addEventListener('click', function (e) {
 		saveNotes();
 		selectedNote = null;
 
+	//tar bort anteckningen när man klickar på papperskorgen
+	
 	} else {
+		var myTitle2 = document.getElementById('square');
 		// vi har klickat någon annan stans
 		editor.setContents(selectedNote.content);
 		myTitle2.setAttribute('value', selectedNote.title);
@@ -78,6 +68,7 @@ justHtmlContent.addEventListener('click', function (e) {
 
 window.addEventListener('load', (event) => {
 	loadNotes();
+	
 	document.getElementById('square').focus();
 });
 
@@ -165,7 +156,7 @@ function showDate() {
 
 
 function newNote() {
-	/* addNote(); */
+	selectedNote = null;
 	editor.setText('');
 	document.getElementById('square').value = '';
 }
