@@ -343,6 +343,7 @@ themePickerItems.forEach((cssFile, cssLinkIndex) => {
 //Sidenav
 
 function openNav() {
+<<<<<<< HEAD
 	/* document.getElementById('mySidenav').style.width = ''; */
 	/* document.getElementById('mySidenav').classList.add('sidenav')*/
 	document.getElementById('mySidenav').classList.replace("hiddenSidenav", "sidenav");
@@ -355,6 +356,15 @@ function closeNav() {
 	document.getElementById('mySidenav').classList.replace("sidenav", "hiddenSidenav");
 
 
+=======
+	document.getElementById('mySidenav').style.width = '';
+	document.getElementById('mySidenav').style.opacity = '100%';
+}
+
+function closeNav() {
+	document.getElementById('mySidenav').style.width = '0';
+	document.getElementById('mySidenav').style.opacity = '0%';
+>>>>>>> develop
 }
 
 /* function changeCSS(cssFile, cssLinkIndex) {

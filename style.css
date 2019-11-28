@@ -2,9 +2,9 @@ html,
 body {
 	margin: 0;
 	padding: 0;
-	scroll-behavior: smooth;
-	height: 100vh;
-	overflow: hidden;
+	/* scroll-behavior:smooth; */
+	/* height:100vh; */
+	
 }
 main {
 	display: flex;
@@ -13,8 +13,13 @@ main {
 nav {
 	width: 70px;
 	background-color: #31bfaf;
+<<<<<<< HEAD
 	height: 100vh;
 	z-index: 3;
+=======
+	/* min-height:100vh; */
+	
+>>>>>>> develop
 }
 
 /* Grön navbar */
@@ -24,6 +29,7 @@ nav ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	/* min-height:100vh; */
 }
 
 nav li {
@@ -58,6 +64,7 @@ li.a {
 	border: none;
 	font-size: 1.9em;
 	cursor: pointer;
+	padding:0;
 }
 
 .fa-edit {
@@ -72,17 +79,20 @@ li.a {
 	outline: none;
 	background-color: transparent;
 	border: none;
-	font-size: 1.9em;
+	padding:0;
 	cursor: pointer;
+	font-size:1.9em;
 }
 
-.fa-align-left {
+.fa-list-ul {
 	color: white !important;
 }
 
-.fa-align-left {
+.fa-list-ul:hover {
 	color: #289a8c !important;
 }
+
+
 
 #myFavs {
 	width: 35px;
@@ -90,6 +100,7 @@ li.a {
 	background-image: url("/images/starFill.svg");
 	background-repeat: no-repeat;
 	border: none;
+	padding:0;
 	background-color: transparent;
 	outline: none;
 	cursor: pointer;
@@ -106,6 +117,8 @@ li.a {
 	display: flex;
 	flex-direction: row;
 	overflow-wrap: break-word;
+	height:100vh;
+	overflow:scroll;
 }
 
 #notes ul {
@@ -115,8 +128,8 @@ li.a {
 	margin: 0;
 	padding: 0;
 	cursor: pointer;
-	height: 100vh;
-	overflow: scroll;
+	/* min-height:100vh; */
+	overflow:scroll;
 }
 
 #notes ul li {
@@ -141,12 +154,15 @@ li.a {
 	background-color: rgba(230, 230, 230, 0.933);
 }
 
+<<<<<<< HEAD
 #wrapper {
 	height: 100vh;
 	overflow: scroll;
 	z-index: 1;
 }
 
+=======
+>>>>>>> develop
 h6 {
 	margin: 0;
 	margin-top: 7px;
@@ -255,7 +271,7 @@ input {
 
 #editor {
 	width: 700px;
-	height: 100vh;
+	height:75vh;
 	overflow: scroll;
 	background-color: white;
 	border: none !important;
@@ -278,22 +294,33 @@ input {
 }
 
 #saveNote {
-	background-color: #31bfaf;
+	background-color:white;
 	font-family: 'Montserrat';
-	font-weight: 200;
-	color: white;
-	font-size: 0.8em;
-	border: 1px solid #31bfaf;
-	border-radius: 20px;
+	font-weight: 400;
+	color: grey;
+	font-size: 1em;
+	border:none;
+/* 	border: 1px solid #31bfaf;
+	border-radius: 20px; */
 	padding: 10px 20px;
 	cursor: pointer;
 	outline: none;
 }
 
 #saveNote:hover {
-	background-color: #289a8c;
-	color: white;
+	background-color: white;
+	color: #289a8c;
 }
+
+.fa-check{
+	visibility: hidden;
+	margin-left:10px;
+	color:#31bfaf;
+}
+
+/* .fa-check:active{
+	visibility: visible;
+} */
 
 #print {
 	font-size: 1.6em;
@@ -425,13 +452,19 @@ input {
 }
 
 .sidenav {
+<<<<<<< HEAD
 	height: 100%;
 	position: fixed;
 	z-index: 2;
+=======
+	/* height: 100%; */
+	position: sticky;
+	z-index: 1;
+>>>>>>> develop
 	top: 0;
 	left: 70px;
-	overflow-x: hidden;
-	transition: 0.5s;
+	/* overflow-x: hidden; */
+	transition: ease-in-out 0.5s;
 	padding-top: 0;
 	width: 250px;
 	/* 	display: grid;
@@ -481,11 +514,12 @@ input {
 	background-color: transparent;
 	color: grey;
 	transition: ease 0.3s;
+	cursor: pointer;
 }
 
 #closebtn a:hover,
 .offcanvas a:focus {
-	color: #31bfaf;
+	color: #da1922;
 }
 
 
