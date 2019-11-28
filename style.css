@@ -89,10 +89,25 @@ li.a {
 
 
 
-#myFavs {
+.favs {
 	width: 35px;
 	height: 35px;
 	background-image: url("/images/starFill.svg");
+	background-repeat: no-repeat;
+	border: none;
+	padding:0;
+	background-color: transparent;
+	outline: none;
+	cursor: pointer;
+	transition: all 0.3s ease, filter 1ms;
+	visibility:hidden;
+	
+}
+
+.favsFilled {
+	width: 35px;
+	height: 35px;
+	background-image: url("/images/star.svg");
 	background-repeat: no-repeat;
 	border: none;
 	padding:0;
@@ -237,6 +252,7 @@ i.far:hover {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	/* width:90%; */
 }
 
 input {
@@ -257,14 +273,14 @@ input {
 
 #editor {
 	width: 700px;
-	height:75vh;
+	height:80vh;
 	overflow: scroll;
 	background-color: white;
 	border: none !important;
-	margin-top: 40px;
+	margin-top: 25px;
 	-webkit-mask-image: -webkit-gradient(
 		linear,
-		left 40%,
+		left 60%,
 		left bottom,
 		from(black),
 		to(rgba(0, 0, 0, 0))
@@ -437,6 +453,7 @@ input {
 	padding: 16px;
 }
 
+
 .sidenav {
 	/* height: 100%; */
 	position: sticky;
@@ -450,6 +467,7 @@ input {
 	/* 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	grid-template-rows: 1fr 2fr; */
+	
 }
 
 /* .sidenav a {
