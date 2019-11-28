@@ -50,11 +50,13 @@ justHtmlContent.addEventListener('click', function (e) {
 		noteList = noteList.filter(note => note.id !== Number(clickedLI.id));
 
 		clickedLI.remove();
-		/* editor.setText(''); */
-		/* document.getElementById('square').value = ''; */
-		/* document.getElementById('square').focus(); */
+		editor.setText(''); 
+		document.getElementById('square').value = ''; 
+		document.getElementById('square').focus(); 
 		saveNotes();
 		selectedNote = null;
+
+		// ändra ovan så att när man tar bort en annan note än selectedNote, så töms inte editorn
 
 	} else {
 		var myTitle2 = document.getElementById('square');
