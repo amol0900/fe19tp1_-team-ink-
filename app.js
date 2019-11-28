@@ -355,7 +355,7 @@ function closeNav() {
 	/* document.getElementById('mySidenav').classList.add('hiddenSidenav'); */
 	document.getElementById('mySidenav').classList.replace("sidenav", "hiddenSidenav");
 	document.getElementById('mySidenav').style.opacity = '0%';
-
+}
 
 /* function changeCSS(cssFile, cssLinkIndex) {
 
