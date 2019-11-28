@@ -7,6 +7,7 @@ var options = {
 				[ { header: [ 1, 2, 3, 4, false ] } ],
 				[ 'bold', 'italic', 'underline' ],
 				[ 'link', 'image' ],
+				[{ 'align': [] }],
 				[ { list: 'ordered' }, { list: 'bullet' } ],
 				[ 'clean' ],
 				[ { themes: [ 'Theme 1', 'Theme 1' ] } ]
@@ -44,33 +45,15 @@ justHtmlContent.addEventListener('click', function(e) {
 		(note) => note.id === Number(clickedLI.id)
 	);
 
-	// Gör om detta till if, else, else if
-
-	// undersök om klicket var på favourite-knappen
 
 	if (e.target.classList.contains('fav')) {
-		console.log('hello world');
-		// vi har klickat på favourite-knappen
 		selectedNote.favourite = !selectedNote.favourite;
 		saveNotes();
 
 		e.target.classList.toggle('favFilled');
-		//console.log(selectedNote.favourite);
-		// här ska saker göras som BARA ska göras när man klickat på fav
-	} else {
-		console.log('elsewhere');
-		// vi har klickat någon annan stans
-		editor.setContents(selectedNote.content);
 
-		var myTitle2 = document.getElementById('square');
-		myTitle2.setAttribute('value', selectedNote.title);
-	}
-
-	//tar bort anteckningen när man klickar på papperskorgen
-	if (e.target.classList.contains('far')) {
-		noteList = noteList.filter(
-			(note) => note.id !== Number(clickedLI.id)
-		);
+	} else if (e.target.classList.contains('far')) {
+		noteList = noteList.filter(note => note.id !== Number(clickedLI.id));
 
 		clickedLI.remove();
 		editor.setText('');
@@ -78,19 +61,24 @@ justHtmlContent.addEventListener('click', function(e) {
 		document.getElementById('square').focus();
 		saveNotes();
 		selectedNote = null;
+
+
 	} else {
-		// vi har klickat någon annan stans
+		var myTitle2 = document.getElementById('square');
 		editor.setContents(selectedNote.content);
-		myTitle2.setAttribute('value', selectedNote.title);
+		myTitle2.value = selectedNote.title;
+		/* document.querySelector('.fa-check').style.visibility = "hidden"; */
+
 	}
 });
 
-// Laddar anteckningarna när sidan laddas/refreshas
-
 window.addEventListener('load', (event) => {
+	
 	loadNotes();
 	document.getElementById('square').focus();
 });
+
+
 
 function deleteNote(id) {
 	// todo: hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
@@ -152,6 +140,7 @@ function renderAllNotes() {
 
 // Funktion som bestämmer om favoriter ska gömmas eller visas
 function toggleFavNotes() {
+	openNav();
 	// Om favoriter redan är togglade
 	if (isFavouritesToggled) {
 		// Visa alla notes
@@ -173,9 +162,7 @@ function getTitle() {
 	
 		} else { */
 	return myTitle;
-}
-
-// Skapar en preview av anteckingen och lägger till den i DOMen
+};
 
 function renderNote(note) {
 	let title;
@@ -186,7 +173,7 @@ function renderNote(note) {
 	} else {
 		title = note.preview.substring(0, titleLength);
 	}
-	//console.log(note.id + ': ' + note.favourite);
+
 	if (note.favourite) {
 		favClass = 'favFilled';
 	} else {
@@ -236,25 +223,19 @@ function newNote() {
 	document.getElementById('square').value = '';
 }
 
-//Något Kristian började med
-/*   selectedNote.contents = editor.getContents();
-  selectedNote.preview = editor.getText(0, 12); */
+function myFunction() {
+	document.querySelector('.fa-check').style.visibility = "hidden";
+}
 
-//Kanske något sånt här?
-/*   if (localStorage.getItem(selectedNote) === null) {
-      addNote()
-    } */
-
-//Är denna raden användbar?
-//selectedNote = noteList.find((note) => note.id === Number(clickedID));
+/* function changeOpacity() {
+	var elem = document.querySelector('.fa-list-ul');
+	elem.style.transition = "transition: all 0.3s ease, filter 1ms";
+	elem.style.opacity = 0.5;	
+} */
 
 function addNote() {
-	/* let clickedLI = e.target.closest('li');
-	if (selectedNote = noteList.find((note) => note.id === Number(clickedID))){
-		editor.setContents(selectedNote.content);
-	} */
-
-	// Om selectedote är truthy if (selectedNote) så ska något annat än nedanstående göras annars ska nedanstående
+	/* changeOpacity(); */
+	document.querySelector('.fa-check').style.visibility = "visible";
 	if (selectedNote) {
 		selectedNote.content = editor.getContents();
 		selectedNote.preview = editor.getText(0, 25);
@@ -271,9 +252,9 @@ function addNote() {
 			title: getTitle()
 		};
 
-		noteList.push(note);
+		noteList.unshift(note);
 		console.log(noteList);
-
+		/* openNav(); */
 		saveNotes();
 		renderNotes();
 	}

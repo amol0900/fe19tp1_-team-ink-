@@ -25,7 +25,7 @@
           <img src="Q.png" id="logo">
         </li> <!-- Todo: Change to svg -->
         <li class="a">
-          <button id="openNav" onclick="openNav()"><i class="fad fa-align-left"></i></button>
+          <button id="openNav" onclick="openNav()"><i class="fas fa-list-ul"></i></button>
         </li>
         <li class="a">
           <button id="newNote" onclick="newNote()"><i class="far fa-edit"></i></button>
@@ -38,7 +38,7 @@
     </nav>
     
     <div id="mySidenav" class="sidenav">
-      <button id="closebtn" onclick="closeNav()">×</button> 
+      <button id="closebtn" class="hoverFav" onclick="closeNav()">×</button> 
       <!-- Listan där preview av anteckningarna hamnar -->
       <div id="notes">
         <ul>
@@ -51,11 +51,10 @@
     <div id="wrapper">
               <form id="enter">
                 <input type="text" id="square" placeholder="Add a fancy title">
-                <button id="saveNote" type="button" onclick="addNote()">Save note</button>
+                <button id="saveNote" type="button" onclick="addNote()" onfocusout="myFunction()">Save note<i class="fas fa-check"></i></button>
                 <div id="print"><i class="fas fa-print" alt="print"></i></div>
               </form>
-                
-                    
+                 
                   
       <div id="editor"></div>
 

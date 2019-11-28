@@ -14,7 +14,6 @@ nav {
 	width: 70px;
 	background-color: #31bfaf;
 	height: 100vh;
-	z-index: 3;
 }
 
 /* Grön navbar */
@@ -144,7 +143,6 @@ li.a {
 #wrapper {
 	height: 100vh;
 	overflow: scroll;
-	z-index: 1;
 }
 
 h6 {
@@ -427,7 +425,7 @@ input {
 .sidenav {
 	height: 100%;
 	position: fixed;
-	z-index: 2;
+	z-index: 1;
 	top: 0;
 	left: 70px;
 	overflow-x: hidden;
@@ -438,21 +436,6 @@ input {
 	grid-template-columns: 1fr 2fr;
 	grid-template-rows: 1fr 2fr; */
 }
-.hiddenSidenav {
-	height: 100%;
-	position: fixed;
-	z-index: 2;
-	top: 0;
-	left: 70px;
-	overflow-x: hidden;
-	transition: 0.5s;
-	padding-top: 0;
-	width: 0;
-	/* 	display: grid;
-	grid-template-columns: 1fr 2fr;
-	grid-template-rows: 1fr 2fr; */
-}
-
 
 /* .sidenav a {
  text-decoration: none;
@@ -486,106 +469,4 @@ input {
 #closebtn a:hover,
 .offcanvas a:focus {
 	color: #31bfaf;
-}
-
-
-@media only screen and (max-width: 600px) {
-
-  body {
-		height: 100%;
-		display: flex;
-  	flex-direction: column;
-	}
-
-	main {
-		flex: 1 0 auto;
-		flex-direction: column-reverse;
-	}
-
-	#wrapper {
-		height: 83vh;
-		overflow: scroll;
-	}
-
-	#editor {
-	width: 100vw;
-	height: 83vh;
-	overflow: scroll;
-	}
-	
-	nav {
-		width: 100vw;
-		max-height: 70px;
-		/* margin: 10vw 0; */
-		background-color: #31bfaf;
-		flex: 1 0 auto;
-		
-	}
-
-	nav ul {
-		align-items: center;
-		justify-content: space-between;
-		display: flex;
-		height: 70px;
-		width: 100vw;
-	}
-
-	li.a {
-	margin: 0;
-}
-
-li.al {
-	height: 70px;
-	width: 70px;
-	margin: 0;
-	padding-top: 0;
-	padding-bottom: 0;
-	background-color: #289a8c;
-
-	/* margin-bottom:25px; */
-}
-
-	#logo {
-		width: 3em; 
-		height: auto;
-		padding: 0.7rem;
-	}
-
-	.sidenav {
-	height: 100vh;
-	width: 100vw !important;
-	position: fixed;
-	top: 0;
-	left: 0;
-	overflow-x: hidden;
-	transition: 0.5s;
-	padding-top: 0;
-	width: 250px;
-	/* 	display: grid;
-	grid-template-columns: 1fr 2fr;
-	grid-template-rows: 1fr 2fr; */
-}	
-
-	.hiddenSidenav {
-	height: 100vh;
-	width: 0 !important;
-	position: fixed;
-	top: 0;
-	left: 0;
-	overflow-x: hidden;
-	transition: 0.5s;
-	padding-top: 0;
-	width: 250px;
-	/* 	display: grid;
-	grid-template-columns: 1fr 2fr;
-	grid-template-rows: 1fr 2fr; */
-}	
-
-
-
-
-
-
-
-
 }
