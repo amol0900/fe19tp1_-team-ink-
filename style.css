@@ -4,7 +4,6 @@ body {
 	padding: 0;
 	/* scroll-behavior:smooth; */
 	/* height:100vh; */
-	
 }
 main {
 	display: flex;
@@ -14,7 +13,6 @@ nav {
 	width: 70px;
 	background-color: #31bfaf;
 	/* min-height:100vh; */
-	
 }
 
 /* Grön navbar */
@@ -59,7 +57,7 @@ li.a {
 	border: none;
 	font-size: 1.9em;
 	cursor: pointer;
-	padding:0;
+	padding: 0;
 }
 
 .fa-edit {
@@ -74,9 +72,9 @@ li.a {
 	outline: none;
 	background-color: transparent;
 	border: none;
-	padding:0;
+	padding: 0;
 	cursor: pointer;
-	font-size:1.9em;
+	font-size: 1.9em;
 }
 
 .fa-list-ul {
@@ -87,15 +85,13 @@ li.a {
 	color: #289a8c !important;
 }
 
-
-
 #myFavs {
 	width: 35px;
 	height: 35px;
 	background-image: url("/images/starFill.svg");
 	background-repeat: no-repeat;
 	border: none;
-	padding:0;
+	padding: 0;
 	background-color: transparent;
 	outline: none;
 	cursor: pointer;
@@ -112,8 +108,8 @@ li.a {
 	display: flex;
 	flex-direction: row;
 	overflow-wrap: break-word;
-	height:100vh;
-	overflow:scroll;
+	height: 100vh;
+	overflow: auto;
 }
 
 #notes ul {
@@ -124,7 +120,7 @@ li.a {
 	padding: 0;
 	cursor: pointer;
 	/* min-height:100vh; */
-	overflow:scroll;
+	overflow: auto;
 }
 
 #notes ul li {
@@ -257,17 +253,17 @@ input {
 
 #editor {
 	width: 700px;
-	height:75vh;
-	overflow: scroll;
+	height: 75vh;
+	overflow: auto;
 	background-color: white;
 	border: none !important;
 	margin-top: 40px;
 	-webkit-mask-image: -webkit-gradient(
 		linear,
-		left 40%,
+		left 80%,
 		left bottom,
 		from(black),
-		to(rgba(0, 0, 0, 0))
+		to(rgba(255, 0, 0, 0))
 	);
 }
 /* .ql-editor::before {
@@ -280,13 +276,13 @@ input {
 }
 
 #saveNote {
-	background-color:white;
+	background-color: white;
 	font-family: 'Montserrat';
 	font-weight: 400;
 	color: grey;
 	font-size: 1em;
-	border:none;
-/* 	border: 1px solid #31bfaf;
+	border: none;
+	/* 	border: 1px solid #31bfaf;
 	border-radius: 20px; */
 	padding: 10px 20px;
 	cursor: pointer;
@@ -298,10 +294,10 @@ input {
 	color: #289a8c;
 }
 
-.fa-check{
+.fa-check {
 	visibility: hidden;
-	margin-left:10px;
-	color:#31bfaf;
+	margin-left: 10px;
+	color: #31bfaf;
 }
 
 /* .fa-check:active{
@@ -485,4 +481,8 @@ input {
 #closebtn a:hover,
 .offcanvas a:focus {
 	color: #da1922;
+}
+
+.scrollable-element {
+	scrollbar-color: red yellow;
 }

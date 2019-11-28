@@ -7,7 +7,7 @@ var options = {
 				[ { header: [ 1, 2, 3, 4, false ] } ],
 				[ 'bold', 'italic', 'underline' ],
 				[ 'link', 'image' ],
-				[{ 'align': [] }],
+				[ { align: [] } ],
 				[ { list: 'ordered' }, { list: 'bullet' } ],
 				[ 'clean' ],
 				[ { themes: [ 'Theme 1', 'Theme 1' ] } ]
@@ -45,15 +45,15 @@ justHtmlContent.addEventListener('click', function(e) {
 		(note) => note.id === Number(clickedLI.id)
 	);
 
-
 	if (e.target.classList.contains('fav')) {
 		selectedNote.favourite = !selectedNote.favourite;
 		saveNotes();
 
 		e.target.classList.toggle('favFilled');
-
 	} else if (e.target.classList.contains('far')) {
-		noteList = noteList.filter(note => note.id !== Number(clickedLI.id));
+		noteList = noteList.filter(
+			(note) => note.id !== Number(clickedLI.id)
+		);
 
 		clickedLI.remove();
 		editor.setText('');
@@ -61,24 +61,19 @@ justHtmlContent.addEventListener('click', function(e) {
 		document.getElementById('square').focus();
 		saveNotes();
 		selectedNote = null;
-
-
 	} else {
 		var myTitle2 = document.getElementById('square');
 		editor.setContents(selectedNote.content);
 		myTitle2.value = selectedNote.title;
 		/* document.querySelector('.fa-check').style.visibility = "hidden"; */
-
 	}
 });
 
 window.addEventListener('load', (event) => {
-	
 	loadNotes();
 	document.getElementById('square').focus();
+	closeNav();
 });
-
-
 
 function deleteNote(id) {
 	// todo: hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
@@ -162,7 +157,7 @@ function getTitle() {
 	
 		} else { */
 	return myTitle;
-};
+}
 
 function renderNote(note) {
 	let title;
@@ -224,7 +219,7 @@ function newNote() {
 }
 
 function myFunction() {
-	document.querySelector('.fa-check').style.visibility = "hidden";
+	document.querySelector('.fa-check').style.visibility = 'hidden';
 }
 
 /* function changeOpacity() {
@@ -235,7 +230,7 @@ function myFunction() {
 
 function addNote() {
 	/* changeOpacity(); */
-	document.querySelector('.fa-check').style.visibility = "visible";
+	document.querySelector('.fa-check').style.visibility = 'visible';
 	if (selectedNote) {
 		selectedNote.content = editor.getContents();
 		selectedNote.preview = editor.getText(0, 25);
