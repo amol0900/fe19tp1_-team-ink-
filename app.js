@@ -11,8 +11,8 @@ var options = {
 				[ { list: 'ordered' }, { list: 'bullet' } ],
 				[ 'clean' ],
 				[ { themes: [ 'Theme 1', 'Theme 1' ] } ]
-			],
-			handlers: {
+			]
+/* 			handlers: {
 				themes: function(value) {
 					if (value) {
 						const cursorPosition = this.quill.getSelection()
@@ -23,7 +23,7 @@ var options = {
 						);
 					}
 				}
-			}
+			} */
 		}
 	}
 };
