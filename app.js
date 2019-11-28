@@ -7,6 +7,7 @@ var options = {
 				[ { header: [ 1, 2, 3, 4, false ] } ],
 				[ 'bold', 'italic', 'underline' ],
 				[ 'link', 'image' ],
+				[{ 'align': [] }],
 				[ { list: 'ordered' }, { list: 'bullet' } ],
 				[ 'clean' ],
 				[ { themes: [ 'Theme 1', 'Theme 1' ] } ]
@@ -72,9 +73,12 @@ justHtmlContent.addEventListener('click', function(e) {
 });
 
 window.addEventListener('load', (event) => {
+	
 	loadNotes();
 	document.getElementById('square').focus();
 });
+
+
 
 function deleteNote(id) {
 	// todo: hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
@@ -136,6 +140,7 @@ function renderAllNotes() {
 
 // Funktion som bestämmer om favoriter ska gömmas eller visas
 function toggleFavNotes() {
+	openNav();
 	// Om favoriter redan är togglade
 	if (isFavouritesToggled) {
 		// Visa alla notes
