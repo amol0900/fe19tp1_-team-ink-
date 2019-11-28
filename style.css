@@ -1,11 +1,9 @@
 html,
 body {
 	margin: 0;
-	padding: 0;
-	/* scroll-behavior:smooth; */
-	/* height:100vh; */
-	
+	padding: 0;	
 }
+
 main {
 	display: flex;
 }
@@ -147,12 +145,6 @@ li.a {
 
 #notes ul li:focus {
 	background-color: rgba(230, 230, 230, 0.933);
-}
-
-#wrapper {
-	height: 100vh;
-	overflow: scroll;
-	z-index: 1;
 }
 
 h6 {
@@ -444,7 +436,7 @@ input {
 }
 
 .sidenav {
-	height: 100%;
+	height: 100vh;
 	position: fixed;
 	z-index: 2;
 	position: sticky;
@@ -454,12 +446,13 @@ input {
 	transition: ease-in-out 0.5s;
 	padding-top: 0;
 	width: 250px;
+	opacity: 100%;
 	/* 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	grid-template-rows: 1fr 2fr; */
 }
 .hiddenSidenav {
-	height: 100%; /* Detta kan strula? */
+	height: 100vh; /* Detta kan strula? */
 	position: fixed;
 	z-index: 2;
 	top: 0;
@@ -468,6 +461,7 @@ input {
 	transition: 0.5s;
 	padding-top: 0;
 	width: 0;
+	opacity: 0%;
 	/* 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	grid-template-rows: 1fr 2fr; */
@@ -525,8 +519,8 @@ input {
 	}
 
 	#wrapper {
-		height: 83vh;
-		overflow: scroll;
+		z-index: 1;
+		margin: 0;	
 	}
 
 	#editor {
@@ -603,7 +597,27 @@ li.al {
 	grid-template-rows: 1fr 2fr; */
 }	
 
+#enter {
+	width: 100vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
 
+input {
+	width: 100vw;
+	padding: 10px;
+	margin: 0;
+	font-size: 2em;
+}
+
+#print {
+	font-size: 1.6em;
+	z-index: 100;
+	top: 0;
+	right: 10px;
+}
 
 
 
