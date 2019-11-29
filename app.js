@@ -1,34 +1,24 @@
-var options = {
-	placeholder: 'Write your notes here',
-	theme: 'snow',
-	modules: {
-		toolbar: {
-			toolbarOptions: [
-				[ { header: [ 1, 2, 3, 4, false ] } ],
-				[ 'bold', 'italic', 'underline' ],
-				[ 'link', 'image' ],
-				[ { align: [] } ],
-				[ { list: 'ordered' }, { list: 'bullet' } ],
-				[ 'clean' ],
-				[ { themes: [ 'Theme 1', 'Theme 1' ] } ]
-			],
-			handlers: {
-				themes: function(value) {
-					if (value) {
-						const cursorPosition = this.quill.getSelection()
-							.index;
-						this.quill.insertText(cursorPosition, value);
-						this.quill.setSelection(
-							cursorPosition + value.length
-						);
-					}
-				}
-			}
-		}
-	}
-};
+var toolbarOptions = [
+	[ { font: [] } ],
+	[ { size: [ 'small', false, 'large', 'huge' ] } ], // custom dropdown
+	[ 'bold', 'italic', 'underline', 'strike' ], // toggled buttons
+	[ { align: [] } ],
+	[ { indent: '-1' }, { indent: '+1' } ],
+	[ { list: 'ordered' }, { list: 'bullet' } ],
+	[ 'link', 'image' ],
 
-var editor = new Quill('#editor', options);
+	[ { color: [] }, { background: [] } ], // dropdown with defaults from theme
+
+	[ 'clean' ] // remove formatting button
+];
+
+var editor = new Quill('#editor', {
+	modules: {
+		toolbar: toolbarOptions
+	},
+	placeholder: 'Write your notes here',
+	theme: 'snow'
+});
 
 var noteList = [];
 var selectedNote;
@@ -61,6 +51,8 @@ justHtmlContent.addEventListener('click', function(e) {
 		document.getElementById('square').focus();
 		saveNotes();
 		selectedNote = null;
+
+		// ändra ovan så att när man tar bort en annan note än selectedNote, så töms inte editorn
 	} else {
 		var myTitle2 = document.getElementById('square');
 		editor.setContents(selectedNote.content);
@@ -72,7 +64,6 @@ justHtmlContent.addEventListener('click', function(e) {
 window.addEventListener('load', (event) => {
 	loadNotes();
 	document.getElementById('square').focus();
-	closeNav();
 });
 
 function deleteNote(id) {
@@ -133,9 +124,12 @@ function renderAllNotes() {
 	}
 }
 
-// Funktion som bestämmer om favoriter ska gömmas eller visas
-function toggleFavNotes() {
-	openNav();
+var myFavListButton = document.querySelector('.favs');
+myFavListButton.addEventListener('click', function(e) {
+	if (e.target.classList.contains('favs')) {
+		e.target.classList.toggle('favsFilled');
+	}
+
 	// Om favoriter redan är togglade
 	if (isFavouritesToggled) {
 		// Visa alla notes
@@ -146,7 +140,11 @@ function toggleFavNotes() {
 		renderFavNotes();
 		isFavouritesToggled = true;
 	}
-}
+});
+
+// Funktion som bestämmer om favoriter ska gömmas eller visas
+/* function toggleFavNotes(e) 
+} */
 
 function getTitle() {
 	const theItem = document.forms['enter'];
@@ -160,13 +158,15 @@ function getTitle() {
 }
 
 function renderNote(note) {
-	let title;
-	let titleLength = 25;
+	let preview;
+	let previewLength = 23;
 	let favClass = '';
-	if (note.preview.length > titleLength) {
-		title = note.preview.substring(0, titleLength) + '...';
+	if (note.preview.length > previewLength) {
+		console.log('length too long');
+		preview = note.preview.substring(0, previewLength) + '...';
 	} else {
-		title = note.preview.substring(0, titleLength);
+		console.log('length not too long');
+		preview = note.preview.substring(0, previewLength);
 	}
 
 	if (note.favourite) {
@@ -177,7 +177,7 @@ function renderNote(note) {
 
 	document.querySelector(
 		'#notes ul'
-	).innerHTML += `<li id='${note.id}'><h6>${note.title}</h6><p class="title">${title}</p><br><p class="created">${note.created}</p>
+	).innerHTML += `<li id='${note.id}'><h6>${note.title}</h6><p class="title">${preview}</p><br><p class="created">${note.created}</p>
 	<div class="icons"><button class="trash"><i class="far fa-trash-alt"></i></button><button class="favourite fav hoverFav ${favClass}"></button></div></li>`;
 }
 
@@ -216,6 +216,7 @@ function newNote() {
 	selectedNote = null;
 	editor.setText('');
 	document.getElementById('square').value = '';
+	document.getElementById('square').focus();
 }
 
 function myFunction() {
@@ -233,7 +234,7 @@ function addNote() {
 	document.querySelector('.fa-check').style.visibility = 'visible';
 	if (selectedNote) {
 		selectedNote.content = editor.getContents();
-		selectedNote.preview = editor.getText(0, 25);
+		selectedNote.preview = editor.getText(0, 50);
 		selectedNote.title = getTitle();
 		selectedNote.created = showDate();
 		saveNotes();
@@ -243,7 +244,7 @@ function addNote() {
 			id: Date.now(),
 			created: showDate(),
 			content: editor.getContents(),
-			preview: editor.getText(0, 25),
+			preview: editor.getText(0, 50),
 			title: getTitle()
 		};
 
@@ -338,13 +339,23 @@ themePickerItems.forEach((cssFile, cssLinkIndex) => {
 //Sidenav
 
 function openNav() {
-	document.getElementById('mySidenav').style.width = '';
-	document.getElementById('mySidenav').style.opacity = '100%';
+	/* document.getElementById('mySidenav').style.width = ''; */
+	/* document.getElementById('mySidenav').classList.add('sidenav')*/
+	document
+		.getElementById('mySidenav')
+		.classList.replace('hiddenSidenav', 'sidenav');
+	document.querySelector('.favs').style.visibility = 'visible';
 }
 
 function closeNav() {
-	document.getElementById('mySidenav').style.width = '0';
-	document.getElementById('mySidenav').style.opacity = '0%';
+	/* document.getElementById('mySidenav').style.width = '0';*/
+
+	/* document.getElementById('mySidenav').classList.remove('sidenav'); */
+	/* document.getElementById('mySidenav').classList.add('hiddenSidenav'); */
+	document
+		.getElementById('mySidenav')
+		.classList.replace('sidenav', 'hiddenSidenav');
+	document.querySelector('.favs').style.visibility = 'hidden';
 }
 
 /* function changeCSS(cssFile, cssLinkIndex) {
