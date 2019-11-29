@@ -62,8 +62,7 @@ justHtmlContent.addEventListener('click', function (e) {
 		var myTitle2 = document.getElementById('square');
 		editor.setContents(selectedNote.content);
 		myTitle2.value = selectedNote.title;
-		/* document.querySelector('.fa-check').style.visibility = "hidden"; */
-
+		// lägg in closeNav(); här när vi visar i mobilvy.
 	}
 });
 
@@ -241,8 +240,20 @@ function myFunction() {
 } */
 
 function addNote() {
-	/* changeOpacity(); */
-	document.querySelector('.fa-check').style.visibility = "visible";
+	
+	function myFunction2(x) {
+		if (x.matches) { // If media query matches
+			document.querySelector('.fa-check').style.visibility = "hidden";
+		} else {
+			document.querySelector('.fa-check').style.visibility = "visible";
+		}
+	}
+
+	var x = window.matchMedia("(max-width: 800px)")
+	myFunction2(x) // Call listener function at run time
+	x.addListener(myFunction2) // Attach listener function on state changes
+
+	
 	if (selectedNote) {
 		selectedNote.content = editor.getContents();
 		selectedNote.preview = editor.getText(0, 50);
@@ -258,6 +269,10 @@ function addNote() {
 			preview: editor.getText(0, 50),
 			title: getTitle()
 		};
+
+		if (note.content.length == 0){
+			return false;
+		}
 
 		noteList.unshift(note);
 		console.log(noteList);

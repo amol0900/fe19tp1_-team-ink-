@@ -2,6 +2,7 @@ html,
 body {
 	margin: 0;
 	padding: 0;	
+	scroll-behavior: smooth;
 	overflow: hidden;
 }
 
@@ -114,6 +115,10 @@ li.a {
 	outline: none;
 	cursor: pointer;
 	transition: all 0.3s ease, filter 1ms;
+}
+
+#mySidenav {
+	transition: ease-in-out 0.5s;
 }
 
 #myFavs:hover {
@@ -251,7 +256,8 @@ i.far:hover {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	/* width:90%; */
+	width:100%;
+	padding:0;
 }
 
 input {
@@ -271,7 +277,7 @@ input {
 /* Editor */
 
 #editor {
-	width: 700px;
+	width: 740px;
 	height:80vh;
 	overflow: scroll;
 	background-color: white;
@@ -299,13 +305,15 @@ input {
 	font-family: 'Montserrat';
 	font-weight: 400;
 	color: grey;
-	font-size: 1em;
+	font-size: 1.6em;
 	border:none;
 /* 	border: 1px solid #31bfaf;
 	border-radius: 20px; */
-	padding: 10px 20px;
+	padding: 0;
 	cursor: pointer;
 	outline: none;
+	margin-left:10px;
+	justify-self:flex-end;
 }
 
 #saveNote:hover {
@@ -323,8 +331,16 @@ input {
 	visibility: visible;
 } */
 
+#noteButtons {
+display:flex;
+flex-direction:row;
+/* justify-content:space-between; */
+}
+
 #print {
 	font-size: 1.6em;
+	margin:0;
+	justify-self:flex-end;
 }
 
 .fa-print {
@@ -476,7 +492,7 @@ input {
 	top: 0;
 	left: 70px;
 	overflow-x: hidden;
-	transition: 0.5s;
+	transition: ease-in-out 0.5s;
 	padding-top: 0;
 	width: 0;
 	opacity: 0%;
@@ -525,6 +541,10 @@ input {
 
 @media only screen and (max-width: 800px) {
 
+	.fa-save {
+	display:inline-block;
+}
+
 body {
 	height: 100vh;
 	display: flex;
@@ -548,7 +568,10 @@ main {
 	width: 100vw;
 	height: 64vh;
 	overflow: scroll;
+	padding-top:8px;
 	}
+
+
 
 .ql-toolbar.ql-snow {
 	height: 5vh;
@@ -628,31 +651,62 @@ li.al {
 
 #enter {
 	width: 100vw;
-	height: 10vh;
+	height: 8vh;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	padding: 12px;
+	align-items: flex-end;
+	margin-bottom:15px;
 }
 
 input {
-	width: 100vw;
-	padding: 10px;
-	margin: 0;
-	font-size: 2em;
+	width: 95vw;
+	font-size: 2.2em;
+}
+
+input#square {
+	padding:0;
+	margin:0;
+	margin-top:15px;
+	/* margin-bottom:20px; */
+}
+
+button#saveNote {
+	font-size: 1em;
+	margin-right:0px;
+}
+
+#noteButtons {
+	margin-top:27px;
+	display:flex;
+	font-size:1.4em;
+	align-items:flex-end;
+	justify-content:center;
 }
 
 #print {
-	font-size: 1.6em;
-	z-index: 100;
-	top: 0;
-	right: 10px;
+font-size: 1em;
 }
 
+.fa-check{
+	visibility: hidden;
+	margin-left:0px;
+	color:#31bfaf;
+}
 
+.fa-print {
+	color:#31bfaf;
+}
 
+.trash {
+	font-size: 2.1em;
+	padding-left:10px;
+}
 
+.favourite {
+	width: 31px;
+	height: 31px;
+
+}
 
 
 }
