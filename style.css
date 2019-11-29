@@ -299,6 +299,10 @@ input {
 #buttons {
 	font-size: 2em;
 }
+#noteButtons{
+	margin-top:15px;
+}
+
 
 #saveNote {
 	background-color:white;
@@ -314,6 +318,7 @@ input {
 	outline: none;
 	margin-left:10px;
 	justify-self:flex-end;
+	margin-top:-1px;
 }
 
 #saveNote:hover {
@@ -671,7 +676,7 @@ input#square {
 }
 
 button#saveNote {
-	font-size: 1em;
+	font-size: 1.1em;
 	margin-right:0px;
 }
 
