@@ -28,7 +28,7 @@ var noteList = [];
 var selectedNote;
 
 var isFavouritesToggled = false;
-// Laddar in anteckingen man klickar på i previewlistan till editorn
+
 
 var justHtmlContent = document.querySelector('#notes ul');
 justHtmlContent.addEventListener('click', function (e) {
@@ -72,11 +72,6 @@ window.addEventListener('load', (event) => {
 	
 });
 
-
-
-function deleteNote(id) {
-	// todo: hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
-}
 
 function renderNotes() {
 	var text = editor.getText();
