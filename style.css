@@ -1,7 +1,8 @@
 html,
 body {
 	margin: 0;
-	padding: 0;
+	padding: 0;	
+	scroll-behavior: smooth;
 	overflow: hidden;
 }
 
@@ -111,6 +112,10 @@ li.a {
 	outline: none;
 	cursor: pointer;
 	transition: all 0.3s ease, filter 1ms;
+}
+
+#mySidenav {
+	transition: ease-in-out 0.5s;
 }
 
 #myFavs:hover {
@@ -252,7 +257,8 @@ i.far:hover {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	/* width:90%; */
+	width:100%;
+	padding:0;
 }
 
 input {
@@ -272,9 +278,9 @@ input {
 /* Editor */
 
 #editor {
-	width: 700px;
-	height: 80vh;
-	overflow: auto;
+	width: 740px;
+	height:80vh;
+	overflow: scroll;
 	background-color: white;
 	border: none !important;
 	margin-top: 25px;
@@ -294,19 +300,26 @@ input {
 #buttons {
 	font-size: 2em;
 }
+#noteButtons{
+	margin-top:15px;
+}
+
 
 #saveNote {
 	background-color: white;
 	font-family: 'Montserrat';
 	font-weight: 400;
 	color: grey;
-	font-size: 1em;
-	border: none;
-	/* 	border: 1px solid #31bfaf;
+	font-size: 1.6em;
+	border:none;
+/* 	border: 1px solid #31bfaf;
 	border-radius: 20px; */
-	padding: 10px 20px;
+	padding: 0;
 	cursor: pointer;
 	outline: none;
+	margin-left:10px;
+	justify-self:flex-end;
+	margin-top:-1px;
 }
 
 #saveNote:hover {
@@ -324,8 +337,16 @@ input {
 	visibility: visible;
 } */
 
+#noteButtons {
+display:flex;
+flex-direction:row;
+/* justify-content:space-between; */
+}
+
 #print {
 	font-size: 1.6em;
+	margin:0;
+	justify-self:flex-end;
 }
 
 .fa-print {
@@ -476,6 +497,8 @@ input {
 	top: 0;
 	/* left: 70px; */
 	/* overflow-x: hidden; (denna gjorde att menyn hackade när den stängdes*/
+	left: 70px;
+	overflow-x: hidden;
 	transition: ease-in-out 0.5s;
 	padding-top: 0;
 	width: 0px;
@@ -534,6 +557,16 @@ input {
 		flex: 1 0 auto;
 		flex-direction: column-reverse;
 	}
+	.fa-save {
+	display:inline-block;
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
 
 	#wrapper {
 		height: 100vh;
@@ -547,20 +580,30 @@ input {
 		overflow: auto;
 	}
 
-	.ql-toolbar.ql-snow {
-		height: 5vh;
-		margin-top: 0px;
-		width: 100vw;
-		/* background-color: #31bfaf !important; */
-		border: none !important;
+#editor {
+	width: 100vw;
+	height: 64vh;
+	overflow: scroll;
+	padding-top:8px;
 	}
 
-	nav {
-		width: 100vw;
-		max-height: 70px;
-		/* margin: 10vw 0; */
-		background-color: #31bfaf;
-		flex-shrink: 0;
+
+
+.ql-toolbar.ql-snow {
+	height: 5vh;
+	margin-top: 0px;
+	width: 100vw;
+	/* background-color: #31bfaf !important; */
+	border: none !important;
+}
+	
+nav {
+	width: 100vw;
+	max-height: 70px;
+	/* margin: 10vw 0; */
+	background-color: #31bfaf;
+	flex-shrink: 0;
+	
 	}
 
 	nav ul {
@@ -622,27 +665,64 @@ input {
 	grid-template-rows: 1fr 2fr; */
 	}
 
-	#enter {
-		width: 100vw;
-		height: 10vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		align-items: center;
-		padding: 12px;
-	}
+#enter {
+	width: 100vw;
+	height: 8vh;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	margin-bottom:15px;
+}
 
-	input {
-		width: 100vw;
-		padding: 10px;
-		margin: 0;
-		font-size: 2em;
-	}
+input {
+	width: 95vw;
+	font-size: 2.2em;
+}
 
-	#print {
-		font-size: 1.6em;
-		z-index: 100;
-		top: 0;
-		right: 10px;
-	}
+input#square {
+	padding:0;
+	margin:0;
+	margin-top:15px;
+	/* margin-bottom:20px; */
+}
+
+button#saveNote {
+	font-size: 1.1em;
+	margin-right:0px;
+}
+
+#noteButtons {
+	margin-top:27px;
+	display:flex;
+	font-size:1.4em;
+	align-items:flex-end;
+	justify-content:center;
+}
+
+#print {
+font-size: 1em;
+}
+
+.fa-check{
+	visibility: hidden;
+	margin-left:0px;
+	color:#31bfaf;
+}
+
+.fa-print {
+	color:#31bfaf;
+}
+
+.trash {
+	font-size: 2.1em;
+	padding-left:10px;
+}
+
+.favourite {
+	width: 31px;
+	height: 31px;
+
+}
+
+
 }
