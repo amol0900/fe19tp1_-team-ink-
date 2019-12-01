@@ -159,6 +159,10 @@ li.a {
 #notes ul li:focus {
 	background-color: rgba(230, 230, 230, 0.933);
 }
+#notes ul li:target {
+	background-color: rgba(199, 197, 197, 0.933);
+	transition: ease-in-out 0.1s;
+}
 
 h6 {
 	margin: 0;
@@ -270,7 +274,7 @@ input {
 #editor {
 	width: 700px;
 	height: 80vh;
-	overflow: scroll;
+	overflow: auto;
 	background-color: white;
 	border: none !important;
 	margin-top: 25px;
@@ -451,11 +455,11 @@ input {
 
 .sidenav {
 	height: 100vh;
-	position: fixed;
+	position: sticky;
 	z-index: 2;
 	position: sticky;
 	top: 0;
-	left: 70px;
+	/* left: 70px; */
 	/* overflow-x: hidden; */
 	transition: ease-in-out 0.5s;
 	padding-top: 0;
@@ -467,14 +471,14 @@ input {
 }
 .hiddenSidenav {
 	height: 100vh; /* Detta kan strula? */
-	position: fixed;
+	position: sticky;
 	z-index: 2;
 	top: 0;
-	left: 70px;
-	overflow-x: hidden;
-	transition: 0.5s;
+	/* left: 70px; */
+	/* overflow-x: hidden; (denna gjorde att menyn hackade när den stängdes*/
+	transition: ease-in-out 0.5s;
 	padding-top: 0;
-	width: 0;
+	width: 0px;
 	opacity: 0%;
 	/* 	display: grid;
 	grid-template-columns: 1fr 2fr;
@@ -522,6 +526,7 @@ input {
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
+		content: 'desktop';
 	}
 
 	main {
@@ -539,7 +544,7 @@ input {
 	#editor {
 		width: 100vw;
 		height: 64vh;
-		overflow: scroll;
+		overflow: auto;
 	}
 
 	.ql-toolbar.ql-snow {

@@ -41,6 +41,7 @@ justHtmlContent.addEventListener('click', function(e) {
 
 		e.target.classList.toggle('favFilled');
 	} else if (e.target.classList.contains('far')) {
+		confirm('are you sure you want to delete this item?');
 		noteList = noteList.filter(
 			(note) => note.id !== Number(clickedLI.id)
 		);
@@ -57,6 +58,7 @@ justHtmlContent.addEventListener('click', function(e) {
 		var myTitle2 = document.getElementById('square');
 		editor.setContents(selectedNote.content);
 		myTitle2.value = selectedNote.title;
+		closeNav();
 		/* document.querySelector('.fa-check').style.visibility = "hidden"; */
 	}
 });
@@ -344,7 +346,10 @@ function openNav() {
 	document
 		.getElementById('mySidenav')
 		.classList.replace('hiddenSidenav', 'sidenav');
+	/* document.querySelector('.favs').style.width = '250px'; */
 	document.querySelector('.favs').style.visibility = 'visible';
+	document.querySelector('.favs').style.opacity = '100%';
+	/* document.querySelector('.favs').style.transitionDelay = '200ms'; */
 }
 
 function closeNav() {
@@ -355,7 +360,9 @@ function closeNav() {
 	document
 		.getElementById('mySidenav')
 		.classList.replace('sidenav', 'hiddenSidenav');
+	/* document.querySelector('.favs').style.width = ''; */
 	document.querySelector('.favs').style.visibility = 'hidden';
+	document.querySelector('.favs').style.opacity = '0%';
 }
 
 /* function changeCSS(cssFile, cssLinkIndex) {
