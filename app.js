@@ -1,37 +1,33 @@
 var toolbarOptions = [
-	[{ 'font': [] }],
-	[{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-	['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-	[{ 'align': [] }],
-	[{ 'indent': '-1' }, { 'indent': '+1' }],
-	[{ 'list': 'ordered' }, { 'list': 'bullet' }],
-	['link', 'image'],
+	[ { font: [] } ],
+	[ { size: [ 'small', false, 'large', 'huge' ] } ], // custom dropdown
+	[ 'bold', 'italic', 'underline', 'strike' ], // toggled buttons
+	[ { align: [] } ],
+	[ { indent: '-1' }, { indent: '+1' } ],
+	[ { list: 'ordered' }, { list: 'bullet' } ],
+	[ 'link', 'image' ],
 
+	[ { color: [] }, { background: [] } ], // dropdown with defaults from theme
 
-	[{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-
-
-
-	['clean']                                         // remove formatting button
+	[ 'clean' ] // remove formatting button
 ];
 
 var editor = new Quill('#editor', {
 	modules: {
-		toolbar: toolbarOptions,
+		toolbar: toolbarOptions
 	},
 	placeholder: 'Write your notes here',
 	theme: 'snow'
 });
 
-
 var noteList = [];
 var selectedNote;
 
 var isFavouritesToggled = false;
-// Laddar in anteckingen man klickar på i previewlistan till editorn
+
 
 var justHtmlContent = document.querySelector('#notes ul');
-justHtmlContent.addEventListener('click', function (e) {
+justHtmlContent.addEventListener('click', function(e) {
 	let clickedLI = e.target.closest('li');
 	//let clickedID = e.target.closest('li').id;
 	//console.log('clickedID: ' + clickedID);
@@ -39,45 +35,38 @@ justHtmlContent.addEventListener('click', function (e) {
 		(note) => note.id === Number(clickedLI.id)
 	);
 
-
 	if (e.target.classList.contains('fav')) {
 		selectedNote.favourite = !selectedNote.favourite;
 		saveNotes();
 
 		e.target.classList.toggle('favFilled');
-
 	} else if (e.target.classList.contains('far')) {
-		noteList = noteList.filter(note => note.id !== Number(clickedLI.id));
+		confirm('are you sure you want to delete this item?');
+		noteList = noteList.filter(
+			(note) => note.id !== Number(clickedLI.id)
+		);
 
 		clickedLI.remove();
-		editor.setText(''); 
-		document.getElementById('square').value = ''; 
-		document.getElementById('square').focus(); 
+		editor.setText('');
+		document.getElementById('square').value = '';
+		document.getElementById('square').focus();
 		saveNotes();
 		selectedNote = null;
 
 		// ändra ovan så att när man tar bort en annan note än selectedNote, så töms inte editorn
-
 	} else {
 		var myTitle2 = document.getElementById('square');
 		editor.setContents(selectedNote.content);
 		myTitle2.value = selectedNote.title;
-		/* document.querySelector('.fa-check').style.visibility = "hidden"; */
-
+		// lägg in closeNav(); här när vi visar i mobilvy.
 	}
 });
 
 window.addEventListener('load', (event) => {
 	loadNotes();
 	document.getElementById('square').focus();
-	
 });
 
-
-
-function deleteNote(id) {
-	// todo: hitta ett objekt i arrayen vars id matchar id, ta bort. hur? se slutet av videon
-}
 
 function renderNotes() {
 	var text = editor.getText();
@@ -133,9 +122,8 @@ function renderAllNotes() {
 	}
 }
 
-
 var myFavListButton = document.querySelector('.favs');
-myFavListButton.addEventListener('click', function (e) {
+myFavListButton.addEventListener('click', function(e) {
 	if (e.target.classList.contains('favs')) {
 		e.target.classList.toggle('favsFilled');
 	}
@@ -150,7 +138,6 @@ myFavListButton.addEventListener('click', function (e) {
 		renderFavNotes();
 		isFavouritesToggled = true;
 	}
-
 });
 
 // Funktion som bestämmer om favoriter ska gömmas eller visas
@@ -166,17 +153,17 @@ function getTitle() {
 	
 		} else { */
 	return myTitle;
-};
+}
 
 function renderNote(note) {
 	let preview;
 	let previewLength = 23;
 	let favClass = '';
 	if (note.preview.length > previewLength) {
-		console.log("length too long")
+		console.log('length too long');
 		preview = note.preview.substring(0, previewLength) + '...';
 	} else {
-		console.log("length not too long")
+		console.log('length not too long');
 		preview = note.preview.substring(0, previewLength);
 	}
 
@@ -231,7 +218,7 @@ function newNote() {
 }
 
 function myFunction() {
-	document.querySelector('.fa-check').style.visibility = "hidden";
+	document.querySelector('.fa-check').style.visibility = 'hidden';
 }
 
 /* function changeOpacity() {
@@ -241,8 +228,20 @@ function myFunction() {
 } */
 
 function addNote() {
-	/* changeOpacity(); */
-	document.querySelector('.fa-check').style.visibility = "visible";
+	
+	function myFunction2(x) {
+		if (x.matches) { // If media query matches
+			document.querySelector('.fa-check').style.visibility = "hidden";
+		} else {
+			document.querySelector('.fa-check').style.visibility = "visible";
+		}
+	}
+
+	var x = window.matchMedia("(max-width: 800px)")
+	myFunction2(x) // Call listener function at run time
+	x.addListener(myFunction2) // Attach listener function on state changes
+
+	
 	if (selectedNote) {
 		selectedNote.content = editor.getContents();
 		selectedNote.preview = editor.getText(0, 50);
@@ -258,6 +257,10 @@ function addNote() {
 			preview: editor.getText(0, 50),
 			title: getTitle()
 		};
+
+		if (note.content.length == 0){
+			return false;
+		}
 
 		noteList.unshift(note);
 		console.log(noteList);
@@ -349,20 +352,29 @@ themePickerItems.forEach((cssFile, cssLinkIndex) => {
 
 //Sidenav
 
-
 function openNav() {
 	/* document.getElementById('mySidenav').style.width = ''; */
 	/* document.getElementById('mySidenav').classList.add('sidenav')*/
-	document.getElementById('mySidenav').classList.replace("hiddenSidenav", "sidenav");
+	document
+		.getElementById('mySidenav')
+		.classList.replace('hiddenSidenav', 'sidenav');
+	/* document.querySelector('.favs').style.width = '250px'; */
 	document.querySelector('.favs').style.visibility = 'visible';
+	document.querySelector('.favs').style.opacity = '100%';
+	/* document.querySelector('.favs').style.transitionDelay = '200ms'; */
 }
 
 function closeNav() {
-	/* document.getElementById('mySidenav').style.width = '0';*/	
+	/* document.getElementById('mySidenav').style.width = '0';*/
+
 	/* document.getElementById('mySidenav').classList.remove('sidenav'); */
 	/* document.getElementById('mySidenav').classList.add('hiddenSidenav'); */
-	document.getElementById('mySidenav').classList.replace("sidenav", "hiddenSidenav");
+	document
+		.getElementById('mySidenav')
+		.classList.replace('sidenav', 'hiddenSidenav');
+	/* document.querySelector('.favs').style.width = ''; */
 	document.querySelector('.favs').style.visibility = 'hidden';
+	document.querySelector('.favs').style.opacity = '0%';
 }
 
 /* function changeCSS(cssFile, cssLinkIndex) {

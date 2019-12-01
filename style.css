@@ -2,6 +2,7 @@ html,
 body {
 	margin: 0;
 	padding: 0;	
+	scroll-behavior: smooth;
 	overflow: hidden;
 }
 
@@ -58,7 +59,7 @@ li.a {
 	border: none;
 	font-size: 1.9em;
 	cursor: pointer;
-	padding:0;
+	padding: 0;
 }
 
 .fa-edit {
@@ -73,9 +74,9 @@ li.a {
 	outline: none;
 	background-color: transparent;
 	border: none;
-	padding:0;
+	padding: 0;
 	cursor: pointer;
-	font-size:1.9em;
+	font-size: 1.9em;
 }
 
 .fa-list-ul {
@@ -86,21 +87,18 @@ li.a {
 	color: #289a8c !important;
 }
 
-
-
 .favs {
 	width: 35px;
 	height: 35px;
 	background-image: url("/images/starFill.svg");
 	background-repeat: no-repeat;
 	border: none;
-	padding:0;
+	padding: 0;
 	background-color: transparent;
 	outline: none;
 	cursor: pointer;
 	transition: all 0.3s ease, filter 1ms;
-	visibility:hidden;
-	
+	visibility: hidden;
 }
 
 .favsFilled {
@@ -109,11 +107,15 @@ li.a {
 	background-image: url("/images/star.svg");
 	background-repeat: no-repeat;
 	border: none;
-	padding:0;
+	padding: 0;
 	background-color: transparent;
 	outline: none;
 	cursor: pointer;
 	transition: all 0.3s ease, filter 1ms;
+}
+
+#mySidenav {
+	transition: ease-in-out 0.5s;
 }
 
 #myFavs:hover {
@@ -126,8 +128,8 @@ li.a {
 	display: flex;
 	flex-direction: row;
 	overflow-wrap: break-word;
-	height:100vh;
-	overflow:scroll;
+	height: 100vh;
+	overflow: auto;
 }
 
 #notes ul {
@@ -138,7 +140,7 @@ li.a {
 	padding: 0;
 	cursor: pointer;
 	/* min-height:100vh; */
-	overflow:scroll;
+	overflow: auto;
 }
 
 #notes ul li {
@@ -161,6 +163,10 @@ li.a {
 
 #notes ul li:focus {
 	background-color: rgba(230, 230, 230, 0.933);
+}
+#notes ul li:target {
+	background-color: rgba(199, 197, 197, 0.933);
+	transition: ease-in-out 0.1s;
 }
 
 h6 {
@@ -251,7 +257,8 @@ i.far:hover {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	/* width:90%; */
+	width:100%;
+	padding:0;
 }
 
 input {
@@ -271,7 +278,7 @@ input {
 /* Editor */
 
 #editor {
-	width: 700px;
+	width: 740px;
 	height:80vh;
 	overflow: scroll;
 	background-color: white;
@@ -282,7 +289,7 @@ input {
 		left 60%,
 		left bottom,
 		from(black),
-		to(rgba(0, 0, 0, 0))
+		to(rgba(255, 0, 0, 0))
 	);
 }
 /* .ql-editor::before {
@@ -293,19 +300,26 @@ input {
 #buttons {
 	font-size: 2em;
 }
+#noteButtons{
+	margin-top:15px;
+}
+
 
 #saveNote {
-	background-color:white;
+	background-color: white;
 	font-family: 'Montserrat';
 	font-weight: 400;
 	color: grey;
-	font-size: 1em;
+	font-size: 1.6em;
 	border:none;
 /* 	border: 1px solid #31bfaf;
 	border-radius: 20px; */
-	padding: 10px 20px;
+	padding: 0;
 	cursor: pointer;
 	outline: none;
+	margin-left:10px;
+	justify-self:flex-end;
+	margin-top:-1px;
 }
 
 #saveNote:hover {
@@ -313,18 +327,26 @@ input {
 	color: #289a8c;
 }
 
-.fa-check{
+.fa-check {
 	visibility: hidden;
-	margin-left:10px;
-	color:#31bfaf;
+	margin-left: 10px;
+	color: #31bfaf;
 }
 
 /* .fa-check:active{
 	visibility: visible;
 } */
 
+#noteButtons {
+display:flex;
+flex-direction:row;
+/* justify-content:space-between; */
+}
+
 #print {
 	font-size: 1.6em;
+	margin:0;
+	justify-self:flex-end;
 }
 
 .fa-print {
@@ -452,14 +474,13 @@ input {
 	padding: 16px;
 }
 
-
 .sidenav {
 	height: 100vh;
-	position: fixed;
+	position: sticky;
 	z-index: 2;
 	position: sticky;
 	top: 0;
-	left: 70px;
+	/* left: 70px; */
 	/* overflow-x: hidden; */
 	transition: ease-in-out 0.5s;
 	padding-top: 0;
@@ -471,21 +492,21 @@ input {
 }
 .hiddenSidenav {
 	height: 100vh; /* Detta kan strula? */
-	position: fixed;
+	position: sticky;
 	z-index: 2;
 	top: 0;
+	/* left: 70px; */
+	/* overflow-x: hidden; (denna gjorde att menyn hackade när den stängdes*/
 	left: 70px;
 	overflow-x: hidden;
-	transition: 0.5s;
+	transition: ease-in-out 0.5s;
 	padding-top: 0;
-	width: 0;
+	width: 0px;
 	opacity: 0%;
 	/* 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	grid-template-rows: 1fr 2fr; */
-	
 }
-
 
 /* .sidenav a {
  text-decoration: none;
@@ -522,8 +543,23 @@ input {
 	color: #da1922;
 }
 
-
 @media only screen and (max-width: 800px) {
+	body {
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		content: 'desktop';
+	}
+
+	main {
+		height: 100vh;
+		flex: 1 0 auto;
+		flex-direction: column-reverse;
+	}
+	.fa-save {
+	display:inline-block;
+}
 
 body {
 	height: 100vh;
@@ -532,23 +568,26 @@ body {
 	overflow: hidden;
 }
 
-main {
-	height: 100vh;
-	flex: 1 0 auto;
-	flex-direction: column-reverse;
+	#wrapper {
+		height: 100vh;
+		z-index: 1;
+		margin: 0;
 	}
 
-#wrapper {
-	height: 100vh;
-	z-index: 1;
-	margin: 0;	
+	#editor {
+		width: 100vw;
+		height: 64vh;
+		overflow: auto;
 	}
 
 #editor {
 	width: 100vw;
 	height: 64vh;
 	overflow: scroll;
+	padding-top:8px;
 	}
+
+
 
 .ql-toolbar.ql-snow {
 	height: 5vh;
@@ -567,92 +606,123 @@ nav {
 	
 	}
 
-nav ul {
-	align-items: center;
-	justify-content: space-between;
-	display: flex;
-	height: 70px;
-	width: 100vw;
+	nav ul {
+		align-items: center;
+		justify-content: space-between;
+		display: flex;
+		height: 70px;
+		width: 100vw;
 	}
 
-li.a {
-	margin: 0;
-}
+	li.a {
+		margin: 0;
+	}
 
-li.al {
-	height: 70px;
-	width: 70px;
-	margin: 0;
-	padding-top: 0;
-	padding-bottom: 0;
-	background-color: #289a8c;
+	li.al {
+		height: 70px;
+		width: 70px;
+		margin: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+		background-color: #289a8c;
 
-	/* margin-bottom:25px; */
-}
+		/* margin-bottom:25px; */
+	}
 
-#logo {
-	width: 3em; 
-	height: auto;
-	padding: 0.7rem;
-}
+	#logo {
+		width: 3em;
+		height: auto;
+		padding: 0.7rem;
+	}
 
-.sidenav {
-	height: 100vh;
-	width: 100vw !important;
-	position: fixed;
-	top: 0;
-	left: 0;
-	overflow-x: hidden;
-	transition: 0.5s;
-	padding-top: 0;
-	width: 250px;
-	/* 	display: grid;
+	.sidenav {
+		height: 100vh;
+		width: 100vw !important;
+		position: fixed;
+		top: 0;
+		left: 0;
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding-top: 0;
+		width: 250px;
+		/* 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	grid-template-rows: 1fr 2fr; */
-}	
+	}
 
 	.hiddenSidenav {
-	height: 100vh;
-	width: 0 !important;
-	position: fixed;
-	top: 0;
-	left: 0;
-	overflow-x: hidden;
-	transition: 0.5s;
-	padding-top: 0;
-	width: 250px;
-	/* 	display: grid;
+		height: 100vh;
+		width: 0 !important;
+		position: fixed;
+		top: 0;
+		left: 0;
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding-top: 0;
+		width: 250px;
+		/* 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	grid-template-rows: 1fr 2fr; */
-}	
+	}
 
 #enter {
 	width: 100vw;
-	height: 10vh;
+	height: 8vh;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	padding: 12px;
+	align-items: flex-end;
+	margin-bottom:15px;
 }
 
 input {
-	width: 100vw;
-	padding: 10px;
-	margin: 0;
-	font-size: 2em;
+	width: 95vw;
+	font-size: 2.2em;
+}
+
+input#square {
+	padding:0;
+	margin:0;
+	margin-top:15px;
+	/* margin-bottom:20px; */
+}
+
+button#saveNote {
+	font-size: 1.1em;
+	margin-right:0px;
+}
+
+#noteButtons {
+	margin-top:27px;
+	display:flex;
+	font-size:1.4em;
+	align-items:flex-end;
+	justify-content:center;
 }
 
 #print {
-	font-size: 1.6em;
-	z-index: 100;
-	top: 0;
-	right: 10px;
+font-size: 1em;
 }
 
+.fa-check{
+	visibility: hidden;
+	margin-left:0px;
+	color:#31bfaf;
+}
 
+.fa-print {
+	color:#31bfaf;
+}
 
+.trash {
+	font-size: 2.1em;
+	padding-left:10px;
+}
 
+.favourite {
+	width: 31px;
+	height: 31px;
+
+}
 
 
 }
