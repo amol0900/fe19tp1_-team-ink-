@@ -1,7 +1,7 @@
 html,
 body {
 	margin: 0;
-	padding: 0;	
+	padding: 0;
 	scroll-behavior: smooth;
 	overflow: hidden;
 }
@@ -257,8 +257,8 @@ i.far:hover {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	width:100%;
-	padding:0;
+	width: 100%;
+	padding: 0;
 }
 
 input {
@@ -279,7 +279,7 @@ input {
 
 #editor {
 	width: 740px;
-	height:80vh;
+	height: 80vh;
 	overflow: scroll;
 	background-color: white;
 	border: none !important;
@@ -300,10 +300,9 @@ input {
 #buttons {
 	font-size: 2em;
 }
-#noteButtons{
-	margin-top:15px;
+#noteButtons {
+	margin-top: 15px;
 }
-
 
 #saveNote {
 	background-color: white;
@@ -311,15 +310,15 @@ input {
 	font-weight: 400;
 	color: grey;
 	font-size: 1.6em;
-	border:none;
-/* 	border: 1px solid #31bfaf;
+	border: none;
+	/* 	border: 1px solid #31bfaf;
 	border-radius: 20px; */
 	padding: 0;
 	cursor: pointer;
 	outline: none;
-	margin-left:10px;
-	justify-self:flex-end;
-	margin-top:-1px;
+	margin-left: 10px;
+	justify-self: flex-end;
+	margin-top: -1px;
 }
 
 #saveNote:hover {
@@ -338,15 +337,15 @@ input {
 } */
 
 #noteButtons {
-display:flex;
-flex-direction:row;
-/* justify-content:space-between; */
+	display: flex;
+	flex-direction: row;
+	/* justify-content:space-between; */
 }
 
 #print {
 	font-size: 1.6em;
-	margin:0;
-	justify-self:flex-end;
+	margin: 0;
+	justify-self: flex-end;
 }
 
 .fa-print {
@@ -558,15 +557,15 @@ flex-direction:row;
 		flex-direction: column-reverse;
 	}
 	.fa-save {
-	display:inline-block;
-}
+		display: inline-block;
+	}
 
-body {
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-}
+	body {
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+	}
 
 	#wrapper {
 		height: 100vh;
@@ -580,30 +579,27 @@ body {
 		overflow: auto;
 	}
 
-#editor {
-	width: 100vw;
-	height: 64vh;
-	overflow: scroll;
-	padding-top:8px;
+	#editor {
+		width: 100vw;
+		height: 64vh;
+		overflow: scroll;
+		padding-top: 8px;
 	}
 
+	.ql-toolbar.ql-snow {
+		height: 5vh;
+		margin-top: 0px;
+		width: 100vw;
+		/* background-color: #31bfaf !important; */
+		border: none !important;
+	}
 
-
-.ql-toolbar.ql-snow {
-	height: 5vh;
-	margin-top: 0px;
-	width: 100vw;
-	/* background-color: #31bfaf !important; */
-	border: none !important;
-}
-	
-nav {
-	width: 100vw;
-	max-height: 70px;
-	/* margin: 10vw 0; */
-	background-color: #31bfaf;
-	flex-shrink: 0;
-	
+	nav {
+		width: 100vw;
+		max-height: 70px;
+		/* margin: 10vw 0; */
+		background-color: #31bfaf;
+		flex-shrink: 0;
 	}
 
 	nav ul {
@@ -665,64 +661,79 @@ nav {
 	grid-template-rows: 1fr 2fr; */
 	}
 
-#enter {
-	width: 100vw;
-	height: 8vh;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	margin-bottom:15px;
+	#enter {
+		width: 100vw;
+		height: 8vh;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		margin-bottom: 15px;
+	}
+
+	input {
+		width: 95vw;
+		font-size: 2.2em;
+	}
+
+	input#square {
+		padding: 0;
+		margin: 0;
+		margin-top: 15px;
+		/* margin-bottom:20px; */
+	}
+
+	button#saveNote {
+		font-size: 1.1em;
+		margin-right: 0px;
+	}
+
+	#noteButtons {
+		margin-top: 27px;
+		display: flex;
+		font-size: 1.4em;
+		align-items: flex-end;
+		justify-content: center;
+	}
+
+	#print {
+		font-size: 1em;
+	}
+
+	.fa-check {
+		visibility: hidden;
+		margin-left: 0px;
+		color: #31bfaf;
+	}
+
+	.fa-print {
+		color: #31bfaf;
+	}
+
+	.trash {
+		font-size: 2.1em;
+		padding-left: 10px;
+	}
+
+	.favourite {
+		width: 31px;
+		height: 31px;
+	}
 }
 
-input {
-	width: 95vw;
-	font-size: 2.2em;
-}
-
-input#square {
-	padding:0;
-	margin:0;
-	margin-top:15px;
-	/* margin-bottom:20px; */
-}
-
-button#saveNote {
-	font-size: 1.1em;
-	margin-right:0px;
-}
-
-#noteButtons {
-	margin-top:27px;
-	display:flex;
-	font-size:1.4em;
-	align-items:flex-end;
-	justify-content:center;
-}
-
-#print {
-font-size: 1em;
-}
-
-.fa-check{
-	visibility: hidden;
-	margin-left:0px;
-	color:#31bfaf;
-}
-
-.fa-print {
-	color:#31bfaf;
-}
-
-.trash {
-	font-size: 2.1em;
-	padding-left:10px;
-}
-
-.favourite {
-	width: 31px;
-	height: 31px;
-
-}
-
-
+@media print {
+	@page {
+		margin: 0;
+	}
+	body {
+		margin: 1.6cm;
+	}
+	nav,
+	#notes,
+	#enter > #saveNote,
+	#enter > #saveNote2,
+	#counter,
+	#saveNote,
+	.ql-toolbar {
+		display: none;
+	}
 }

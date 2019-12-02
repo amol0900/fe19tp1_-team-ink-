@@ -25,7 +25,6 @@ var selectedNote;
 
 var isFavouritesToggled = false;
 
-
 var justHtmlContent = document.querySelector('#notes ul');
 justHtmlContent.addEventListener('click', function(e) {
 	let clickedLI = e.target.closest('li');
@@ -41,7 +40,6 @@ justHtmlContent.addEventListener('click', function(e) {
 
 		e.target.classList.toggle('favFilled');
 	} else if (e.target.classList.contains('far')) {
-		confirm('are you sure you want to delete this item?');
 		noteList = noteList.filter(
 			(note) => note.id !== Number(clickedLI.id)
 		);
@@ -66,7 +64,6 @@ window.addEventListener('load', (event) => {
 	loadNotes();
 	document.getElementById('square').focus();
 });
-
 
 function renderNotes() {
 	var text = editor.getText();
@@ -205,6 +202,7 @@ function showDate() {
 	let minutes = date.getMinutes();
 	// Om minutes inte är högre än nio, lägg till en nolla före minutes
 	minutes = minutes > 9 ? minutes : '0' + minutes;
+	day = day > 9 ? day : '0' + day;
 	let finalTime = `${year}-${month}-${day} at ${hours}:${minutes}`;
 	//bug - om "minutes" är mindre än 10 visas ex: 20:8 när det ska vara 20:08. If statement för att lösa?
 	return finalTime;
@@ -228,20 +226,21 @@ function myFunction() {
 } */
 
 function addNote() {
-	
 	function myFunction2(x) {
-		if (x.matches) { // If media query matches
-			document.querySelector('.fa-check').style.visibility = "hidden";
+		if (x.matches) {
+			// If media query matches
+			document.querySelector('.fa-check').style.visibility =
+				'hidden';
 		} else {
-			document.querySelector('.fa-check').style.visibility = "visible";
+			document.querySelector('.fa-check').style.visibility =
+				'visible';
 		}
 	}
 
-	var x = window.matchMedia("(max-width: 800px)")
-	myFunction2(x) // Call listener function at run time
-	x.addListener(myFunction2) // Attach listener function on state changes
+	var x = window.matchMedia('(max-width: 800px)');
+	myFunction2(x); // Call listener function at run time
+	x.addListener(myFunction2); // Attach listener function on state changes
 
-	
 	if (selectedNote) {
 		selectedNote.content = editor.getContents();
 		selectedNote.preview = editor.getText(0, 50);
@@ -258,7 +257,7 @@ function addNote() {
 			title: getTitle()
 		};
 
-		if (note.content.length == 0){
+		if (note.content.length == 0) {
 			return false;
 		}
 
