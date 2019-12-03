@@ -12,8 +12,7 @@
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
   <!-- Include the Quill library -->
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-  <title>quill</title>
-</head>
+  </head>
 
 <body>
   <main>
@@ -22,7 +21,7 @@
     <nav>
       <ul>
         <li class="al">
-          <img src="Q.png" id="logo">
+          <img src="Q.png" id="logo" alt="Quill logo">
         </li> <!-- Todo: Change to svg -->
         <li class="a">
           <button id="openNav" onclick="openNav()"><i class="fas fa-list-ul"></i></button>
@@ -33,14 +32,14 @@
         <li class="a">
           <button class="favs hoverFav favsFilled"></button>
         </li>
-      <li class="a"></li>
+        <li class="a"></li>
       </ul>
     </nav>
-    
+
     <div id="mySidenav" class="hiddenSidenav">
-      <button id="closebtn" class="hoverFav" onclick="closeNav()">×</button> 
+      <button id="closebtn" class="hoverFav" onclick="closeNav()">×</button>
       <!-- Listan där preview av anteckningarna hamnar -->
-      <div id="notes" >
+      <div id="notes">
         <ul>
         </ul>
       </div>
@@ -48,21 +47,24 @@
 
 
     <!-- Editorn -->
-    
+
     <div id="wrapper">
-              <form id="enter">
-                <input type="text" id="square" placeholder="Add a fancy title">
-                <div id="noteButtons"><button id="print" type="button" onclick="window.print()" value="print" /><i class="fas fa-print" alt="print"></i></button>
-                <button id="saveNote" type="button" onclick="addNote()" onfocusout="myFunction()"><i class="far fa-save"></i><i class="fas fa-check"></i></button></div>
-              </form>
-                 
-                  
+      <form id="enter">
+        <input type="text" id="square" placeholder="Add a fancy title">
+        <div id="noteButtons"><button id="print" type="button" onclick="window.print()" value="print"><i
+              class="fas fa-print"></i></button>
+          <button id="saveNote" type="button" onclick="addNote()" onfocusout="myFunction()"><i
+              class="far fa-save"></i><i class="fas fa-check"></i></button></div>
+      </form>
+
+
       <div id="editor"></div>
 
     </div>
   </main>
+  <script src="app.js"></script>
+  <script src="https://kit.fontawesome.com/32bc269314.js" crossorigin="anonymous"></script>
 </body>
-<script src="app.js"></script>
-<script src="https://kit.fontawesome.com/32bc269314.js" crossorigin="anonymous"></script>
+
 
 </html>
