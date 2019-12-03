@@ -239,6 +239,7 @@ function addNote() {
 	function myFunction2(x) {
 		if (x.matches) { // If media query matches
 			document.querySelector('.fa-check').style.visibility = "hidden";
+	
 		} else {
 			document.querySelector('.fa-check').style.visibility = "visible";
 		}
