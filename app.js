@@ -207,12 +207,12 @@ function newNote() {
   document.getElementById('square').focus();
 }
 
-function myFunction() {
+function hideTick() {
   document.querySelector('.fa-check').style.visibility = 'hidden';
 }
 
 function addNote() {
-  function myFunction2(x) {
+  function hideCheck(x) {
     if (x.matches) {
       // If media query matches
       document.querySelector('.fa-check').style.visibility =
@@ -224,8 +224,8 @@ function addNote() {
   }
 
   var x = window.matchMedia('(max-width: 800px)');
-  myFunction2(x); // Call listener function at run time
-  x.addListener(myFunction2); // Attach listener function on state changes
+  hideCheck(x); // Call listener function at run time
+  x.addListener(hideCheck); // Attach listener function on state changes
 
   if (selectedNote) {
     selectedNote.content = editor.getContents();
