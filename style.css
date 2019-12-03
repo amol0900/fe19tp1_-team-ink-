@@ -658,9 +658,6 @@ input {
 		transition: 0.5s;
 		padding-top: 0;
 		width: 250px;
-		/* 	display: grid;
-	grid-template-columns: 1fr 2fr;
-	grid-template-rows: 1fr 2fr; */
 	}
 
 	#enter {
