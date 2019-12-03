@@ -271,13 +271,13 @@ input {
 	background-color: white;
 	border: none !important;
 	margin-top: 25px;
-	-webkit-mask-image: -webkit-gradient(
+ 	-webkit-mask-image: -webkit-gradient(
 		linear,
 		left 60%,
 		left bottom,
 		from(black),
 		to(rgba(255, 0, 0, 0))
-	);
+	); 
 }
 
 #buttons {
