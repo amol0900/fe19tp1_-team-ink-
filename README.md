@@ -55,6 +55,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         Acknowledgments
 Hat tip on anyone whose code was used
 
+        Pictures
+
 ![Landing](docs/4.png "landing")  
 
 ![Note](docs/1.png "note")
