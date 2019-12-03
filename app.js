@@ -56,7 +56,7 @@ justHtmlContent.addEventListener('click', function(e) {
 		var myTitle2 = document.getElementById('square');
 		editor.setContents(selectedNote.content);
 		myTitle2.value = selectedNote.title;
-		// lägg in closeNav(); här när vi visar i mobilvy.
+		/* closeNav(); */
 	}
 });
 
@@ -157,7 +157,6 @@ function renderNote(note) {
 	let previewLength = 23;
 	let favClass = '';
 	if (note.preview.length > previewLength) {
-		console.log('length too long');
 		preview = note.preview.substring(0, previewLength) + '...';
 	} else {
 		console.log('length not too long');

@@ -346,6 +346,8 @@ input {
 	font-size: 1.6em;
 	margin: 0;
 	justify-self: flex-end;
+	border: none;
+	outline: none;
 }
 
 .fa-print {
@@ -697,6 +699,8 @@ input {
 
 	#print {
 		font-size: 1em;
+		background-color: transparent;
+		padding: 0;
 	}
 
 	.fa-check {
