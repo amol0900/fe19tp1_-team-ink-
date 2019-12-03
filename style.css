@@ -17,14 +17,11 @@ nav {
 	z-index: 3;
 }
 
-/* Grön navbar */
-
 nav ul {
 	width: 70px;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	/* min-height:100vh; */
 }
 
 nav li {
@@ -38,7 +35,6 @@ li.al {
 	padding-bottom: 10px;
 	border: none;
 	background-color: #289a8c;
-	/* margin-bottom:25px; */
 }
 
 li.a {
@@ -51,7 +47,6 @@ li.a {
 #logo {
 	width: 70%;
 	height: 70%;
-	background-color:black;
 }
 
 #newNote {
@@ -81,11 +76,11 @@ li.a {
 }
 
 .fa-list-ul {
-	color: white !important;
+	color: white;
 }
 
 .fa-list-ul:hover {
-	color: #289a8c !important;
+	color: #289a8c;
 }
 
 .favs {
@@ -123,8 +118,6 @@ li.a {
 	transform: scale(1.1);
 }
 
-/* Listan där preview av anteckningarna hamnar */
-
 #notes {
 	display: flex;
 	flex-direction: row;
@@ -140,14 +133,12 @@ li.a {
 	margin: 0;
 	padding: 0;
 	cursor: pointer;
-	/* min-height:100vh; */
 	overflow: auto;
 }
 
 #notes ul li {
 	display: flex;
 	flex-direction: column;
-	/* width: 200px; */
 	height: auto;
 	border-bottom: 1px solid #dadada;
 	font-size: 0.8em;
@@ -194,7 +185,6 @@ h6 {
 
 .icons {
 	display: flex;
-	/* width:50%; */
 	flex-direction: row;
 	justify-content: flex-end;
 }
@@ -231,7 +221,6 @@ i.far:hover {
 	align-self: flex-end;
 	outline: none;
 	cursor: pointer;
-	/* margin-right:2px; */
 	transition: all 0.3s ease, filter 1ms;
 }
 .favFilled {
@@ -239,7 +228,6 @@ i.far:hover {
 }
 
 .hoverFav:hover {
-	/* filter: brightness(0) saturate(100%) invert(58%) sepia(39%) */
 	transform: scale(1.2);
 }
 
@@ -276,8 +264,6 @@ input {
 	outline: none;
 }
 
-/* Editor */
-
 #editor {
 	width: 740px;
 	height: 80vh;
@@ -293,10 +279,6 @@ input {
 		to(rgba(255, 0, 0, 0))
 	);
 }
-/* .ql-editor::before {
-	font-family:'Montserrat';
-   font-size:1.6em;
-} */
 
 #buttons {
 	font-size: 2em;
@@ -312,8 +294,6 @@ input {
 	color: grey;
 	font-size: 1.6em;
 	border: none;
-	/* 	border: 1px solid #31bfaf;
-	border-radius: 20px; */
 	padding: 0;
 	cursor: pointer;
 	outline: none;
@@ -333,14 +313,9 @@ input {
 	color: #31bfaf;
 }
 
-/* .fa-check:active{
-	visibility: visible;
-} */
-
 #noteButtons {
 	display: flex;
 	flex-direction: row;
-	/* justify-content:space-between; */
 }
 
 #print {
@@ -349,6 +324,7 @@ input {
 	justify-self: flex-end;
 	border: none;
 	outline: none;
+	background-color:transparent;
 }
 
 .fa-print {
@@ -364,12 +340,9 @@ input {
 	display: none !important;
 }
 
-/* Toolbar */
-
 .ql-toolbar.ql-snow {
 	margin-top: 0px;
 	width: 100%;
-	/* background-color: #31bfaf !important; */
 	border: none !important;
 }
 
@@ -377,11 +350,6 @@ input {
 .ql-snow .ql-stroke.ql-fill {
 	fill: grey !important;
 }
-
-/* .ql-snow .ql-picker {
-	color: black !important;
-	background-color: #31bfaf;
-} */
 
 .ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
 	stroke: grey !important;
@@ -427,50 +395,6 @@ input {
 	outline: none !important;
 }
 
-/* textstilar editor */
-
-/* .ql-snow .ql-editor h1 {
-	font-family: 'Times New Roman', Times, serif;
-	font-weight: 400;
-	color: black;
-  font-size: 3rem !important;
-}
-
-.ql-snow .ql-editor h2 {
-	font-family: 'Times New Roman', Times, serif;
-	font-weight: 400;
-	color: black;
-  font-size: 2rem !important;
-}
-
-.ql-snow .ql-editor h3 {
-	font-family: 'Times New Roman', Times, serif;
-	font-weight: 700;
-	color: black;
-	font-size: 1.1rem !important;
-}
-
-.ql-snow .ql-editor h4 {
-	font-family: 'Times New Roman', Times, serif;
-	font-weight: 400;
-	color: black;
-	font-size: 1.1rem !important;
-	font-style: italic;
-}
-
-.ql-snow .ql-editor p{
-	font-family: 'Times New Roman', Times, serif;
-	font-weight: 400;
-	color: black;
-  font-size: 1.1rem !important;
-}
-
-.ql-picker.ql-themes .ql-picker-label:before {
-    content: "Themes";     /* never changes its content as this menu's label changes 
-} */
-
-/* Sidenav */
-
 #maintwo {
 	transition: margin-left .5s;
 	padding: 16px;
@@ -482,46 +406,24 @@ input {
 	z-index: 2;
 	position: sticky;
 	top: 0;
-	/* left: 70px; */
-	/* overflow-x: hidden; */
 	transition: ease-in-out 0.5s;
 	padding-top: 0;
 	width: 250px;
 	opacity: 100%;
-	/* 	display: grid;
-	grid-template-columns: 1fr 2fr;
-	grid-template-rows: 1fr 2fr; */
 }
+
 .hiddenSidenav {
-	height: 100vh; /* Detta kan strula? */
+	height: 100vh;
 	position: sticky;
 	z-index: 2;
 	top: 0;
-	/* left: 70px; */
-	/* overflow-x: hidden; (denna gjorde att menyn hackade när den stängdes*/
 	left: 70px;
 	overflow-x: hidden;
 	transition: ease-in-out 0.5s;
 	padding-top: 0;
 	width: 0px;
 	opacity: 0%;
-	/* 	display: grid;
-	grid-template-columns: 1fr 2fr;
-	grid-template-rows: 1fr 2fr; */
 }
-
-/* .sidenav a {
- text-decoration: none;
- color: grey;
- display: block;
- transition: 0.3s;
- padding: 0;
-} */
-
-/* .sidenav a:hover,
-.offcanvas a:focus {
- color: #31bfaf;;
-} */
 
 #closebtn {
 	position: absolute;
@@ -593,14 +495,12 @@ input {
 		height: 5vh;
 		margin-top: 0px;
 		width: 100vw;
-		/* background-color: #31bfaf !important; */
 		border: none !important;
 	}
 
 	nav {
 		width: 100vw;
 		max-height: 70px;
-		/* margin: 10vw 0; */
 		background-color: #31bfaf;
 		flex-shrink: 0;
 	}
@@ -624,8 +524,6 @@ input {
 		padding-top: 0;
 		padding-bottom: 0;
 		background-color: #289a8c;
-
-		/* margin-bottom:25px; */
 	}
 
 	#logo {
@@ -644,9 +542,6 @@ input {
 		transition: 0.5s;
 		padding-top: 0;
 		width: 250px;
-		/* 	display: grid;
-	grid-template-columns: 1fr 2fr;
-	grid-template-rows: 1fr 2fr; */
 	}
 
 	.hiddenSidenav {
@@ -679,7 +574,6 @@ input {
 		padding: 0;
 		margin: 0;
 		margin-top: 15px;
-		/* margin-bottom:20px; */
 	}
 
 	button#saveNote {
