@@ -56,6 +56,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 Hat tip on anyone whose code was used
 
 
+        Links
+https://trello.com/b/BYbTEmtT/%C3%B6versiktsplanering
+
 
 
 
