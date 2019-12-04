@@ -19,10 +19,12 @@
 
     <!-- Grön navbar -->
     <nav>
-      <ul>
-        <li class="al">
+      <div id="home">
+   
           <img src="Q.png" id="logo" alt="Quill logo">
-        </li> <!-- Todo: Change to svg -->
+    
+      </div>
+      <ul>
         <li class="a">
           <button id="openNav" onclick="openNav()"><i class="fas fa-list-ul"></i></button>
         </li>
@@ -30,9 +32,14 @@
           <button id="newNote" onclick="newNote()"><i class="far fa-edit"></i></button>
         </li>
         <li class="a">
-          <button class="favs hoverFav favsFilled"></button>
+          <button id="print" type="button" onclick="window.print()" value="print"><i class="fas fa-print"></i></button>
         </li>
-        <li class="a"></li>
+        <li class="a">
+          <button id="saveNote" type="button" onclick="addNote()"><i class="far fa-save"></i></button>
+        </li>
+        <li class="a">
+          <button class="favs hoverFav favsFilled"></button>
+        </li>     
       </ul>
     </nav>
 
@@ -47,16 +54,10 @@
 
 
     <!-- Editorn -->
-
     <div id="wrapper">
       <form id="enter">
         <input type="text" id="square" placeholder="Add a fancy title">
-        <div id="noteButtons"><button id="print" type="button" onclick="window.print()" value="print"><i
-              class="fas fa-print"></i></button>
-          <button id="saveNote" type="button" onclick="addNote()" onfocusout="hideTick()"><i
-              class="far fa-save"></i><i class="fas fa-check"></i></button></div>
       </form>
-
 
       <div id="editor"></div>
 

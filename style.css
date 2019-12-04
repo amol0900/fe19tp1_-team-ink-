@@ -10,14 +10,14 @@ main {
 	display: flex;
 }
 
+/* Grön navbar */
+
 nav {
 	width: 70px;
 	background-color: #31bfaf;
 	height: 100vh;
 	z-index: 3;
 }
-
-/* Grön navbar */
 
 nav ul {
 	width: 70px;
@@ -30,7 +30,7 @@ nav li {
 	list-style-type: none;
 }
 
-li.al {
+#home {
 	margin: 0;
 	text-align: center;
 	padding-top: 10px;
@@ -55,7 +55,7 @@ li.a {
 	outline: none;
 	background-color: transparent;
 	border: none;
-	font-size: 1.9em;
+	font-size: 1.5em;
 	cursor: pointer;
 	padding: 0;
 }
@@ -74,7 +74,7 @@ li.a {
 	border: none;
 	padding: 0;
 	cursor: pointer;
-	font-size: 1.9em;
+	font-size: 1.5em;
 }
 
 .fa-list-ul {
@@ -85,9 +85,43 @@ li.a {
 	color: #289a8c !important;
 }
 
+#print {
+	outline: none;
+	background-color: transparent;
+	border: none;
+	font-size: 1.5em;
+	cursor: pointer;
+	padding: 0;
+}
+
+.fa-print {
+	color: white !important;
+}
+
+.fa-print:hover {
+	color: #289a8c !important;
+}
+
+#saveNote {
+	outline: none;
+	background-color: transparent;
+	border: none;
+	font-size: 1.5em;
+	cursor: pointer;
+	padding: 0;
+}
+
+.fa-save {
+	color: white !important;
+}
+
+.fa-save:hover {
+	color: #289a8c !important;
+}
+
 .favs {
-	width: 35px;
-	height: 35px;
+	width: 31px;
+	height: 31px;
 	background-image: url("/images/starFill.svg");
 	background-repeat: no-repeat;
 	border: none;
@@ -100,8 +134,8 @@ li.a {
 }
 
 .favsFilled {
-	width: 35px;
-	height: 35px;
+	width: 31px;
+	height: 31px;
 	background-image: url("/images/star.svg");
 	background-repeat: no-repeat;
 	border: none;
@@ -165,6 +199,7 @@ li.a {
 	transition: ease-in-out 0.1s;
 }
 
+
 h6 {
 	margin: 0;
 	margin-top: 7px;
@@ -212,7 +247,7 @@ i.far {
 }
 
 i.far:hover {
-	color: #31bfaf;
+	color: #31BFAF;
 }
 
 .favourite {
@@ -284,65 +319,6 @@ input {
 		from(black),
 		to(rgba(255, 0, 0, 0))
 	);
-}
-
-
-#buttons {
-	font-size: 2em;
-}
-#noteButtons {
-	margin-top: 15px;
-}
-
-#saveNote {
-	background-color: white;
-	font-family: 'Montserrat';
-	font-weight: 400;
-	color: grey;
-	font-size: 1.6em;
-	border: none;
-	padding: 0;
-	cursor: pointer;
-	outline: none;
-	margin-left: 10px;
-	justify-self: flex-end;
-	margin-top: -1px;
-}
-
-#saveNote:hover {
-	background-color: white;
-	color: #289a8c;
-}
-
-.fa-check {
-	visibility: hidden;
-	margin-left: 10px;
-	color: #31bfaf;
-}
-
-
-#noteButtons {
-	display: flex;
-	flex-direction: row;
-	
-}
-
-#print {
-	font-size: 1.6em;
-	margin: 0;
-	justify-self: flex-end;
-	border: none;
-  outline: none;
-  background-color: transparent;
-}
-
-.fa-print {
-	color: #31bfaf;
-	cursor: pointer;
-}
-
-.fa-print:hover {
-	color: #289a8c;
 }
 
 .hide {
@@ -474,9 +450,6 @@ input {
 		flex: 1 0 auto;
 		flex-direction: column-reverse;
 	}
-	.fa-save {
-		display: inline-block;
-	}
 
 	body {
 		height: 100vh;
@@ -499,13 +472,12 @@ input {
 
 	#editor {
 		width: 100vw;
-		height: 64vh;
+		height: 55vh;
 		overflow: scroll;
 		padding-top: 8px;
 	}
 
 	.ql-toolbar.ql-snow {
-		height: 5vh;
 		margin-top: 0px;
 		width: 100vw;
 		border: none !important;
@@ -515,22 +487,23 @@ input {
 		width: 100vw;
 		max-height: 70px;
 		background-color: #31bfaf;
+		display: flex;
 		flex-shrink: 0;
 	}
 
 	nav ul {
 		align-items: center;
-		justify-content: space-between;
+		justify-content: space-around;
 		display: flex;
 		height: 70px;
 		width: 100vw;
 	}
-
+	
 	li.a {
 		margin: 0;
 	}
 
-	li.al {
+	#home {
 		height: 70px;
 		width: 70px;
 		margin: 0;
@@ -574,7 +547,6 @@ input {
 		height: 8vh;
 		display: flex;
 		flex-direction: column;
-		align-items: flex-end;
 		margin-bottom: 15px;
 	}
 
@@ -589,44 +561,26 @@ input {
 		margin-top: 15px;
 	}
 
-	button#saveNote {
-		font-size: 1.1em;
-		margin-right: 0px;
-	}
-
-	#noteButtons {
-		margin-top: 27px;
-		display: flex;
-		font-size: 1.4em;
-		align-items: flex-end;
-		justify-content: center;
-	}
-
-	#print {
-		font-size: 1em;
-		background-color: transparent;
-		padding: 0;
-	}
-
-	.fa-check {
-		visibility: hidden;
-		margin-left: 0px;
-		color: #31bfaf;
-	}
-
-	.fa-print {
-		color: #31bfaf;
-	}
-
 	.trash {
 		font-size: 2.1em;
-		padding-left: 10px;
+		margin-right: 10px;
 	}
+
+/* 
+	i.far:active,
+	.fa-edit:hover,
+	.fa-list-ul:hover,
+	.fa-print:hover,
+	.fa-save:hover,
+	#myFavs:hover  {
+		color: grey;
+	} */
 
 	.favourite {
 		width: 31px;
 		height: 31px;
 	}
+
 }
 
 @media print {

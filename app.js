@@ -201,6 +201,7 @@ function showDate() {
 }
 
 function newNote() {
+  addNote();
   selectedNote = null;
   editor.setText('');
   document.getElementById('square').value = '';
@@ -212,20 +213,6 @@ function hideTick() {
 }
 
 function addNote() {
-  function hideCheck(x) {
-    if (x.matches) {
-      // If media query matches
-      document.querySelector('.fa-check').style.visibility =
-        'hidden';
-    } else {
-      document.querySelector('.fa-check').style.visibility =
-        'visible';
-    }
-  }
-
-  var x = window.matchMedia('(max-width: 800px)');
-  hideCheck(x); // Call listener function at run time
-  x.addListener(hideCheck); // Attach listener function on state changes
 
   if (selectedNote) {
     selectedNote.content = editor.getContents();
