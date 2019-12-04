@@ -1,7 +1,7 @@
 var toolbarOptions = [
   [{ font: [] }],
-  [{ size: ['small', false, 'large', 'huge'] }],
-  ['bold', 'italic', 'underline', 'strike'],
+  [{ size: ['small', false, 'large', 'huge'] }], 
+  ['bold', 'italic', 'underline', 'strike'], 
   [{ align: [] }],
   [{ indent: '-1' }, { indent: '+1' }],
   [{ list: 'ordered' }, { list: 'bullet' }],
@@ -48,7 +48,6 @@ justHtmlContent.addEventListener('click', function (e) {
     document.getElementById('square').focus();
     saveNotes();
     selectedNote = null;
-
   } else {
     var myTitle2 = document.getElementById('square');
     editor.setContents(selectedNote.content);
@@ -80,7 +79,6 @@ function renderFavNotes() {
       break;
     }
   }
-
   if (!isNoteListEmpty) {
     for (let index = 0; index < fav.length; index++) {
       if (!noteList[index].favourite) {
@@ -107,7 +105,7 @@ myFavListButton.addEventListener('click', function (e) {
 
   if (isFavouritesToggled) {
     renderAllNotes();
-	isFavouritesToggled = false;
+    isFavouritesToggled = false;
   } else {
     renderFavNotes();
     isFavouritesToggled = true;
@@ -117,6 +115,7 @@ myFavListButton.addEventListener('click', function (e) {
 function getTitle() {
   const theItem = document.forms['enter'];
   var myTitle = theItem.querySelector('input[type="text"]').value;
+
   return myTitle;
 }
 
@@ -125,14 +124,14 @@ function renderNote(note) {
   let previewLength = 23;
   let favClass = '';
   if (note.preview.length > previewLength) {
-	preview = note.preview.substring(0, previewLength) + '...';
+    preview = note.preview.substring(0, previewLength) + '...';
   } else {
     console.log('length not too long');
     preview = note.preview.substring(0, previewLength);
   }
 
   if (note.favourite) {
-	favClass = 'favFilled';
+    favClass = 'favFilled';
   } else {
     favClass = '';
   }
@@ -182,7 +181,7 @@ function addNote() {
   function hideCheck(x) {
     if (x.matches) {
       document.querySelector('.fa-check').style.visibility =
-		'hidden';
+        'hidden';
     } else {
       document.querySelector('.fa-check').style.visibility =
         'visible';
@@ -191,7 +190,7 @@ function addNote() {
 
   var x = window.matchMedia('(max-width: 800px)');
   hideCheck(x); 
-  x.addListener(hideCheck);
+  x.addListener(hideCheck); 
 
   if (selectedNote) {
     selectedNote.content = editor.getContents();
@@ -199,7 +198,7 @@ function addNote() {
     selectedNote.title = getTitle();
     selectedNote.created = showDate();
     saveNotes();
-	renderNotes();
+    renderNotes();
   } else {
     let note = {
       id: Date.now(),
@@ -220,6 +219,38 @@ function addNote() {
   }
 }
 
+
+function changeCSS(cssFile, cssLinkIndex) {
+  var oldlink = document.getElementsByTagName('link').item(cssLinkIndex);
+
+  var newlink = document.createElement('link');
+  newlink.setAttribute('rel', 'stylesheet');
+  newlink.setAttribute('type', 'text/css');
+  newlink.setAttribute('href', cssFile);
+
+  document
+    .getElementsByTagName('head')
+    .item(0)
+    .replaceChild(newlink, oldlink);
+}
+
+const themePickerItems = Array.prototype.slice.call(
+  document.querySelectorAll('.ql-themes .ql-picker-item')
+);
+
+themePickerItems.forEach((cssFile, cssLinkIndex) => {
+  var oldlink = document.getElementsByTagName('link').item(cssLinkIndex);
+  var newlink = document.createElement('link');
+  newlink.setAttribute('rel', 'stylesheet');
+  newlink.setAttribute('type', 'text/css');
+
+  newlink.setAttribute('href', cssFile);
+  document
+    .getElementsByTagName('head')
+    .item(0)
+    .replaceChild(newlink, oldlink);
+});
+
 function openNav() {
   document
     .getElementById('mySidenav')
@@ -235,3 +266,4 @@ function closeNav() {
   document.querySelector('.favs').style.visibility = 'hidden';
   document.querySelector('.favs').style.opacity = '0%';
 }
+
