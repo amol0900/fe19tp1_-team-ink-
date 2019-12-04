@@ -57,6 +57,10 @@ p.slogan {
 	margin-left:12px;
 }
 
+.btntext:hover {
+	 color:#289a8c;
+}
+
 .image {
 	width:60%;
 	height:75%;
@@ -64,7 +68,6 @@ p.slogan {
 }
  #devices {
 	 width:794px;
-	 /* height: 384px; */
  }
 
 a {

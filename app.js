@@ -1,15 +1,15 @@
 var toolbarOptions = [
   [{ font: [] }],
-  [{ size: ['small', false, 'large', 'huge'] }], // custom dropdown
-  ['bold', 'italic', 'underline', 'strike'], // toggled buttons
+  [{ size: ['small', false, 'large', 'huge'] }],
+  ['bold', 'italic', 'underline', 'strike'],
   [{ align: [] }],
   [{ indent: '-1' }, { indent: '+1' }],
   [{ list: 'ordered' }, { list: 'bullet' }],
   ['link', 'image'],
 
-  [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+  [{ color: [] }, { background: [] }], 
 
-  ['clean'] // remove formatting button
+  ['clean']
 ];
 
 var editor = new Quill('#editor', {
@@ -49,7 +49,6 @@ justHtmlContent.addEventListener('click', function (e) {
     saveNotes();
     selectedNote = null;
 
-    // ändra ovan så att när man tar bort en annan note än selectedNote, så töms inte editorn
   } else {
     var myTitle2 = document.getElementById('square');
     editor.setContents(selectedNote.content);
@@ -69,49 +68,33 @@ function renderNotes() {
   noteList.forEach(renderNote);
 }
 
-// Gömmer notes som ej är favoriter
 function renderFavNotes() {
-  // Få listan till vår li
   var fav = document
     .querySelector('#notes ul')
     .getElementsByTagName('li');
 
-  // Gå igenom notelistan, och kolla om det finns några
-  // favoriter i den. Finns det det, är listan ej tom
   var isNoteListEmpty = true;
   for (let index = 0; index < noteList.length; index++) {
-    // Checka om noten är en favorit
     if (noteList[index].favourite) {
       isNoteListEmpty = false;
       break;
     }
   }
 
-  // Om listan INTE är tom på favoriter
   if (!isNoteListEmpty) {
-    // Gå igenom vår ul
     for (let index = 0; index < fav.length; index++) {
-      // Om nuvaranda note INTE är en favorit, vill vi gömma den
       if (!noteList[index].favourite) {
-        // Lägg till klassen "hide" till <li>
-        // hide ligger i style.css om det finns frågetecken
         fav[index].classList.add('hide');
       }
     }
   }
 }
 
-// Renderar all notes
 function renderAllNotes() {
-  // Få listan till vår li
   var fav = document
     .querySelector('#notes ul')
     .getElementsByTagName('li');
-
-  // Gå igenom hela <ul> - listan
   for (let index = 0; index < fav.length; index++) {
-    // Ta bort "hide" - klassen om den finns
-    // D.v.s visa ALLA items
     fav[index].classList.remove('hide');
   }
 }
@@ -122,26 +105,18 @@ myFavListButton.addEventListener('click', function (e) {
     e.target.classList.toggle('favsFilled');
   }
 
-  // Om favoriter redan är togglade
   if (isFavouritesToggled) {
-    // Visa alla notes
     renderAllNotes();
-    isFavouritesToggled = false;
+	isFavouritesToggled = false;
   } else {
-    // Annars toggla favoriter
     renderFavNotes();
     isFavouritesToggled = true;
   }
 });
 
-// Funktion som bestämmer om favoriter ska gömmas eller visas
-/* function toggleFavNotes(e) 
-} */
-
 function getTitle() {
   const theItem = document.forms['enter'];
   var myTitle = theItem.querySelector('input[type="text"]').value;
-
   return myTitle;
 }
 
@@ -150,14 +125,14 @@ function renderNote(note) {
   let previewLength = 23;
   let favClass = '';
   if (note.preview.length > previewLength) {
-    preview = note.preview.substring(0, previewLength) + '...';
+	preview = note.preview.substring(0, previewLength) + '...';
   } else {
     console.log('length not too long');
     preview = note.preview.substring(0, previewLength);
   }
 
   if (note.favourite) {
-    favClass = 'favFilled';
+	favClass = 'favFilled';
   } else {
     favClass = '';
   }
@@ -168,13 +143,9 @@ function renderNote(note) {
 	<div class="icons"><button class="trash"><i class="far fa-trash-alt"></i></button><button class="favourite fav hoverFav ${favClass}"></button></div></li>`;
 }
 
-// Sparar anteckningarna i local storage
-
 function saveNotes() {
   localStorage.setItem('notes', JSON.stringify(noteList));
 }
-
-// Hämtar anteckningarna från local storage
 
 function loadNotes() {
   noteList = localStorage.getItem('notes')
@@ -183,20 +154,16 @@ function loadNotes() {
   renderNotes();
 }
 
-// En funktion som skriver ut vilket datum och tid det är
-
 function showDate() {
   let date = new Date();
   let year = date.getFullYear();
-  let month = date.getMonth() + 1; // zero indexed, så +1 visar rätt månad;
+  let month = date.getMonth() + 1;
   let day = date.getDate();
   let hours = date.getHours();
   let minutes = date.getMinutes();
-  // Om minutes inte är högre än nio, lägg till en nolla före minutes
   minutes = minutes > 9 ? minutes : '0' + minutes;
   day = day > 9 ? day : '0' + day;
   let finalTime = `${year}-${month}-${day} at ${hours}:${minutes}`;
-  //bug - om "minutes" är mindre än 10 visas ex: 20:8 när det ska vara 20:08. If statement för att lösa?
   return finalTime;
 }
 
@@ -214,9 +181,8 @@ function hideTick() {
 function addNote() {
   function hideCheck(x) {
     if (x.matches) {
-      // If media query matches
       document.querySelector('.fa-check').style.visibility =
-        'hidden';
+		'hidden';
     } else {
       document.querySelector('.fa-check').style.visibility =
         'visible';
@@ -224,8 +190,8 @@ function addNote() {
   }
 
   var x = window.matchMedia('(max-width: 800px)');
-  hideCheck(x); // Call listener function at run time
-  x.addListener(hideCheck); // Attach listener function on state changes
+  hideCheck(x); 
+  x.addListener(hideCheck);
 
   if (selectedNote) {
     selectedNote.content = editor.getContents();
@@ -233,7 +199,7 @@ function addNote() {
     selectedNote.title = getTitle();
     selectedNote.created = showDate();
     saveNotes();
-    renderNotes();
+	renderNotes();
   } else {
     let note = {
       id: Date.now(),
@@ -254,44 +220,6 @@ function addNote() {
   }
 }
 
-
-//Ändra mall i editor
-
-function changeCSS(cssFile, cssLinkIndex) {
-  var oldlink = document.getElementsByTagName('link').item(cssLinkIndex);
-
-  var newlink = document.createElement('link');
-  newlink.setAttribute('rel', 'stylesheet');
-  newlink.setAttribute('type', 'text/css');
-  newlink.setAttribute('href', cssFile);
-
-  document
-    .getElementsByTagName('head')
-    .item(0)
-    .replaceChild(newlink, oldlink);
-}
-
-
-//Innehåll i theme-picker
-const themePickerItems = Array.prototype.slice.call(
-  document.querySelectorAll('.ql-themes .ql-picker-item')
-);
-
-themePickerItems.forEach((cssFile, cssLinkIndex) => {
-  var oldlink = document.getElementsByTagName('link').item(cssLinkIndex);
-  var newlink = document.createElement('link');
-  newlink.setAttribute('rel', 'stylesheet');
-  newlink.setAttribute('type', 'text/css');
-
-  newlink.setAttribute('href', cssFile);
-  document
-    .getElementsByTagName('head')
-    .item(0)
-    .replaceChild(newlink, oldlink);
-});
-
-//Sidenav
-
 function openNav() {
   document
     .getElementById('mySidenav')
@@ -307,4 +235,3 @@ function closeNav() {
   document.querySelector('.favs').style.visibility = 'hidden';
   document.querySelector('.favs').style.opacity = '0%';
 }
-

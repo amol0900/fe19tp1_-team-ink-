@@ -17,8 +17,6 @@ nav {
 	z-index: 3;
 }
 
-/* Grön navbar */
-
 nav ul {
 	width: 70px;
 	list-style-type: none;
@@ -78,11 +76,11 @@ li.a {
 }
 
 .fa-list-ul {
-	color: white !important;
+	color: white;
 }
 
 .fa-list-ul:hover {
-	color: #289a8c !important;
+	color: #289a8c;
 }
 
 .favs {
@@ -119,8 +117,6 @@ li.a {
 #myFavs:hover {
 	transform: scale(1.1);
 }
-
-/* Listan där preview av anteckningarna hamnar */
 
 #notes {
 	display: flex;
@@ -268,8 +264,6 @@ input {
 	outline: none;
 }
 
-/* Editor */
-
 #editor {
 	width: 740px;
 	height: 80vh;
@@ -277,15 +271,14 @@ input {
 	background-color: white;
 	border: none !important;
 	margin-top: 25px;
-	-webkit-mask-image: -webkit-gradient(
+ 	-webkit-mask-image: -webkit-gradient(
 		linear,
 		left 60%,
 		left bottom,
 		from(black),
 		to(rgba(255, 0, 0, 0))
-	);
+	); 
 }
-
 
 #buttons {
 	font-size: 2em;
@@ -320,11 +313,9 @@ input {
 	color: #31bfaf;
 }
 
-
 #noteButtons {
 	display: flex;
 	flex-direction: row;
-	
 }
 
 #print {
@@ -332,8 +323,8 @@ input {
 	margin: 0;
 	justify-self: flex-end;
 	border: none;
-  outline: none;
-  background-color: transparent;
+	outline: none;
+	background-color:transparent;
 }
 
 .fa-print {
@@ -349,8 +340,6 @@ input {
 	display: none !important;
 }
 
-  /* Toolbar */
-
 .ql-toolbar.ql-snow {
 	margin-top: 0px;
 	width: 100%;
@@ -361,7 +350,6 @@ input {
 .ql-snow .ql-stroke.ql-fill {
 	fill: grey !important;
 }
-
 
 .ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
 	stroke: grey !important;
@@ -407,7 +395,6 @@ input {
 	outline: none !important;
 }
 
-
 #maintwo {
 	transition: margin-left .5s;
 	padding: 16px;
@@ -424,6 +411,7 @@ input {
 	width: 250px;
 	opacity: 100%;
 }
+
 .hiddenSidenav {
 	height: 100vh;
 	position: sticky;
@@ -436,7 +424,6 @@ input {
 	width: 0px;
 	opacity: 0%;
 }
-
 
 #closebtn {
 	position: absolute;

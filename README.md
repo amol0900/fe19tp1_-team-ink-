@@ -14,10 +14,7 @@ There is no need for any installments, Quire is good to go right away!
 Quill.js 
 
         Authors
-Amanda Olsson
-Martin Lindén
-Nick Magnusson
-Kristofffer Larberg
+Amanda Olsson | Martin Lindén | Nick Magnusson | Kristofffer Larberg
 
         License
 Copyright (c) 2017, Slab
@@ -55,6 +52,21 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         Acknowledgments
 Hat tip on anyone whose code was used
 
+        Pictures
+
+![Landing](docs/4.png "landing")  
+
+![Note](docs/1.png "note")
+
+![Desktop](docs/2.png "desktop")  
+
+![Mobile](docs/3.png "mobile")
+
+
+
+    links
+        
+https://trello.com/b/BYbTEmtT/%C3%B6versiktsplanering
 
 
 
