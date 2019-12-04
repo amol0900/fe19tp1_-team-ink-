@@ -178,20 +178,6 @@ function hideTick() {
 }
 
 function addNote() {
-  function hideCheck(x) {
-    if (x.matches) {
-      document.querySelector('.fa-check').style.visibility =
-        'hidden';
-    } else {
-      document.querySelector('.fa-check').style.visibility =
-        'visible';
-    }
-  }
-
-  var x = window.matchMedia('(max-width: 800px)');
-  hideCheck(x);
-  x.addListener(hideCheck);
-
   if (selectedNote) {
     selectedNote.content = editor.getContents();
     selectedNote.preview = editor.getText(0, 50);
@@ -218,38 +204,6 @@ function addNote() {
     renderNotes();
   }
 }
-
-
-function changeCSS(cssFile, cssLinkIndex) {
-  var oldlink = document.getElementsByTagName('link').item(cssLinkIndex);
-
-  var newlink = document.createElement('link');
-  newlink.setAttribute('rel', 'stylesheet');
-  newlink.setAttribute('type', 'text/css');
-  newlink.setAttribute('href', cssFile);
-
-  document
-    .getElementsByTagName('head')
-    .item(0)
-    .replaceChild(newlink, oldlink);
-}
-
-const themePickerItems = Array.prototype.slice.call(
-  document.querySelectorAll('.ql-themes .ql-picker-item')
-);
-
-themePickerItems.forEach((cssFile, cssLinkIndex) => {
-  var oldlink = document.getElementsByTagName('link').item(cssLinkIndex);
-  var newlink = document.createElement('link');
-  newlink.setAttribute('rel', 'stylesheet');
-  newlink.setAttribute('type', 'text/css');
-
-  newlink.setAttribute('href', cssFile);
-  document
-    .getElementsByTagName('head')
-    .item(0)
-    .replaceChild(newlink, oldlink);
-});
 
 function openNav() {
   document
