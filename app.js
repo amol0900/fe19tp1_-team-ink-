@@ -44,12 +44,12 @@ justHtmlContent.addEventListener('click', function (e) {
 
     clickedLI.remove();
     editor.setText('');
-    document.getElementById('square').value = '';
-    document.getElementById('square').focus();
+    document.getElementById('title').value = '';
+    document.getElementById('title').focus();
     saveNotes();
     selectedNote = null;
   } else {
-    var myTitle2 = document.getElementById('square');
+    var myTitle2 = document.getElementById('title');
     editor.setContents(selectedNote.content);
     myTitle2.value = selectedNote.title;
   }
