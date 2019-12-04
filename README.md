@@ -11,9 +11,9 @@ There is no need for any further installation, Quire is good to go right away!
 
 ### Features
 
-> Compatibility with latest version of Chrome, Safari, Micrsoft edge & FireFox
+>Compatibility with latest version of Chrome, Safari, Micrsoft edge & FireFox
 >
-> Mobile friendly with IOS & Android
+>Mobile friendly with IOS & Android
 >
 >Save notes in the browser, mark your favourite notes.
 
@@ -23,13 +23,13 @@ There is no need for any further installation, Quire is good to go right away!
 
 
 ### Authors
->Amanda Olsson  https://github.com/amol0900
+>[Amanda Olsson](https://github.com/amol0900)
 >
->Martin Lindén  https://github.com/martin-linden
+>[Martin Lindén](https://github.com/martin-linden)
 >
->Nick Magnusson  https://github.com/haiip
+>[Nick Magnusson](https://github.com/haiip)
 >
->Kristofffer Larberg https://github.com/kristofferlarberg
+>[Kristofffer Larberg](https://github.com/kristofferlarberg)
 
 
 ### License
@@ -68,7 +68,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ### Acknowledgments
 Hat tip on anyone whose code was used
-Jason Chen for making quilljs
+
 
 
 ### Pictures
