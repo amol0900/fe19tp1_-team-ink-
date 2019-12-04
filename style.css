@@ -264,6 +264,10 @@ input {
 	outline: none;
 }
 
+	label {
+	display:none;
+}
+
 #editor {
 	width: 740px;
 	height: 80vh;
@@ -568,7 +572,7 @@ input {
 		font-size: 2.2em;
 	}
 
-	input#square {
+	input#title {
 		padding: 0;
 		margin: 0;
 		margin-top: 15px;
@@ -594,9 +598,9 @@ input {
 	}
 
 	.fa-check {
-		visibility: hidden;
 		margin-left: 0px;
 		color: #31bfaf;
+		display:none;
 	}
 
 	.fa-print {

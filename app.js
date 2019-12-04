@@ -1,7 +1,7 @@
 var toolbarOptions = [
   [{ font: [] }],
-  [{ size: ['small', false, 'large', 'huge'] }],
-  ['bold', 'italic', 'underline', 'strike'],
+  [{ size: ['small', false, 'large', 'huge'] }], 
+  ['bold', 'italic', 'underline', 'strike'], 
   [{ align: [] }],
   [{ indent: '-1' }, { indent: '+1' }],
   [{ list: 'ordered' }, { list: 'bullet' }],
@@ -48,7 +48,6 @@ justHtmlContent.addEventListener('click', function (e) {
     document.getElementById('square').focus();
     saveNotes();
     selectedNote = null;
-
   } else {
     var myTitle2 = document.getElementById('square');
     editor.setContents(selectedNote.content);
@@ -80,7 +79,6 @@ function renderFavNotes() {
       break;
     }
   }
-
   if (!isNoteListEmpty) {
     for (let index = 0; index < fav.length; index++) {
       if (!noteList[index].favourite) {
@@ -117,6 +115,7 @@ myFavListButton.addEventListener('click', function (e) {
 function getTitle() {
   const theItem = document.forms['enter'];
   var myTitle = theItem.querySelector('input[type="text"]').value;
+
   return myTitle;
 }
 
@@ -179,20 +178,6 @@ function hideTick() {
 }
 
 function addNote() {
-  function hideCheck(x) {
-    if (x.matches) {
-      document.querySelector('.fa-check').style.visibility =
-        'hidden';
-    } else {
-      document.querySelector('.fa-check').style.visibility =
-        'visible';
-    }
-  }
-
-  var x = window.matchMedia('(max-width: 800px)');
-  hideCheck(x);
-  x.addListener(hideCheck);
-
   if (selectedNote) {
     selectedNote.content = editor.getContents();
     selectedNote.preview = editor.getText(0, 50);
