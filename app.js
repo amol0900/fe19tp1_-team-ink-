@@ -57,7 +57,7 @@ justHtmlContent.addEventListener('click', function (e) {
 
 window.addEventListener('load', (event) => {
   loadNotes();
-  document.getElementById('square').focus();
+  document.getElementById('title').focus();
 });
 
 function renderNotes() {
