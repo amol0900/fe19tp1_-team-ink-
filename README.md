@@ -24,7 +24,13 @@ There is no need for any installments, Quire is good to go right away!
 Quill.js 
 
 ### Authors
-Amanda Olsson | Martin Lindén | Nick Magnusson | Kristofffer Larberg
+>Amanda Olsson  <a href"https://github.com/amol0900">Amanda Olsson</a>
+
+>Martin Lindén  <a href"https://github.com/martin-linden">Martin Lindén</a>
+
+>Nick Magnusson  <a href"https://github.com/haiip">Nick Magnusson</a>
+
+>Kristofffer Larberg <a href"https://github.com/kristofferlarberg">Kristoffer Larberg</a>
 
 ### License
 Copyright (c) 2017, Slab
