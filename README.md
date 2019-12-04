@@ -13,9 +13,9 @@ There is no need for any installments, Quire is good to go right away!
 ### Features
 
 > Compatibility with latest version of Chrome, Safari, Micrsoft edge & FireFox
-
+>
 > Mobile friendly with IOS & Android
-
+>
 >Save notes & favourites 
 
 
@@ -25,11 +25,11 @@ Quill.js
 
 ### Authors
 >Amanda Olsson  https://github.com/amol0900
-
+>
 >Martin Lindén  https://github.com/martin-linden
-
+>
 >Nick Magnusson  https://github.com/haiip
-
+>
 >Kristofffer Larberg https://github.com/kristofferlarberg
 
 ### License
