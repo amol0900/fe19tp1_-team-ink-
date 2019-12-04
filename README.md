@@ -1,22 +1,38 @@
-# fe19tp1_-team-ink-
-# Quire a proffesional notebook in the browser!
+# Quire - a professional notebook in the browser!
 
- 
-        Getting started 
-To get a clone of Quire download or clone the repository 
-or use this link with gitbash https://github.com/amol0900/fe19tp1_-team-ink-.git
+ ### Getting started 
+```sh
+@ git clone https://github.com/amol0900/fe19tp1_-team-ink-.git
+```
+
+### Installation
+There is no need for any further installation, Quire is good to go right away!
 
 
-        Installing
-There is no need for any installments, Quire is good to go right away!
+### Features
 
-        Built with 
-Quill.js 
+>Compatibility with latest version of Chrome, Safari, Micrsoft edge & FireFox
+>
+>Mobile friendly with IOS & Android
+>
+>Save notes in the browser, mark your favourite notes.
 
-        Authors
-Amanda Olsson | Martin Lindén | Nick Magnusson | Kristofffer Larberg
 
-        License
+### Built with 
+[Quill.js](https://quilljs.com/) 
+
+
+### Authors
+>[Amanda Olsson](https://github.com/amol0900)
+>
+>[Martin Lindén](https://github.com/martin-linden)
+>
+>[Nick Magnusson](https://github.com/haiip)
+>
+>[Kristofffer Larberg](https://github.com/kristofferlarberg)
+
+
+### License
 Copyright (c) 2017, Slab
 Copyright (c) 2014, Jason Chen
 Copyright (c) 2013, salesforce.com
@@ -49,11 +65,13 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-        Acknowledgments
+
+### Acknowledgments
 Hat tip on anyone whose code was used
 
-        Pictures
 
+
+### Pictures
 ![Landing](docs/4.png "landing")  
 
 ![Note](docs/1.png "note")
@@ -63,12 +81,5 @@ Hat tip on anyone whose code was used
 ![Mobile](docs/3.png "mobile")
 
 
-
-    links
-        
+### Planning
 https://trello.com/b/BYbTEmtT/%C3%B6versiktsplanering
-
-
-
-
-

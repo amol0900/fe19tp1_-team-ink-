@@ -78,11 +78,11 @@ li.a {
 }
 
 .fa-list-ul {
-	color: white !important;
+	color: white;
 }
 
 .fa-list-ul:hover {
-	color: #289a8c !important;
+	color: #289a8c;
 }
 
 #print {
@@ -153,8 +153,6 @@ li.a {
 #myFavs:hover {
 	transform: scale(1.1);
 }
-
-/* Listan där preview av anteckningarna hamnar */
 
 #notes {
 	display: flex;
@@ -303,7 +301,9 @@ input {
 	outline: none;
 }
 
-/* Editor */
+	label {
+	display:none;
+}
 
 #editor {
 	width: 740px;
@@ -312,20 +312,18 @@ input {
 	background-color: white;
 	border: none !important;
 	margin-top: 25px;
-	-webkit-mask-image: -webkit-gradient(
+ 	-webkit-mask-image: -webkit-gradient(
 		linear,
 		left 60%,
 		left bottom,
 		from(black),
 		to(rgba(255, 0, 0, 0))
-	);
+	); 
 }
 
 .hide {
 	display: none !important;
 }
-
-  /* Toolbar */
 
 .ql-toolbar.ql-snow {
 	margin-top: 0px;
@@ -337,7 +335,6 @@ input {
 .ql-snow .ql-stroke.ql-fill {
 	fill: grey !important;
 }
-
 
 .ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
 	stroke: grey !important;
@@ -383,7 +380,6 @@ input {
 	outline: none !important;
 }
 
-
 #maintwo {
 	transition: margin-left .5s;
 	padding: 16px;
@@ -400,6 +396,7 @@ input {
 	width: 250px;
 	opacity: 100%;
 }
+
 .hiddenSidenav {
 	height: 100vh;
 	position: sticky;
@@ -412,7 +409,6 @@ input {
 	width: 0px;
 	opacity: 0%;
 }
-
 
 #closebtn {
 	position: absolute;
@@ -450,7 +446,7 @@ input {
 		flex: 1 0 auto;
 		flex-direction: column-reverse;
 	}
-
+	
 	body {
 		height: 100vh;
 		display: flex;
@@ -485,10 +481,10 @@ input {
 
 	nav {
 		width: 100vw;
-		max-height: 70px;
+		max-height: 120px;
 		background-color: #31bfaf;
-		display: flex;
-		flex-shrink: 0;
+    flex-shrink: 0;
+    position: relative;
 	}
 
 	nav ul {
@@ -555,7 +551,7 @@ input {
 		font-size: 2.2em;
 	}
 
-	input#square {
+	input#title {
 		padding: 0;
 		margin: 0;
 		margin-top: 15px;
