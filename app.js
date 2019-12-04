@@ -7,7 +7,7 @@ var toolbarOptions = [
   [{ list: 'ordered' }, { list: 'bullet' }],
   ['link', 'image'],
 
-  [{ color: [] }, { background: [] }], 
+  [{ color: [] }, { background: [] }],
 
   ['clean']
 ];
@@ -189,8 +189,8 @@ function addNote() {
   }
 
   var x = window.matchMedia('(max-width: 800px)');
-  hideCheck(x); 
-  x.addListener(hideCheck); 
+  hideCheck(x);
+  x.addListener(hideCheck);
 
   if (selectedNote) {
     selectedNote.content = editor.getContents();
@@ -267,3 +267,12 @@ function closeNav() {
   document.querySelector('.favs').style.opacity = '0%';
 }
 
+if (/Android [4-6]/.test(navigator.appVersion)) {
+  window.addEventListener("resize", function () {
+    if (document.activeElement.tagName == "INPUT" || document.activeElement.tagName == "TEXTAREA") {
+      window.setTimeout(function () {
+        document.activeElement.scrollIntoViewIfNeeded();
+      }, 0);
+    }
+  })
+}

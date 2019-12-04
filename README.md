@@ -1,22 +1,38 @@
 # fe19tp1_-team-ink-
-# Quire a proffesional notebook in the browser!
+# Quire a professional notebook in the browser!
 
- 
-        Getting started 
+ ### Getting started 
+
 To get a clone of Quire download or clone the repository 
 or use this link with gitbash https://github.com/amol0900/fe19tp1_-team-ink-.git
 
 
-        Installing
+### Installing
 There is no need for any installments, Quire is good to go right away!
 
-        Built with 
+### Features
+
+> Compatibility with latest version of Chrome, Safari, Micrsoft edge & FireFox
+>
+> Mobile friendly with IOS & Android
+>
+>Save notes & favourites 
+
+
+
+### Built with 
 Quill.js 
 
-        Authors
-Amanda Olsson | Martin Lindén | Nick Magnusson | Kristofffer Larberg
+### Authors
+>Amanda Olsson  https://github.com/amol0900
+>
+>Martin Lindén  https://github.com/martin-linden
+>
+>Nick Magnusson  https://github.com/haiip
+>
+>Kristofffer Larberg https://github.com/kristofferlarberg
 
-        License
+### License
 Copyright (c) 2017, Slab
 Copyright (c) 2014, Jason Chen
 Copyright (c) 2013, salesforce.com
@@ -49,10 +65,12 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-        Acknowledgments
+### Acknowledgments
 Hat tip on anyone whose code was used
+Jason Chen for making quilljsgit
 
-        Pictures
+
+### Pictures
 
 ![Landing](docs/4.png "landing")  
 
@@ -64,9 +82,13 @@ Hat tip on anyone whose code was used
 
 
 
-    links
+### Planning
         
 https://trello.com/b/BYbTEmtT/%C3%B6versiktsplanering
+
+
+
+
 
 
 

@@ -465,10 +465,7 @@ input {
 		flex: 1 0 auto;
 		flex-direction: column-reverse;
 	}
-	.fa-save {
-		display: inline-block;
-	}
-
+	
 	body {
 		height: 100vh;
 		display: flex;
@@ -504,9 +501,10 @@ input {
 
 	nav {
 		width: 100vw;
-		max-height: 70px;
+		max-height: 120px;
 		background-color: #31bfaf;
-		flex-shrink: 0;
+    flex-shrink: 0;
+    position: relative;
 	}
 
 	nav ul {
@@ -596,7 +594,7 @@ input {
 	#print {
 		font-size: 1em;
 		background-color: transparent;
-		padding: 0;
+    padding: 0;
 	}
 
 	.fa-check {
@@ -606,7 +604,13 @@ input {
 	}
 
 	.fa-print {
-		color: #31bfaf;
+    color: #31bfaf;
+    position: relative;
+    top: -60px;
+  }
+  .fa-save {
+    position: relative;
+    top: -58px;
 	}
 
 	.trash {
