@@ -82,9 +82,10 @@ Jason Chen for making quilljsgit
 
 
 
-### links
+### Planning
         
 https://trello.com/b/BYbTEmtT/%C3%B6versiktsplanering
+
 
 
 
