@@ -67,6 +67,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ### Acknowledgments
 Hat tip on anyone whose code was used
+Jason Chen for making quilljsgit
+
 
 ### Pictures
 
