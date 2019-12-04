@@ -7,7 +7,7 @@ var toolbarOptions = [
   [{ list: 'ordered' }, { list: 'bullet' }],
   ['link', 'image'],
 
-  [{ color: [] }, { background: [] }], 
+  [{ color: [] }, { background: [] }],
 
   ['clean']
 ];
@@ -107,7 +107,7 @@ myFavListButton.addEventListener('click', function (e) {
 
   if (isFavouritesToggled) {
     renderAllNotes();
-	isFavouritesToggled = false;
+    isFavouritesToggled = false;
   } else {
     renderFavNotes();
     isFavouritesToggled = true;
@@ -125,14 +125,14 @@ function renderNote(note) {
   let previewLength = 23;
   let favClass = '';
   if (note.preview.length > previewLength) {
-	preview = note.preview.substring(0, previewLength) + '...';
+    preview = note.preview.substring(0, previewLength) + '...';
   } else {
     console.log('length not too long');
     preview = note.preview.substring(0, previewLength);
   }
 
   if (note.favourite) {
-	favClass = 'favFilled';
+    favClass = 'favFilled';
   } else {
     favClass = '';
   }
@@ -182,7 +182,7 @@ function addNote() {
   function hideCheck(x) {
     if (x.matches) {
       document.querySelector('.fa-check').style.visibility =
-		'hidden';
+        'hidden';
     } else {
       document.querySelector('.fa-check').style.visibility =
         'visible';
@@ -190,7 +190,7 @@ function addNote() {
   }
 
   var x = window.matchMedia('(max-width: 800px)');
-  hideCheck(x); 
+  hideCheck(x);
   x.addListener(hideCheck);
 
   if (selectedNote) {
@@ -199,7 +199,7 @@ function addNote() {
     selectedNote.title = getTitle();
     selectedNote.created = showDate();
     saveNotes();
-	renderNotes();
+    renderNotes();
   } else {
     let note = {
       id: Date.now(),
@@ -234,4 +234,14 @@ function closeNav() {
     .classList.replace('sidenav', 'hiddenSidenav');
   document.querySelector('.favs').style.visibility = 'hidden';
   document.querySelector('.favs').style.opacity = '0%';
+}
+
+if (/Android [4-6]/.test(navigator.appVersion)) {
+  window.addEventListener("resize", function () {
+    if (document.activeElement.tagName == "INPUT" || document.activeElement.tagName == "TEXTAREA") {
+      window.setTimeout(function () {
+        document.activeElement.scrollIntoViewIfNeeded();
+      }, 0);
+    }
+  })
 }
