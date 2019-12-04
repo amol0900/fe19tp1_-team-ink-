@@ -301,7 +301,7 @@ input {
 	outline: none;
 }
 
-	label {
+label {
 	display:none;
 }
 
@@ -433,19 +433,6 @@ input {
 }
 
 @media only screen and (max-width: 800px) {
-	body {
-		height: 100vh;
-		display: flex;
-		flex-direction: column;
-		overflow: hidden;
-		content: 'desktop';
-	}
-
-	main {
-		height: 100vh;
-		flex: 1 0 auto;
-		flex-direction: column-reverse;
-	}
 	
 	body {
 		height: 100vh;
@@ -454,16 +441,16 @@ input {
 		overflow: hidden;
 	}
 
+	main {
+		height: 100vh;
+		flex: 1 0 auto;
+		flex-direction: column-reverse;
+	}
+	
 	#wrapper {
 		height: 100vh;
 		z-index: 1;
 		margin: 0;
-	}
-
-	#editor {
-		width: 100vw;
-		height: 64vh;
-		overflow: auto;
 	}
 
 	#editor {
