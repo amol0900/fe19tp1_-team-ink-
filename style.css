@@ -10,8 +10,6 @@ main {
 	display: flex;
 }
 
-/* Grön navbar */
-
 nav {
 	width: 70px;
 	background-color: #31bfaf;
@@ -196,7 +194,6 @@ li.a {
 	background-color: rgba(199, 197, 197, 0.933);
 	transition: ease-in-out 0.1s;
 }
-
 
 h6 {
 	margin: 0;
@@ -550,16 +547,6 @@ label {
 		margin-right: 10px;
 	}
 
-/* 
-	i.far:active,
-	.fa-edit:hover,
-	.fa-list-ul:hover,
-	.fa-print:hover,
-	.fa-save:hover,
-	#myFavs:hover  {
-		color: grey;
-	} */
-
 	.favourite {
 		width: 31px;
 		height: 31px;
@@ -568,19 +555,23 @@ label {
 }
 
 @media print {
+	
 	@page {
 		margin: 0;
 	}
+
 	body {
 		margin: 1.6cm;
 	}
-	nav,
-	#notes,
-	#enter > #saveNote,
-	#enter > #saveNote2,
-	#counter,
-	#saveNote,
-	.ql-toolbar {
-		display: none;
+
+		nav,
+		#notes,
+		#enter > #saveNote,
+		#enter > #saveNote2,
+		#counter,
+		#saveNote,
+		.ql-toolbar {
+			display: none;
 	}
+
 }
