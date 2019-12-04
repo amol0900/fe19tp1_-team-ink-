@@ -13,9 +13,12 @@ There is no need for any installments, Quire is good to go right away!
 ### Features
 
 > Compatibility with latest version of Chrome, Safari, Micrsoft edge & FireFox
+
 > Mobile friendly with IOS & Android
+
 >Save notes & favourites 
->
+
+
 
 ### Built with 
 Quill.js 
