@@ -481,10 +481,11 @@ input {
 
 	nav {
 		width: 100vw;
-		max-height: 120px;
+		max-height: 71px;
 		background-color: #31bfaf;
     flex-shrink: 0;
-    position: relative;
+		position: relative;
+		display:flex;
 	}
 
 	nav ul {
