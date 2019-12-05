@@ -308,7 +308,7 @@ label {
 	overflow: scroll;
 	background-color: white;
 	border: none !important;
-	margin-top: 25px;
+	/* margin-top: 10px; */
  	-webkit-mask-image: -webkit-gradient(
 		linear,
 		left 60%,
