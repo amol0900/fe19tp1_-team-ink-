@@ -570,8 +570,10 @@ label {
 		#enter > #saveNote2,
 		#counter,
 		#saveNote,
-		.ql-toolbar {
+		.ql-toolbar, .sidenav {
 			display: none;
 	}
+
+	
 
 }
