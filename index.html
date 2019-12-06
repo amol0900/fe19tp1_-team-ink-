@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Quire</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Organize your notes, lists and ideas with this slick and simple note-taking app.">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:200i,300,500&display=swap" rel="stylesheet">
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <title>Quire</title>
+</head>
+
+<body>
+  <main>
+    <nav>
+      <div id="home">
+        <img src="Qlogo.svg" id="logo" alt="Quire logo">
+      </div>
+      <ul>
+        <li class="a">
+          <button id="openNav" onclick="openNav()"><i class="fas fa-list-ul"></i></button>
+        </li>
+        <li class="a">
+          <button id="newNote" onclick="newNote()"><i class="far fa-edit"></i></button>
+        </li>
+        <li class="a">
+          <button id="print" type="button" onclick="window.print()" value="print"><i class="fas fa-print"></i></button>
+        </li>
+        <li class="a">
+          <button id="saveNote" type="button" onclick="addNote()"><i class="far fa-save"></i></button>
+        </li>
+        <li class="a">
+          <button class="favs hoverFav favsFilled"></button>
+        </li>     
+      </ul>
+    </nav>
+
+    <div id="mySidenav" class="hiddenSidenav">
+      <button id="closebtn" class="hoverFav" onclick="closeNav()">×</button> 
+      <div id="notes" >
+        <ul>
+        </ul>
+      </div>
+    </div>
+
+    <div id="wrapper">
+      <form id="enter">
+        <label for="title">title</label>
+        <input type="text" name="title" id="title" placeholder="Add a fancy title">
+      </form>
+
+      <div id="editor"></div>
+
+    </div>
+  </main>
+  <script src="app.js"></script>
+  <script src="https://kit.fontawesome.com/32bc269314.js" crossorigin="anonymous"></script>
+</body>
+
+
+</html>

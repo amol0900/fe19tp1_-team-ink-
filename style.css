@@ -1,0 +1,579 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+	overflow: hidden;
+}
+
+main {
+	display: flex;
+}
+
+nav {
+	width: 70px;
+	background-color: #31bfaf;
+	height: 100vh;
+	z-index: 3;
+}
+
+nav ul {
+	width: 70px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav li {
+	list-style-type: none;
+}
+
+#home {
+	margin: 0;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border: none;
+	background-color: #289a8c;
+}
+
+li.a {
+	margin: 0;
+	text-align: center;
+	margin-top: 27px;
+	border: none;
+}
+
+#logo {
+	width: 70%;
+	height: 70%;
+}
+
+#newNote {
+	outline: none;
+	background-color: transparent;
+	border: none;
+	font-size: 1.5em;
+	cursor: pointer;
+	padding: 0;
+}
+
+.fa-edit {
+	color: white !important;
+}
+
+.fa-edit:hover {
+	color: #289a8c !important;
+}
+
+#openNav {
+	outline: none;
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	font-size: 1.5em;
+}
+
+.fa-list-ul {
+	color: white;
+}
+
+.fa-list-ul:hover {
+	color: #289a8c;
+}
+
+#print {
+	outline: none;
+	background-color: transparent;
+	border: none;
+	font-size: 1.5em;
+	cursor: pointer;
+	padding: 0;
+}
+
+.fa-print {
+	color: white !important;
+}
+
+.fa-print:hover {
+	color: #289a8c !important;
+}
+
+#saveNote {
+	outline: none;
+	background-color: transparent;
+	border: none;
+	font-size: 1.5em;
+	cursor: pointer;
+	padding: 0;
+}
+
+.fa-save {
+	color: white !important;
+}
+
+.fa-save:hover {
+	color: #289a8c !important;
+}
+
+.favs {
+	width: 31px;
+	height: 31px;
+	background-image: url("/images/starFill.svg");
+	background-repeat: no-repeat;
+	border: none;
+	padding: 0;
+	background-color: transparent;
+	outline: none;
+	cursor: pointer;
+	transition: all 0.3s ease, filter 1ms;
+	visibility: hidden;
+}
+
+.favsFilled {
+	width: 31px;
+	height: 31px;
+	background-image: url("/images/star.svg");
+	background-repeat: no-repeat;
+	border: none;
+	padding: 0;
+	background-color: transparent;
+	outline: none;
+	cursor: pointer;
+	transition: all 0.3s ease, filter 1ms;
+}
+
+#mySidenav {
+	transition: ease-in-out 0.5s;
+}
+
+#myFavs:hover {
+	transform: scale(1.1);
+}
+
+#notes {
+	display: flex;
+	flex-direction: row;
+	overflow-wrap: break-word;
+	height: 100vh;
+	overflow: auto;
+}
+
+#notes ul {
+	width: 100%;
+	background-color: #eeeeee;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	overflow: auto;
+}
+
+#notes ul li {
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	border-bottom: 1px solid #dadada;
+	font-size: 0.8em;
+	line-height: 1.5em;
+	overflow-wrap: break-word;
+	padding: 15px;
+	background-size: cover;
+	white-space: nowrap;
+}
+
+#notes ul li:hover {
+	background-color: rgba(230, 230, 230, 0.933);
+}
+
+#notes ul li:focus {
+	background-color: rgba(230, 230, 230, 0.933);
+}
+#notes ul li:target {
+	background-color: rgba(199, 197, 197, 0.933);
+	transition: ease-in-out 0.1s;
+}
+
+h6 {
+	margin: 0;
+	margin-top: 7px;
+	font-family: 'Montserrat';
+	font-weight: 200;
+	font-size: 1.4em;
+}
+
+.title {
+	font-family: 'Helvetica';
+	font-size: 1.1em;
+	font-weight: 200;
+	margin-bottom: 0;
+}
+
+.created {
+	font-family: helvetica;
+	font-weight: lighter;
+	color: #808080;
+	margin: 0;
+}
+
+.icons {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+
+.trash {
+	display: flex;
+	outline: none;
+	background-color: transparent;
+	border: none;
+	font-size: 1.4em;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+i.far {
+	color: grey;
+	outline: none !important;
+	background-color: transparent;
+	border: none;
+	align-self: flex-end;
+}
+
+i.far:hover {
+	color: #31BFAF;
+}
+
+.favourite {
+	width: 21px;
+	height: 21px;
+	background-image: url("/images/star.svg");
+	background-repeat: no-repeat;
+	border: none;
+	background-color: transparent;
+	align-self: flex-end;
+	outline: none;
+	cursor: pointer;
+	transition: all 0.3s ease, filter 1ms;
+}
+.favFilled {
+	background-image: url("/images/starFill.svg");
+}
+
+.hoverFav:hover {
+	transform: scale(1.2);
+}
+
+.hoverFav:active {
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(4px) translateZ(0);
+}
+
+#wrapper {
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+#enter {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 0;
+}
+
+input {
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid;
+	border-color: white;
+	padding: 10px;
+	margin: 10px;
+	font-family: 'Montserrat';
+	font-weight: 300;
+	font-size: 3em;
+	color: #31bfaf;
+	outline: none;
+}
+
+label {
+	display:none;
+}
+
+#editor {
+	width: 740px;
+	height: 80vh;
+	overflow: scroll;
+	background-color: white;
+	border: none !important;
+	/* margin-top: 10px; */
+ 	-webkit-mask-image: -webkit-gradient(
+		linear,
+		left 60%,
+		left bottom,
+		from(black),
+		to(rgba(255, 0, 0, 0))
+	); 
+}
+
+.hide {
+	display: none !important;
+}
+
+.ql-toolbar.ql-snow {
+	margin-top: 0px;
+	width: 100%;
+	border: none !important;
+}
+
+.ql-snow .ql-fill,
+.ql-snow .ql-stroke.ql-fill {
+	fill: grey !important;
+}
+
+.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
+	stroke: grey !important;
+}
+.ql-snow .ql-toolbar.snow,
+.ql-snow .ql-stroke {
+	stroke: grey !important;
+}
+
+.ql-snow .ql-toolbar.snow,
+.ql-snow .ql-stroke:hover {
+	stroke: grey !important;
+}
+
+.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+	background-color: white;
+	border: none;
+	border-radius: 5px;
+}
+
+.ql-snow .ql-toolbar .ql-picker-label:hover {
+	color: white !important;
+}
+
+.ql-snow .ql-picker-label::before {
+	color: grey !important;
+}
+
+.ql-toolbar.ql-snow .ql-picker-label {
+	outline: none !important;
+}
+
+.ql-snow .ql-picker-options .ql-picker-item {
+	cursor: pointer;
+	display: block;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	color: grey !important;
+}
+
+.ql-snow .ql-picker-options .ql-picker-item:hover {
+	color: white !important;
+	outline: none !important;
+}
+
+#maintwo {
+	transition: margin-left .5s;
+	padding: 16px;
+}
+
+.sidenav {
+	height: 100vh;
+	position: sticky;
+	z-index: 2;
+	position: sticky;
+	top: 0;
+	transition: ease-in-out 0.5s;
+	padding-top: 0;
+	width: 250px;
+	opacity: 100%;
+}
+
+.hiddenSidenav {
+	height: 100vh;
+	position: sticky;
+	z-index: 2;
+	top: 0;
+	left: 70px;
+	overflow-x: hidden;
+	transition: ease-in-out 0.5s;
+	padding-top: 0;
+	width: 0px;
+	opacity: 0%;
+}
+
+#closebtn {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	display: block;
+	padding: 0;
+	font-size: 36px !important;
+	text-decoration: none;
+	margin-left: 50px;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	color: grey;
+	transition: ease 0.3s;
+	cursor: pointer;
+}
+
+#closebtn a:hover,
+.offcanvas a:focus {
+	color: #da1922;
+}
+
+@media only screen and (max-width: 800px) {
+	
+	body {
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+	}
+
+	main {
+		height: 100vh;
+		flex: 1 0 auto;
+		flex-direction: column-reverse;
+	}
+	
+	#wrapper {
+		height: 100vh;
+		z-index: 1;
+		margin: 0;
+	}
+
+	#editor {
+		width: 100vw;
+		height: 55vh;
+		overflow: scroll;
+		padding-top: 8px;
+	}
+
+	.ql-toolbar.ql-snow {
+		margin-top: 0px;
+		width: 100vw;
+		border: none !important;
+	}
+
+	nav {
+		width: 100vw;
+		max-height: 71px;
+		background-color: #31bfaf;
+    flex-shrink: 0;
+		position: relative;
+		display:flex;
+	}
+
+	nav ul {
+		align-items: center;
+		justify-content: space-around;
+		display: flex;
+		height: 70px;
+		width: 100vw;
+	}
+	
+	li.a {
+		margin: 0;
+	}
+
+	#home {
+		height: 70px;
+		width: 70px;
+		margin: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+		background-color: #289a8c;
+	}
+
+	#logo {
+		width: 3em;
+		height: auto;
+		padding: 0.7rem;
+	}
+
+	.sidenav {
+		height: 100vh;
+		width: 100vw !important;
+		position: fixed;
+		top: 0;
+		left: 0;
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding-top: 0;
+		width: 250px;
+	}
+
+	.hiddenSidenav {
+		height: 100vh;
+		width: 0 !important;
+		position: fixed;
+		top: 0;
+		left: 0;
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding-top: 0;
+		width: 250px;
+	}
+
+	#enter {
+		width: 100vw;
+		height: 8vh;
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 15px;
+	}
+
+	input {
+		width: 95vw;
+		font-size: 2.2em;
+	}
+
+	input#title {
+		padding: 0;
+		margin: 0;
+		margin-top: 15px;
+	}
+
+	.trash {
+		font-size: 2.1em;
+		margin-right: 10px;
+	}
+
+	.favourite {
+		width: 31px;
+		height: 31px;
+	}
+
+}
+
+@media print {
+	
+	@page {
+		margin: 0;
+	}
+
+	body {
+		margin: 1.6cm;
+	}
+
+		nav,
+		#notes,
+		#enter > #saveNote,
+		#enter > #saveNote2,
+		#counter,
+		#saveNote,
+		.ql-toolbar, .sidenav {
+			display: none;
+	}
+
+	
+
+}
